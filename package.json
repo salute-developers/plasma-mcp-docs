@@ -8,6 +8,7 @@
     "generate": "npx tsx scripts/generate-site.ts",
     "clean": "rm -rf dist",
     "serve": "npx http-serve dist -p 8080 -o",
+    "preview": "npm run generate && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,7 +17,6 @@
   "devDependencies": {
     "@types/marked": "^5.0.0",
     "@types/node": "^20.0.0",
-    "gh-pages": "^6.3.0",
     "http-serve": "^1.0.1",
     "marked": "^9.0.0",
     "tsx": "^4.20.6",

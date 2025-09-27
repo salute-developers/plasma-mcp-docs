@@ -1,5 +1,7 @@
 # Plasma MCP Docs Generator
 
+[![Deploy to GitHub Pages](https://github.com/Salute_OpenSource/plasma-mcp-docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/Salute_OpenSource/plasma-mcp-docs/actions/workflows/deploy.yml)
+
 A TypeScript script that generates a static documentation site from JSON data containing component documentation.
 
 ## Features
@@ -67,7 +69,24 @@ npm run serve
 - `npm run generate` - Generate the static site from JSON data using tsx
 - `npm run clean` - Remove the dist folder
 - `npm run serve` - Serve the generated site locally on http://localhost:8080
+- `npm run preview` - Generate and serve the site locally (convenience command)
 - `npm run build` - Compile TypeScript only
+
+## Deployment
+
+### Automatic Deployment (GitHub Pages)
+
+The project is set up with GitHub Actions for automatic deployment to GitHub Pages:
+
+1. **Automatic**: Pushes to the `main` branch automatically trigger deployment
+2. **Manual**: Use the "Actions" tab in GitHub to manually trigger deployment
+3. **Pull Requests**: PRs will build but not deploy (for testing)
+
+The workflow:
+- Installs dependencies
+- Generates the documentation site
+- Deploys to GitHub Pages
+
 
 ## How It Works
 
