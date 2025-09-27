@@ -22,6 +22,8 @@ interface GenerationStats {
   pagesWithoutExamples: number;
   components: number;
   otherPages: number;
+  componentsWithExamples: number;
+  componentsWithoutExamples: number;
   errors: string[];
   warnings: string[];
 }
@@ -44,6 +46,8 @@ class SiteGenerator {
       pagesWithoutExamples: 0,
       components: 0,
       otherPages: 0,
+      componentsWithExamples: 0,
+      componentsWithoutExamples: 0,
       errors: [],
       warnings: []
     };
@@ -65,6 +69,12 @@ class SiteGenerator {
 
       // Generate index.html
       await this.generateIndex(data);
+
+      // Generate components.txt
+      await this.generateComponentsList(data);
+
+      // Generate components.json
+      await this.generateComponentsJSON(data);
 
       // Show summary
       this.showSummary();
@@ -203,9 +213,15 @@ class SiteGenerator {
       const examplesFilePath = path.join(pageDir, `${pageName}-examples.txt`);
       fs.writeFileSync(examplesFilePath, examplesContent, 'utf-8');
       this.stats.pagesWithExamples++;
+      if (isComponent) {
+        this.stats.componentsWithExamples++;
+      }
       console.log(`  ✅ Generated API and examples files`);
     } else {
       this.stats.pagesWithoutExamples++;
+      if (isComponent) {
+        this.stats.componentsWithoutExamples++;
+      }
       console.log(`  ✅ Generated API file (no examples found)`);
     }
   }
@@ -498,10 +514,12 @@ class SiteGenerator {
             text-decoration: none;
             color: #333;
             font-size: 12px;
+            transition: all 0.2s ease;
         }
         .file-link:hover {
             background: #007acc;
             color: white;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -517,11 +535,11 @@ class SiteGenerator {
                     <div class="stat-label">Total Components</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">${this.stats.pagesWithExamples}</div>
+                    <div class="stat-number">${this.stats.componentsWithExamples}</div>
                     <div class="stat-label">With Examples</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">${this.stats.pagesWithoutExamples}</div>
+                    <div class="stat-number">${this.stats.componentsWithoutExamples}</div>
                     <div class="stat-label">API Only</div>
                 </div>
                 <div class="stat-item">
@@ -534,25 +552,25 @@ class SiteGenerator {
         <h2>🧩 Components</h2>
         <div class="components-grid">
             ${components.map(componentName => `
-                <a href="components/${componentName}/" class="component-card">
+                <div class="component-card">
                     <div class="component-name">${componentName}</div>
                     <div class="component-files">
-                        <span class="file-link" href="components/${componentName}/${componentName}-api.txt">API Documentation</span>
-                        <span class="file-link" href="components/${componentName}/${componentName}-examples.txt">Examples</span>
+                        <a href="components/${componentName}/${componentName}-api.txt" class="file-link">API Documentation</a>
+                        <a href="components/${componentName}/${componentName}-examples.txt" class="file-link">Examples</a>
                     </div>
-                </a>
+                </div>
             `).join('')}
         </div>
 
         <h2>📄 Other Pages</h2>
         <div class="components-grid">
             ${pages.map(pageName => `
-                <a href="pages/${pageName}/" class="component-card">
+                <div class="component-card">
                     <div class="component-name">${pageName}</div>
                     <div class="component-files">
-                        <span class="file-link" href="pages/${pageName}/${pageName}-api.txt">Documentation</span>
+                        <a href="pages/${pageName}/${pageName}-api.txt" class="file-link">Documentation</a>
                     </div>
-                </a>
+                </div>
             `).join('')}
         </div>
     </div>
@@ -564,6 +582,87 @@ class SiteGenerator {
     console.log('✅ Generated index.html');
   }
 
+  private async generateComponentsList(data: PageData[]): Promise<void> {
+    console.log('\n📝 Generating components.txt...');
+
+    const allPages = data.map((page, index) => ({
+      name: this.extractPageName(page, index),
+      isComponent: this.isComponent(this.extractPageName(page, index))
+    }));
+
+    const components = allPages.filter(p => p.isComponent).map(p => p.name).sort();
+    const pages = allPages.filter(p => !p.isComponent).map(p => p.name).sort();
+
+    const componentsList = `# Plasma Components Documentation
+
+Generated on: ${new Date().toISOString()}
+Total Components: ${components.length}
+Total Pages: ${pages.length}
+
+## Components (${components.length})
+
+${components.map((component, index) => `${index + 1}. ${component}`).join('\n')}
+
+## Other Pages (${pages.length})
+
+${pages.map((page, index) => `${index + 1}. ${page}`).join('\n')}
+
+## File Structure
+
+Each component has the following files:
+- \`components/{ComponentName}/{ComponentName}-api.txt\` - API documentation and props
+- \`components/{ComponentName}/{ComponentName}-examples.txt\` - React code examples (if available)
+
+Each page has the following files:
+- \`pages/{PageName}/{PageName}-api.txt\` - Documentation content
+
+## Usage
+
+This file provides a quick reference to all available components and pages in the Plasma documentation.
+You can use this list to:
+- Browse all available components
+- Check if a specific component exists
+- Get an overview of the documentation structure
+- Generate scripts or tools that work with the documentation
+
+## Statistics
+
+- Components with examples: ${this.stats.componentsWithExamples}
+- Components with API only: ${this.stats.componentsWithoutExamples}
+- Total warnings: ${this.stats.warnings.length}
+- Total errors: ${this.stats.errors.length}
+`;
+
+    const componentsListPath = path.join(this.outputDir, 'components.txt');
+    fs.writeFileSync(componentsListPath, componentsList, 'utf-8');
+    console.log('✅ Generated components.txt');
+  }
+
+  private async generateComponentsJSON(data: PageData[]): Promise<void> {
+    console.log('\n📝 Generating components.json...');
+
+    const allPages = data.map((page, index) => ({
+      name: this.extractPageName(page, index),
+      isComponent: this.isComponent(this.extractPageName(page, index))
+    }));
+
+    const components = allPages.filter(p => p.isComponent).map(p => p.name).sort();
+
+    const componentsData = {
+      generatedAt: new Date().toISOString(),
+      totalComponents: components.length,
+      components: components,
+      statistics: {
+        componentsWithExamples: this.stats.componentsWithExamples,
+        componentsWithAPIOnly: this.stats.componentsWithoutExamples,
+      }
+    };
+
+    const componentsJSONPath = path.join(this.outputDir, 'components.json');
+    fs.writeFileSync(componentsJSONPath, JSON.stringify(componentsData, null, 2), 'utf-8');
+    console.log('✅ Generated components.json');
+  }
+
   private showSummary(): void {
     console.log('\n' + '='.repeat(80));
     console.log('📊 GENERATION SUMMARY');
@@ -571,7 +670,7 @@ class SiteGenerator {
     console.log(`✅ Total pages generated: ${this.stats.totalPages}`);
     console.log(`🧩 Components: ${this.stats.components}`);
     console.log(`📄 Other pages: ${this.stats.otherPages}`);
-    console.log(`📝 Pages with examples: ${this.stats.pagesWithExamples}`);
+    console.log(`📝 Components with examples: ${this.stats.componentsWithExamples}`);
     console.log(`📄 Pages with API only: ${this.stats.pagesWithoutExamples}`);
     console.log(`⚠️  Warnings: ${this.stats.warnings.length}`);
     console.log(`❌ Errors: ${this.stats.errors.length}`);
