@@ -211,23 +211,99 @@ class SiteGenerator {
   }
 
   private parsePageContent(content: string): { apiContent: string; examplesContent: string; hasExamples: boolean } {
-    // Convert markdown to HTML first to better parse structure
-    const htmlContent = marked(content);
-    
-    // Look for "Примеры" section (Russian for "Examples")
-    const examplesRegex = /##\s*Примеры\s*([\s\S]*?)(?=##|$)/i;
-    const examplesMatch = content.match(examplesRegex);
+    // First, check if there's a "## Примеры" section
+    const examplesSectionRegex = /##\s*Примеры\s*([\s\S]*?)$/i;
+    const examplesSectionMatch = content.match(examplesSectionRegex);
     
     let apiContent = content;
     let examplesContent = '';
     let hasExamples = false;
 
-    if (examplesMatch) {
-      hasExamples = true;
-      examplesContent = examplesMatch[1].trim();
+    if (examplesSectionMatch) {
+      // Extract examples from the "## Примеры" section
+      const examplesSection = examplesSectionMatch[1].trim();
       
-      // Remove examples section from API content
-      apiContent = content.replace(examplesRegex, '').trim();
+      // Extract all code blocks with their context from the examples section
+      const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+      const examples: string[] = [];
+      let match;
+      
+      while ((match = codeBlockRegex.exec(examplesSection)) !== null) {
+        const language = match[1] || '';
+        const code = match[2].trim();
+        const codeBlockStart = match.index;
+        
+        // Only include code blocks that look like React/TypeScript examples
+        if (this.isReactCodeBlock(language, code)) {
+          // Find the nearest heading before this code block within the examples section
+          const contextBeforeCode = examplesSection.substring(0, codeBlockStart);
+          const headingMatch = this.findNearestHeading(contextBeforeCode);
+          
+          // Extract descriptive text between the heading and code block
+          const descriptiveText = this.extractDescriptiveText(examplesSection, headingMatch, codeBlockStart);
+          
+          // Build the example with context
+          let exampleWithContext = '';
+          if (headingMatch) {
+            exampleWithContext += headingMatch + '\n';
+          }
+          if (descriptiveText.trim()) {
+            exampleWithContext += descriptiveText + '\n\n';
+          }
+          exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
+          
+          examples.push(exampleWithContext);
+        }
+      }
+      
+      if (examples.length > 0) {
+        hasExamples = true;
+        examplesContent = examples.join('\n\n');
+        
+        // Remove the "## Примеры" section from API content
+        apiContent = content.replace(examplesSectionRegex, '').trim();
+      }
+    } else {
+      // Fallback: extract all code blocks from the entire content
+      const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+      const examples: string[] = [];
+      let match;
+      
+      while ((match = codeBlockRegex.exec(content)) !== null) {
+        const language = match[1] || '';
+        const code = match[2].trim();
+        const codeBlockStart = match.index;
+        
+        // Only include code blocks that look like React/TypeScript examples
+        if (this.isReactCodeBlock(language, code)) {
+          // Find the nearest heading before this code block
+          const contextBeforeCode = content.substring(0, codeBlockStart);
+          const headingMatch = this.findNearestHeading(contextBeforeCode);
+          
+          // Extract descriptive text between the heading and code block
+          const descriptiveText = this.extractDescriptiveText(content, headingMatch, codeBlockStart);
+          
+          // Build the example with context
+          let exampleWithContext = '';
+          if (headingMatch) {
+            exampleWithContext += headingMatch + '\n';
+          }
+          if (descriptiveText.trim()) {
+            exampleWithContext += descriptiveText + '\n\n';
+          }
+          exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
+          
+          examples.push(exampleWithContext);
+        }
+      }
+      
+      if (examples.length > 0) {
+        hasExamples = true;
+        examplesContent = examples.join('\n\n');
+        
+        // Remove all code blocks from API content
+        apiContent = content.replace(codeBlockRegex, '').trim();
+      }
     }
 
     // Clean up the content
@@ -235,6 +311,72 @@ class SiteGenerator {
     examplesContent = this.cleanContent(examplesContent);
 
     return { apiContent, examplesContent, hasExamples };
+  }
+
+  private findNearestHeading(content: string): string | null {
+    // Look for headings (##, ###, ####) in reverse order
+    const headingRegex = /^(#{2,4})\s+(.+)$/gm;
+    const headings: Array<{ match: string; index: number }> = [];
+    let match;
+    
+    while ((match = headingRegex.exec(content)) !== null) {
+      headings.push({
+        match: match[0],
+        index: match.index
+      });
+    }
+    
+    // Return the last (most recent) heading found
+    return headings.length > 0 ? headings[headings.length - 1].match : null;
+  }
+
+  private extractDescriptiveText(content: string, headingMatch: string | null, codeBlockStart: number): string {
+    if (!headingMatch) {
+      // If no heading found, get text from the beginning of content
+      return content.substring(0, codeBlockStart).trim();
+    }
+    
+    // Find the position of the heading
+    const headingIndex = content.lastIndexOf(headingMatch, codeBlockStart);
+    if (headingIndex === -1) {
+      return content.substring(0, codeBlockStart).trim();
+    }
+    
+    // Extract text between heading and code block
+    const textStart = headingIndex + headingMatch.length;
+    const textBetween = content.substring(textStart, codeBlockStart).trim();
+    
+    // Clean up the text - remove excessive whitespace and empty lines
+    return textBetween
+      .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove multiple empty lines
+      .replace(/^\s+|\s+$/g, '') // Trim start and end
+      .trim();
+  }
+
+  private isReactCodeBlock(language: string, code: string): boolean {
+    // Check if it's a React/TypeScript/JavaScript code block
+    const reactLanguages = ['tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript'];
+    if (reactLanguages.includes(language.toLowerCase())) {
+      return true;
+    }
+    
+    // If no language specified or unknown language, check for React patterns
+    const reactPatterns = [
+      /import.*from.*['"]react['"]/i,
+      /import.*from.*['"]@salutejs/,
+      /<[A-Z][a-zA-Z0-9]*/,
+      /export\s+(function|const)\s+\w+/,
+      /useState|useEffect|useCallback|useMemo/,
+      /className=|onClick=|onChange=/,
+      /<div|<span|<button|<input|<form/,
+      /return\s*\(/,
+      /props\s*[:=]/,
+      /React\./,
+      /\.tsx?['"]/,
+      /\.jsx?['"]/
+    ];
+    
+    return reactPatterns.some(pattern => pattern.test(code));
   }
 
   private cleanContent(content: string): string {
