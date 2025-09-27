@@ -1,6 +1,6 @@
 # Plasma MCP Docs Generator
 
-[![Deploy to GitHub Pages](https://github.com/Salute_OpenSource/plasma-mcp-docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/Salute_OpenSource/plasma-mcp-docs/actions/workflows/deploy.yml)
+[![Live Documentation](https://img.shields.io/badge/📚-Live%20Documentation-blue?style=flat-square)](https://salute-developers.github.io/plasma-mcp-docs/)
 
 A TypeScript script that generates a static documentation site from JSON data containing component documentation.
 

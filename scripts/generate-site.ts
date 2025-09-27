@@ -531,16 +531,24 @@ class SiteGenerator {
             <h2>📊 Generation Summary</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">${this.stats.totalPages}</div>
-                    <div class="stat-label">Total Components</div>
+                    <div class="stat-number">${this.stats.components}</div>
+                    <div class="stat-label">Components</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${this.stats.otherPages}</div>
+                    <div class="stat-label">Other Pages</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">${this.stats.componentsWithExamples}</div>
-                    <div class="stat-label">With Examples</div>
+                    <div class="stat-label">Components with Examples</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">${this.stats.componentsWithoutExamples}</div>
-                    <div class="stat-label">API Only</div>
+                    <div class="stat-label">Components API Only</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${this.stats.totalPages}</div>
+                    <div class="stat-label">Total Pages</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">${this.stats.errors.length}</div>
