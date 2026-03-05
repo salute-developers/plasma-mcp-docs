@@ -1,0 +1,180 @@
+{
+  "name": "Button",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"primary\" | \"accent\" | \"warning\" | \"dark\" | \"success\" | \"critical\" | \"black\" | \"white\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\" | \"xxs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "\"filled\" | \"fixed\" | \"auto\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentPlacing",
+        "type": "ContentPlacing",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "square",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pin",
+        "type": "\"square-square\" | \"square-clear\" | \"clear-square\" | \"clear-clear\" | \"clear-circle\" | \"circle-clear\" | \"circle-circle\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "outlined",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftLeft",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftRight",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "blur",
+        "type": "\"small\" | \"medium\" | \"large\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Компонент  Button  может содержать текст, который указывается в",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Button text=\"Текст\" />\n            <Button text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Button text=\"Текст\" contentRight={<IconDownload color=\"inherit\" />} />\n            <Button text=\"Текст\" isLoading />\n            <Button text=\"Текст\" isLoading loader={<div>Loader...</div>} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер кнопки",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Button text=\"Button\" size=\"xl\" />\n            <Button text=\"Button\" size=\"l\" />\n            <Button text=\"Button\" size=\"m\" />\n            <Button text=\"Button\" size=\"s\" />\n            <Button text=\"Button\" size=\"xs\" />\n            <Button text=\"Button\" size=\"xxs\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ширина кнопки",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"1rem\" }}>\n            <Button text=\"Button\" stretching=\"fixed\" />\n            <Button text=\"Button\" stretching=\"auto\" />\n            <Button text=\"Button\" stretching=\"filled\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Позиционирование контента внутри",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"1rem\" }}>\n            <Button text=\"Hello\" value=\"Plasma\" stretching=\"filled\" contentPlacing=\"default\" />\n            <Button text=\"Hello\" value=\"Plasma\" stretching=\"filled\" contentPlacing=\"relaxed\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид кнопки",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexWrap: 'wrap' }}>\n            <Button text=\"Кнопка\" size=\"s\" view=\"default\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"primary\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"accent\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"secondary\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"clear\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"success\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"warning\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"critical\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"dark\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"black\" />\n            <Button text=\"Кнопка\" size=\"s\" view=\"white\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Границы кнопки",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Button pin=\"square-square\">Button</Button>\n            <Button pin=\"square-clear\">Button</Button>\n            <Button pin=\"clear-square\">Button</Button>\n            <Button pin=\"clear-clear\">Button</Button>\n            <Button pin=\"clear-circle\">Button</Button>\n            <Button pin=\"circle-clear\">Button</Button>\n            <Button pin=\"circle-circle\">Button</Button>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Гиперссылка Компонент поддерживает вывод в виде тега  <a> , для этого необходимо указать свойство  as",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Button as=\"a\" text=\"Гиперссылка\" />\n    );\n}"
+    }
+  ]
+}

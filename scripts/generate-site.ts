@@ -3,419 +3,436 @@ import * as path from 'path';
 import { marked } from 'marked';
 
 interface PageData {
-  pageContent: string;
-  metadata: {
-    heading: {
-      depth: number;
-      text: string;
+    pageContent: string;
+    metadata: {
+        heading: {
+            depth: number;
+            text: string;
+        };
+        source: {
+            url: string;
+        };
+        productId: string;
     };
-    source: {
-      url: string;
-    };
-    productId: string;
-  };
 }
 
 interface GenerationStats {
-  totalPages: number;
-  pagesWithExamples: number;
-  pagesWithoutExamples: number;
-  components: number;
-  otherPages: number;
-  componentsWithExamples: number;
-  componentsWithoutExamples: number;
-  errors: string[];
-  warnings: string[];
+    totalPages: number;
+    pagesWithExamples: number;
+    pagesWithoutExamples: number;
+    components: number;
+    otherPages: number;
+    componentsWithExamples: number;
+    componentsWithoutExamples: number;
+    errors: string[];
+    warnings: string[];
 }
 
 class SiteGenerator {
-  private inputFile: string;
-  private outputDir: string;
-  private pagesDir: string;
-  private componentsDir: string;
-  private stats: GenerationStats;
+    private inputFile: string;
+    private outputDir: string;
+    private pagesDir: string;
+    private componentsDir: string;
+    private stats: GenerationStats;
 
-  constructor(inputFile: string, outputDir: string) {
-    this.inputFile = inputFile;
-    this.outputDir = outputDir;
-    this.pagesDir = path.join(outputDir, 'pages');
-    this.componentsDir = path.join(outputDir, 'components');
-    this.stats = {
-      totalPages: 0,
-      pagesWithExamples: 0,
-      pagesWithoutExamples: 0,
-      components: 0,
-      otherPages: 0,
-      componentsWithExamples: 0,
-      componentsWithoutExamples: 0,
-      errors: [],
-      warnings: []
-    };
-  }
-
-  async generate(): Promise<void> {
-    console.log('🚀 Starting site generation...\n');
-
-    try {
-      // Read and parse input data
-      const data = await this.readInputData();
-      console.log(`📖 Loaded ${data.length} pages from input data\n`);
-
-      // Create output directories
-      await this.createDirectories();
-
-      // Process each page
-      await this.processPages(data);
-
-      // Generate index.html
-      await this.generateIndex(data);
-
-      // Generate components.txt
-      await this.generateComponentsList(data);
-
-      // Generate components.json
-      await this.generateComponentsJSON(data);
-
-      // Show summary
-      this.showSummary();
-
-    } catch (error) {
-      console.error('❌ Error during generation:', error);
-      this.stats.errors.push(`Generation failed: ${error}`);
-      process.exit(1);
-    }
-  }
-
-  private async readInputData(): Promise<PageData[]> {
-    try {
-      const fileContent = fs.readFileSync(this.inputFile, 'utf-8');
-      return JSON.parse(fileContent);
-    } catch (error) {
-      throw new Error(`Failed to read input file: ${error}`);
-    }
-  }
-
-  private async createDirectories(): Promise<void> {
-    // Create dist directory
-    if (!fs.existsSync(this.outputDir)) {
-      fs.mkdirSync(this.outputDir, { recursive: true });
+    constructor(inputFile: string, outputDir: string) {
+        this.inputFile = inputFile;
+        this.outputDir = outputDir;
+        this.pagesDir = path.join(outputDir, 'pages');
+        this.componentsDir = path.join(outputDir, 'components');
+        this.stats = {
+            totalPages: 0,
+            pagesWithExamples: 0,
+            pagesWithoutExamples: 0,
+            components: 0,
+            otherPages: 0,
+            componentsWithExamples: 0,
+            componentsWithoutExamples: 0,
+            errors: [],
+            warnings: [],
+        };
     }
 
-    // Create pages directory
-    if (!fs.existsSync(this.pagesDir)) {
-      fs.mkdirSync(this.pagesDir, { recursive: true });
+    async generate(): Promise<void> {
+        console.log('🚀 Starting site generation...\n');
+
+        try {
+            // Read and parse input data
+            const data = await this.readInputData();
+            console.log(`📖 Loaded ${data.length} pages from input data\n`);
+
+            // Create output directories
+            await this.createDirectories();
+
+            // Process each page
+            await this.processPages(data);
+
+            // Generate index.html
+            await this.generateIndex(data);
+
+            // Generate components.txt
+            await this.generateComponentsList(data);
+
+            // Generate components.json
+            await this.generateComponentsJSON(data);
+
+            // Show summary
+            this.showSummary();
+        } catch (error) {
+            console.error('❌ Error during generation:', error);
+            this.stats.errors.push(`Generation failed: ${error}`);
+            process.exit(1);
+        }
     }
 
-    // Create components directory
-    if (!fs.existsSync(this.componentsDir)) {
-      fs.mkdirSync(this.componentsDir, { recursive: true });
+    private async readInputData(): Promise<PageData[]> {
+        try {
+            const fileContent = fs.readFileSync(this.inputFile, 'utf-8');
+            return JSON.parse(fileContent);
+        } catch (error) {
+            throw new Error(`Failed to read input file: ${error}`);
+        }
     }
-  }
 
-  private async processPages(data: PageData[]): Promise<void> {
-    for (let i = 0; i < data.length; i++) {
-      const page = data[i];
-      const pageName = this.extractPageName(page, i);
-      const isComponent = this.isComponent(pageName);
-      const type = isComponent ? 'component' : 'page';
-      
-      console.log(`📄 Processing ${i + 1}/${data.length}: ${pageName} (${type})`);
+    private async createDirectories(): Promise<void> {
+        // Create dist directory
+        if (!fs.existsSync(this.outputDir)) {
+            fs.mkdirSync(this.outputDir, { recursive: true });
+        }
 
-      try {
-        await this.processPage(page, pageName, i);
-        this.stats.totalPages++;
-        
-        // Track components and other pages separately
-        if (isComponent) {
-          this.stats.components++;
+        // Create pages directory
+        if (!fs.existsSync(this.pagesDir)) {
+            fs.mkdirSync(this.pagesDir, { recursive: true });
+        }
+
+        // Create components directory
+        if (!fs.existsSync(this.componentsDir)) {
+            fs.mkdirSync(this.componentsDir, { recursive: true });
+        }
+    }
+
+    private async processPages(data: PageData[]): Promise<void> {
+        for (let i = 0; i < data.length; i++) {
+            const page = data[i];
+            const pageName = this.extractPageName(page, i);
+            const isComponent = this.isComponent(pageName);
+            const type = isComponent ? 'component' : 'page';
+
+            console.log(`📄 Processing ${i + 1}/${data.length}: ${pageName} (${type})`);
+
+            try {
+                await this.processPage(page, pageName, i);
+                this.stats.totalPages++;
+
+                // Track components and other pages separately
+                if (isComponent) {
+                    this.stats.components++;
+                } else {
+                    this.stats.otherPages++;
+                }
+            } catch (error) {
+                const errorMsg = `Failed to process ${type} ${pageName} [array index ${i}]: ${error}`;
+                console.error(`❌ ${errorMsg}`);
+                this.stats.errors.push(errorMsg);
+            }
+        }
+    }
+
+    private extractPageName(page: PageData, arrayIndex: number): string {
+        let name = page.metadata.heading.text;
+        const originalName = name;
+
+        // Clean up the name - remove special characters and ensure it's valid
+        name = name.replace(/[^a-zA-Z0-9\-_]/g, '');
+
+        // Handle empty or invalid names
+        if (!name || name === '' || name === '-') {
+            const generatedName = `page-${Date.now()}`;
+            this.stats.warnings.push(
+                `Empty or invalid name "${originalName}" -> generated "${generatedName}" [array index ${arrayIndex}]`,
+            );
+            return generatedName;
+        }
+
+        // Check if name was significantly modified
+        if (name !== originalName) {
+            this.stats.warnings.push(`Name modified: "${originalName}" -> "${name}" [array index ${arrayIndex}]`);
+        }
+
+        return name;
+    }
+
+    private isComponent(pageName: string): boolean {
+        // Check if the page name is a CamelCase component
+        // Components start with uppercase letter and follow CamelCase pattern
+        const camelCasePattern = /^[A-Z][a-zA-Z0-9]*$/;
+
+        // List of known non-component pages
+        const nonComponents = [
+            'utils',
+            'colors',
+            'hocs',
+            'hooks',
+            'mixins',
+            'next',
+            'spacing',
+            'typography',
+            'typography-legacy',
+            'Components',
+            'NativeForm',
+            'ReactHookForm',
+            'component-',
+        ];
+
+        // Check if it's in the non-components list
+        if (nonComponents.some((nc) => pageName.startsWith(nc))) {
+            return false;
+        }
+
+        // Check if it matches CamelCase pattern
+        return camelCasePattern.test(pageName);
+    }
+
+    private async processPage(page: PageData, pageName: string, arrayIndex: number): Promise<void> {
+        const isComponent = this.isComponent(pageName);
+        const targetDir = isComponent ? this.componentsDir : this.pagesDir;
+        const pageDir = path.join(targetDir, pageName);
+
+        // Create page directory
+        if (!fs.existsSync(pageDir)) {
+            fs.mkdirSync(pageDir, { recursive: true });
+        }
+
+        // Parse content to separate API and examples
+        const { apiContent, examplesContent, hasExamples } = this.parsePageContent(page.pageContent);
+
+        // Check for potential issues
+        if (!apiContent || apiContent.trim().length < 10) {
+            this.stats.warnings.push(`Very short or empty API content for "${pageName}" [array index ${arrayIndex}]`);
+        }
+
+        if (isComponent && !hasExamples) {
+            this.stats.warnings.push(`Component "${pageName}" has no examples [array index ${arrayIndex}]`);
+        }
+
+        // Generate API file
+        const apiFilePath = path.join(pageDir, `${pageName}-api.txt`);
+        fs.writeFileSync(apiFilePath, apiContent, 'utf-8');
+
+        // Generate examples file if examples exist
+        if (hasExamples && examplesContent.trim()) {
+            const examplesFilePath = path.join(pageDir, `${pageName}-examples.txt`);
+            fs.writeFileSync(examplesFilePath, examplesContent, 'utf-8');
+            this.stats.pagesWithExamples++;
+            if (isComponent) {
+                this.stats.componentsWithExamples++;
+            }
+            console.log(`  ✅ Generated API and examples files`);
         } else {
-          this.stats.otherPages++;
+            this.stats.pagesWithoutExamples++;
+            if (isComponent) {
+                this.stats.componentsWithoutExamples++;
+            }
+            console.log(`  ✅ Generated API file (no examples found)`);
         }
-      } catch (error) {
-        const errorMsg = `Failed to process ${type} ${pageName} [array index ${i}]: ${error}`;
-        console.error(`❌ ${errorMsg}`);
-        this.stats.errors.push(errorMsg);
-      }
-    }
-  }
-
-  private extractPageName(page: PageData, arrayIndex: number): string {
-    let name = page.metadata.heading.text;
-    const originalName = name;
-    
-    // Clean up the name - remove special characters and ensure it's valid
-    name = name.replace(/[^a-zA-Z0-9\-_]/g, '');
-    
-    // Handle empty or invalid names
-    if (!name || name === '' || name === '-') {
-      const generatedName = `page-${Date.now()}`;
-      this.stats.warnings.push(`Empty or invalid name "${originalName}" -> generated "${generatedName}" [array index ${arrayIndex}]`);
-      return generatedName;
-    }
-    
-    // Check if name was significantly modified
-    if (name !== originalName) {
-      this.stats.warnings.push(`Name modified: "${originalName}" -> "${name}" [array index ${arrayIndex}]`);
-    }
-    
-    return name;
-  }
-
-  private isComponent(pageName: string): boolean {
-    // Check if the page name is a CamelCase component
-    // Components start with uppercase letter and follow CamelCase pattern
-    const camelCasePattern = /^[A-Z][a-zA-Z0-9]*$/;
-    
-    // List of known non-component pages
-    const nonComponents = [
-      'utils', 'colors', 'hocs', 'hooks', 'mixins', 'next', 
-      'spacing', 'typography', 'typography-legacy', 'Components',
-      'NativeForm', 'ReactHookForm', 'component-'
-    ];
-    
-    // Check if it's in the non-components list
-    if (nonComponents.some(nc => pageName.startsWith(nc))) {
-      return false;
-    }
-    
-    // Check if it matches CamelCase pattern
-    return camelCasePattern.test(pageName);
-  }
-
-  private async processPage(page: PageData, pageName: string, arrayIndex: number): Promise<void> {
-    const isComponent = this.isComponent(pageName);
-    const targetDir = isComponent ? this.componentsDir : this.pagesDir;
-    const pageDir = path.join(targetDir, pageName);
-    
-    // Create page directory
-    if (!fs.existsSync(pageDir)) {
-      fs.mkdirSync(pageDir, { recursive: true });
     }
 
-    // Parse content to separate API and examples
-    const { apiContent, examplesContent, hasExamples } = this.parsePageContent(page.pageContent);
+    private parsePageContent(content: string): { apiContent: string; examplesContent: string; hasExamples: boolean } {
+        // First, check if there's a "## Примеры" section
+        const examplesSectionRegex = /##\s*Примеры\s*([\s\S]*?)$/i;
+        const examplesSectionMatch = content.match(examplesSectionRegex);
 
-    // Check for potential issues
-    if (!apiContent || apiContent.trim().length < 10) {
-      this.stats.warnings.push(`Very short or empty API content for "${pageName}" [array index ${arrayIndex}]`);
-    }
+        let apiContent = content;
+        let examplesContent = '';
+        let hasExamples = false;
 
-    if (isComponent && !hasExamples) {
-      this.stats.warnings.push(`Component "${pageName}" has no examples [array index ${arrayIndex}]`);
-    }
+        if (examplesSectionMatch) {
+            // Extract examples from the "## Примеры" section
+            const examplesSection = examplesSectionMatch[1].trim();
 
-    // Generate API file
-    const apiFilePath = path.join(pageDir, `${pageName}-api.txt`);
-    fs.writeFileSync(apiFilePath, apiContent, 'utf-8');
+            // Extract all code blocks with their context from the examples section
+            const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+            const examples: string[] = [];
+            let match;
 
-    // Generate examples file if examples exist
-    if (hasExamples && examplesContent.trim()) {
-      const examplesFilePath = path.join(pageDir, `${pageName}-examples.txt`);
-      fs.writeFileSync(examplesFilePath, examplesContent, 'utf-8');
-      this.stats.pagesWithExamples++;
-      if (isComponent) {
-        this.stats.componentsWithExamples++;
-      }
-      console.log(`  ✅ Generated API and examples files`);
-    } else {
-      this.stats.pagesWithoutExamples++;
-      if (isComponent) {
-        this.stats.componentsWithoutExamples++;
-      }
-      console.log(`  ✅ Generated API file (no examples found)`);
-    }
-  }
+            while ((match = codeBlockRegex.exec(examplesSection)) !== null) {
+                const language = match[1] || '';
+                const code = match[2].trim();
+                const codeBlockStart = match.index;
 
-  private parsePageContent(content: string): { apiContent: string; examplesContent: string; hasExamples: boolean } {
-    // First, check if there's a "## Примеры" section
-    const examplesSectionRegex = /##\s*Примеры\s*([\s\S]*?)$/i;
-    const examplesSectionMatch = content.match(examplesSectionRegex);
-    
-    let apiContent = content;
-    let examplesContent = '';
-    let hasExamples = false;
+                // Only include code blocks that look like React/TypeScript examples
+                if (this.isReactCodeBlock(language, code)) {
+                    // Find the nearest heading before this code block within the examples section
+                    const contextBeforeCode = examplesSection.substring(0, codeBlockStart);
+                    const headingMatch = this.findNearestHeading(contextBeforeCode);
 
-    if (examplesSectionMatch) {
-      // Extract examples from the "## Примеры" section
-      const examplesSection = examplesSectionMatch[1].trim();
-      
-      // Extract all code blocks with their context from the examples section
-      const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
-      const examples: string[] = [];
-      let match;
-      
-      while ((match = codeBlockRegex.exec(examplesSection)) !== null) {
-        const language = match[1] || '';
-        const code = match[2].trim();
-        const codeBlockStart = match.index;
-        
-        // Only include code blocks that look like React/TypeScript examples
-        if (this.isReactCodeBlock(language, code)) {
-          // Find the nearest heading before this code block within the examples section
-          const contextBeforeCode = examplesSection.substring(0, codeBlockStart);
-          const headingMatch = this.findNearestHeading(contextBeforeCode);
-          
-          // Extract descriptive text between the heading and code block
-          const descriptiveText = this.extractDescriptiveText(examplesSection, headingMatch, codeBlockStart);
-          
-          // Build the example with context
-          let exampleWithContext = '';
-          if (headingMatch) {
-            exampleWithContext += headingMatch + '\n';
-          }
-          if (descriptiveText.trim()) {
-            exampleWithContext += descriptiveText + '\n\n';
-          }
-          exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
-          
-          examples.push(exampleWithContext);
+                    // Extract descriptive text between the heading and code block
+                    const descriptiveText = this.extractDescriptiveText(examplesSection, headingMatch, codeBlockStart);
+
+                    // Build the example with context
+                    let exampleWithContext = '';
+                    if (headingMatch) {
+                        exampleWithContext += headingMatch + '\n';
+                    }
+                    if (descriptiveText.trim()) {
+                        exampleWithContext += descriptiveText + '\n\n';
+                    }
+                    exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
+
+                    examples.push(exampleWithContext);
+                }
+            }
+
+            if (examples.length > 0) {
+                hasExamples = true;
+                examplesContent = examples.join('\n\n');
+
+                // Remove the "## Примеры" section from API content
+                apiContent = content.replace(examplesSectionRegex, '').trim();
+            }
+        } else {
+            // Fallback: extract all code blocks from the entire content
+            const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+            const examples: string[] = [];
+            let match;
+
+            while ((match = codeBlockRegex.exec(content)) !== null) {
+                const language = match[1] || '';
+                const code = match[2].trim();
+                const codeBlockStart = match.index;
+
+                // Only include code blocks that look like React/TypeScript examples
+                if (this.isReactCodeBlock(language, code)) {
+                    // Find the nearest heading before this code block
+                    const contextBeforeCode = content.substring(0, codeBlockStart);
+                    const headingMatch = this.findNearestHeading(contextBeforeCode);
+
+                    // Extract descriptive text between the heading and code block
+                    const descriptiveText = this.extractDescriptiveText(content, headingMatch, codeBlockStart);
+
+                    // Build the example with context
+                    let exampleWithContext = '';
+                    if (headingMatch) {
+                        exampleWithContext += headingMatch + '\n';
+                    }
+                    if (descriptiveText.trim()) {
+                        exampleWithContext += descriptiveText + '\n\n';
+                    }
+                    exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
+
+                    examples.push(exampleWithContext);
+                }
+            }
+
+            if (examples.length > 0) {
+                hasExamples = true;
+                examplesContent = examples.join('\n\n');
+
+                // Remove all code blocks from API content
+                apiContent = content.replace(codeBlockRegex, '').trim();
+            }
         }
-      }
-      
-      if (examples.length > 0) {
-        hasExamples = true;
-        examplesContent = examples.join('\n\n');
-        
-        // Remove the "## Примеры" section from API content
-        apiContent = content.replace(examplesSectionRegex, '').trim();
-      }
-    } else {
-      // Fallback: extract all code blocks from the entire content
-      const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
-      const examples: string[] = [];
-      let match;
-      
-      while ((match = codeBlockRegex.exec(content)) !== null) {
-        const language = match[1] || '';
-        const code = match[2].trim();
-        const codeBlockStart = match.index;
-        
-        // Only include code blocks that look like React/TypeScript examples
-        if (this.isReactCodeBlock(language, code)) {
-          // Find the nearest heading before this code block
-          const contextBeforeCode = content.substring(0, codeBlockStart);
-          const headingMatch = this.findNearestHeading(contextBeforeCode);
-          
-          // Extract descriptive text between the heading and code block
-          const descriptiveText = this.extractDescriptiveText(content, headingMatch, codeBlockStart);
-          
-          // Build the example with context
-          let exampleWithContext = '';
-          if (headingMatch) {
-            exampleWithContext += headingMatch + '\n';
-          }
-          if (descriptiveText.trim()) {
-            exampleWithContext += descriptiveText + '\n\n';
-          }
-          exampleWithContext += `\`\`\`${language}\n${code}\n\`\`\``;
-          
-          examples.push(exampleWithContext);
+
+        // Clean up the content
+        apiContent = this.cleanContent(apiContent);
+        examplesContent = this.cleanContent(examplesContent);
+
+        return { apiContent, examplesContent, hasExamples };
+    }
+
+    private findNearestHeading(content: string): string | null {
+        // Look for headings (##, ###, ####) in reverse order
+        const headingRegex = /^(#{2,4})\s+(.+)$/gm;
+        const headings: Array<{ match: string; index: number }> = [];
+        let match;
+
+        while ((match = headingRegex.exec(content)) !== null) {
+            headings.push({
+                match: match[0],
+                index: match.index,
+            });
         }
-      }
-      
-      if (examples.length > 0) {
-        hasExamples = true;
-        examplesContent = examples.join('\n\n');
-        
-        // Remove all code blocks from API content
-        apiContent = content.replace(codeBlockRegex, '').trim();
-      }
+
+        // Return the last (most recent) heading found
+        return headings.length > 0 ? headings[headings.length - 1].match : null;
     }
 
-    // Clean up the content
-    apiContent = this.cleanContent(apiContent);
-    examplesContent = this.cleanContent(examplesContent);
+    private extractDescriptiveText(content: string, headingMatch: string | null, codeBlockStart: number): string {
+        if (!headingMatch) {
+            // If no heading found, get text from the beginning of content
+            return content.substring(0, codeBlockStart).trim();
+        }
 
-    return { apiContent, examplesContent, hasExamples };
-  }
+        // Find the position of the heading
+        const headingIndex = content.lastIndexOf(headingMatch, codeBlockStart);
+        if (headingIndex === -1) {
+            return content.substring(0, codeBlockStart).trim();
+        }
 
-  private findNearestHeading(content: string): string | null {
-    // Look for headings (##, ###, ####) in reverse order
-    const headingRegex = /^(#{2,4})\s+(.+)$/gm;
-    const headings: Array<{ match: string; index: number }> = [];
-    let match;
-    
-    while ((match = headingRegex.exec(content)) !== null) {
-      headings.push({
-        match: match[0],
-        index: match.index
-      });
+        // Extract text between heading and code block
+        const textStart = headingIndex + headingMatch.length;
+        const textBetween = content.substring(textStart, codeBlockStart).trim();
+
+        // Clean up the text - remove excessive whitespace and empty lines
+        return textBetween
+            .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove multiple empty lines
+            .replace(/^\s+|\s+$/g, '') // Trim start and end
+            .trim();
     }
-    
-    // Return the last (most recent) heading found
-    return headings.length > 0 ? headings[headings.length - 1].match : null;
-  }
 
-  private extractDescriptiveText(content: string, headingMatch: string | null, codeBlockStart: number): string {
-    if (!headingMatch) {
-      // If no heading found, get text from the beginning of content
-      return content.substring(0, codeBlockStart).trim();
+    private isReactCodeBlock(language: string, code: string): boolean {
+        // Check if it's a React/TypeScript/JavaScript code block
+        const reactLanguages = ['tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript'];
+        if (reactLanguages.includes(language.toLowerCase())) {
+            return true;
+        }
+
+        // If no language specified or unknown language, check for React patterns
+        const reactPatterns = [
+            /import.*from.*['"]react['"]/i,
+            /import.*from.*['"]@salutejs/,
+            /<[A-Z][a-zA-Z0-9]*/,
+            /export\s+(function|const)\s+\w+/,
+            /useState|useEffect|useCallback|useMemo/,
+            /className=|onClick=|onChange=/,
+            /<div|<span|<button|<input|<form/,
+            /return\s*\(/,
+            /props\s*[:=]/,
+            /React\./,
+            /\.tsx?['"]/,
+            /\.jsx?['"]/,
+        ];
+
+        return reactPatterns.some((pattern) => pattern.test(code));
     }
-    
-    // Find the position of the heading
-    const headingIndex = content.lastIndexOf(headingMatch, codeBlockStart);
-    if (headingIndex === -1) {
-      return content.substring(0, codeBlockStart).trim();
+
+    private cleanContent(content: string): string {
+        // Remove excessive whitespace and clean up formatting
+        return content
+            .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove multiple empty lines
+            .replace(/^\s+|\s+$/g, '') // Trim start and end
+            .replace(/\n\s+/g, '\n') // Remove leading spaces from lines
+            .trim();
     }
-    
-    // Extract text between heading and code block
-    const textStart = headingIndex + headingMatch.length;
-    const textBetween = content.substring(textStart, codeBlockStart).trim();
-    
-    // Clean up the text - remove excessive whitespace and empty lines
-    return textBetween
-      .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove multiple empty lines
-      .replace(/^\s+|\s+$/g, '') // Trim start and end
-      .trim();
-  }
 
-  private isReactCodeBlock(language: string, code: string): boolean {
-    // Check if it's a React/TypeScript/JavaScript code block
-    const reactLanguages = ['tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript'];
-    if (reactLanguages.includes(language.toLowerCase())) {
-      return true;
-    }
-    
-    // If no language specified or unknown language, check for React patterns
-    const reactPatterns = [
-      /import.*from.*['"]react['"]/i,
-      /import.*from.*['"]@salutejs/,
-      /<[A-Z][a-zA-Z0-9]*/,
-      /export\s+(function|const)\s+\w+/,
-      /useState|useEffect|useCallback|useMemo/,
-      /className=|onClick=|onChange=/,
-      /<div|<span|<button|<input|<form/,
-      /return\s*\(/,
-      /props\s*[:=]/,
-      /React\./,
-      /\.tsx?['"]/,
-      /\.jsx?['"]/
-    ];
-    
-    return reactPatterns.some(pattern => pattern.test(code));
-  }
+    private async generateIndex(data: PageData[]): Promise<void> {
+        console.log('\n📝 Generating index.html...');
 
-  private cleanContent(content: string): string {
-    // Remove excessive whitespace and clean up formatting
-    return content
-      .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove multiple empty lines
-      .replace(/^\s+|\s+$/g, '') // Trim start and end
-      .replace(/\n\s+/g, '\n') // Remove leading spaces from lines
-      .trim();
-  }
+        const allPages = data.map((page, index) => ({
+            name: this.extractPageName(page, index),
+            isComponent: this.isComponent(this.extractPageName(page, index)),
+        }));
 
-  private async generateIndex(data: PageData[]): Promise<void> {
-    console.log('\n📝 Generating index.html...');
+        const components = allPages
+            .filter((p) => p.isComponent)
+            .map((p) => p.name)
+            .sort();
+        const pages = allPages
+            .filter((p) => !p.isComponent)
+            .map((p) => p.name)
+            .sort();
 
-    const allPages = data.map((page, index) => ({
-      name: this.extractPageName(page, index),
-      isComponent: this.isComponent(this.extractPageName(page, index))
-    }));
-
-    const components = allPages.filter(p => p.isComponent).map(p => p.name).sort();
-    const pages = allPages.filter(p => !p.isComponent).map(p => p.name).sort();
-    
-    const html = `<!DOCTYPE html>
+        const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -559,7 +576,9 @@ class SiteGenerator {
 
         <h2>🧩 Components</h2>
         <div class="components-grid">
-            ${components.map(componentName => `
+            ${components
+                .map(
+                    (componentName) => `
                 <div class="component-card">
                     <div class="component-name">${componentName}</div>
                     <div class="component-files">
@@ -567,41 +586,53 @@ class SiteGenerator {
                         <a href="components/${componentName}/${componentName}-examples.txt" class="file-link">Examples</a>
                     </div>
                 </div>
-            `).join('')}
+            `,
+                )
+                .join('')}
         </div>
 
         <h2>📄 Other Pages</h2>
         <div class="components-grid">
-            ${pages.map(pageName => `
+            ${pages
+                .map(
+                    (pageName) => `
                 <div class="component-card">
                     <div class="component-name">${pageName}</div>
                     <div class="component-files">
                         <a href="pages/${pageName}/${pageName}-api.txt" class="file-link">Documentation</a>
                     </div>
                 </div>
-            `).join('')}
+            `,
+                )
+                .join('')}
         </div>
     </div>
 </body>
 </html>`;
 
-    const indexPath = path.join(this.outputDir, 'index.html');
-    fs.writeFileSync(indexPath, html, 'utf-8');
-    console.log('✅ Generated index.html');
-  }
+        const indexPath = path.join(this.outputDir, 'index.html');
+        fs.writeFileSync(indexPath, html, 'utf-8');
+        console.log('✅ Generated index.html');
+    }
 
-  private async generateComponentsList(data: PageData[]): Promise<void> {
-    console.log('\n📝 Generating components.txt...');
+    private async generateComponentsList(data: PageData[]): Promise<void> {
+        console.log('\n📝 Generating components.txt...');
 
-    const allPages = data.map((page, index) => ({
-      name: this.extractPageName(page, index),
-      isComponent: this.isComponent(this.extractPageName(page, index))
-    }));
+        const allPages = data.map((page, index) => ({
+            name: this.extractPageName(page, index),
+            isComponent: this.isComponent(this.extractPageName(page, index)),
+        }));
 
-    const components = allPages.filter(p => p.isComponent).map(p => p.name).sort();
-    const pages = allPages.filter(p => !p.isComponent).map(p => p.name).sort();
+        const components = allPages
+            .filter((p) => p.isComponent)
+            .map((p) => p.name)
+            .sort();
+        const pages = allPages
+            .filter((p) => !p.isComponent)
+            .map((p) => p.name)
+            .sort();
 
-    const componentsList = `# Plasma Components Documentation
+        const componentsList = `# Plasma Components Documentation
 
 Generated on: ${new Date().toISOString()}
 Total Components: ${components.length}
@@ -641,84 +672,87 @@ You can use this list to:
 - Total errors: ${this.stats.errors.length}
 `;
 
-    const componentsListPath = path.join(this.outputDir, 'components.txt');
-    fs.writeFileSync(componentsListPath, componentsList, 'utf-8');
-    console.log('✅ Generated components.txt');
-  }
-
-  private async generateComponentsJSON(data: PageData[]): Promise<void> {
-    console.log('\n📝 Generating components.json...');
-
-    const allPages = data.map((page, index) => ({
-      name: this.extractPageName(page, index),
-      isComponent: this.isComponent(this.extractPageName(page, index))
-    }));
-
-    const components = allPages.filter(p => p.isComponent).map(p => p.name).sort();
-
-    const componentsData = {
-      generatedAt: new Date().toISOString(),
-      totalComponents: components.length,
-      components: components,
-      statistics: {
-        componentsWithExamples: this.stats.componentsWithExamples,
-        componentsWithAPIOnly: this.stats.componentsWithoutExamples,
-      }
-    };
-
-    const componentsJSONPath = path.join(this.outputDir, 'components.json');
-    fs.writeFileSync(componentsJSONPath, JSON.stringify(componentsData, null, 2), 'utf-8');
-    console.log('✅ Generated components.json');
-  }
-
-  private showSummary(): void {
-    console.log('\n' + '='.repeat(80));
-    console.log('📊 GENERATION SUMMARY');
-    console.log('='.repeat(80));
-    console.log(`✅ Total pages generated: ${this.stats.totalPages}`);
-    console.log(`🧩 Components: ${this.stats.components}`);
-    console.log(`📄 Other pages: ${this.stats.otherPages}`);
-    console.log(`📝 Components with examples: ${this.stats.componentsWithExamples}`);
-    console.log(`📄 Pages with API only: ${this.stats.pagesWithoutExamples}`);
-    console.log(`⚠️  Warnings: ${this.stats.warnings.length}`);
-    console.log(`❌ Errors: ${this.stats.errors.length}`);
-    
-    if (this.stats.warnings.length > 0) {
-      console.log('\n⚠️  Warnings:');
-      this.stats.warnings.forEach((warning, index) => {
-        console.log(`   ${index + 1}. ${warning}`);
-      });
+        const componentsListPath = path.join(this.outputDir, 'components.txt');
+        fs.writeFileSync(componentsListPath, componentsList, 'utf-8');
+        console.log('✅ Generated components.txt');
     }
-    
-    if (this.stats.errors.length > 0) {
-      console.log('\n🚨 Errors:');
-      this.stats.errors.forEach((error, index) => {
-        console.log(`   ${index + 1}. ${error}`);
-      });
+
+    private async generateComponentsJSON(data: PageData[]): Promise<void> {
+        console.log('\n📝 Generating components.json...');
+
+        const allPages = data.map((page, index) => ({
+            name: this.extractPageName(page, index),
+            isComponent: this.isComponent(this.extractPageName(page, index)),
+        }));
+
+        const components = allPages
+            .filter((p) => p.isComponent)
+            .map((p) => p.name)
+            .sort();
+
+        const componentsData = {
+            generatedAt: new Date().toISOString(),
+            totalComponents: components.length,
+            components: components,
+            statistics: {
+                componentsWithExamples: this.stats.componentsWithExamples,
+                componentsWithAPIOnly: this.stats.componentsWithoutExamples,
+            },
+        };
+
+        const componentsJSONPath = path.join(this.outputDir, 'components.json');
+        fs.writeFileSync(componentsJSONPath, JSON.stringify(componentsData, null, 2), 'utf-8');
+        console.log('✅ Generated components.json');
     }
-    
-    if (this.stats.warnings.length === 0 && this.stats.errors.length === 0) {
-      console.log('\n✅ No warnings or errors!');
+
+    private showSummary(): void {
+        console.log('\n' + '='.repeat(80));
+        console.log('📊 GENERATION SUMMARY');
+        console.log('='.repeat(80));
+        console.log(`✅ Total pages generated: ${this.stats.totalPages}`);
+        console.log(`🧩 Components: ${this.stats.components}`);
+        console.log(`📄 Other pages: ${this.stats.otherPages}`);
+        console.log(`📝 Components with examples: ${this.stats.componentsWithExamples}`);
+        console.log(`📄 Pages with API only: ${this.stats.pagesWithoutExamples}`);
+        console.log(`⚠️  Warnings: ${this.stats.warnings.length}`);
+        console.log(`❌ Errors: ${this.stats.errors.length}`);
+
+        if (this.stats.warnings.length > 0) {
+            console.log('\n⚠️  Warnings:');
+            this.stats.warnings.forEach((warning, index) => {
+                console.log(`   ${index + 1}. ${warning}`);
+            });
+        }
+
+        if (this.stats.errors.length > 0) {
+            console.log('\n🚨 Errors:');
+            this.stats.errors.forEach((error, index) => {
+                console.log(`   ${index + 1}. ${error}`);
+            });
+        }
+
+        if (this.stats.warnings.length === 0 && this.stats.errors.length === 0) {
+            console.log('\n✅ No warnings or errors!');
+        }
+
+        console.log(`\n📁 Output directory: ${this.outputDir}`);
+        console.log('🎉 Site generation completed!');
+        console.log('='.repeat(80));
     }
-    
-    console.log(`\n📁 Output directory: ${this.outputDir}`);
-    console.log('🎉 Site generation completed!');
-    console.log('='.repeat(80));
-  }
 }
 
 // Main execution
 async function main() {
-  const inputFile = path.join(__dirname, '..', 'input-data', 'output.json');
-  const outputDir = path.join(__dirname, '..', 'dist');
-  
-  const generator = new SiteGenerator(inputFile, outputDir);
-  await generator.generate();
+    const inputFile = path.join(__dirname, '..', 'input-data', 'output.json');
+    const outputDir = path.join(__dirname, '..', 'dist');
+
+    const generator = new SiteGenerator(inputFile, outputDir);
+    await generator.generate();
 }
 
 // Run the generator
 if (require.main === module) {
-  main().catch(console.error);
+    main().catch(console.error);
 }
 
 export { SiteGenerator };
