@@ -1,0 +1,44 @@
+{
+  "name": "Divider",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"dark\" | \"light\" | \"inverse\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "length",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Ориентация разделителя",
+      "snippet": "import React from 'react';\nimport { BodyS, Divider } from '@salutejs/plasma-web';\nexport function App() {\n    const Demo = ({\n        orientation = 'horizontal',\n        length = '100%',\n        beforeText = 'Before',\n        afterText = 'After',\n    }) => {\n        const wrapperStyle = {\n            display: \"inline-flex\",\n            gap: \"0.5rem\",\n            alignItems: \"center\",\n            justifyContent: \"center\",\n            flexDirection: orientation === \"horizontal\" ? \"column\" : \"row\"\n        }\n        return (\n            <div style={wrapperStyle}>\n                <BodyS>{beforeText}</BodyS>\n                <Divider orientation={orientation} length={length} />\n                <BodyS>{afterText}</BodyS>\n            </div>\n        );\n    };\n    return (\n        <div style={{ display: \"flex\", gap: \"2rem\" }}>\n            <Demo />\n            <Demo orientation=\"vertical\" />\n        </div>\n    );\n}"
+    }
+  ]
+}

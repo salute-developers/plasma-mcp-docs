@@ -1,0 +1,59 @@
+{
+  "name": "ChipGroup",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"accent\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "gap",
+        "type": "\"dense\" | \"wide\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isCommonChipStyles",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isWrapped",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Компонент  ChipGroup  - это обертка для Chip. Принимает в себя группу элементов.",
+      "snippet": "import React from 'react';\nimport { ChipGroup, Chip } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <ChipGroup>\n            {Array(5)\n                .fill(true)\n                .map((_, i) => (\n                    <Chip text={`Chip ${i}`} />\n                ))}\n        </ChipGroup>\n    );\n}"
+    },
+    {
+      "title": "Размер и вид группы Chip",
+      "snippet": "import React from 'react';\nimport { ChipGroup, Chip } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ChipGroup size=\"s\" view=\"secondary\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Chip text={`Chip ${i}`} />\n                    ))}\n            </ChipGroup>\n            <ChipGroup isCommonChipStyles={false}>\n                <Chip size=\"m\" text=\"Default\" />\n                <Chip size=\"s\" text=\"Secondary\" view=\"secondary\" />\n                <Chip size=\"xs\" text=\"Accent\" view=\"accent\" />\n            </ChipGroup>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Отступы между Chip Группа элементов имеет два вида отступов",
+      "snippet": "import React from 'react';\nimport { ChipGroup, Chip } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ChipGroup size=\"xs\" gap=\"dense\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Chip text={`Chip ${i}`} />\n                    ))}\n            </ChipGroup>\n            <ChipGroup size=\"xs\" gap=\"wide\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Chip text={`Chip ${i}`} />\n                    ))}\n            </ChipGroup>\n        </div>\n    );\n}"
+    }
+  ]
+}

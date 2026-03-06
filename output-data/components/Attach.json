@@ -1,0 +1,243 @@
+{
+  "name": "Attach",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"accent\" | \"warning\" | \"dark\" | \"success\" | \"critical\" | \"black\" | \"white\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperTextView",
+        "type": "\"default\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentPlacing",
+        "type": "ContentPlacing",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "Stretching",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "square",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pin",
+        "type": "\"square-square\" | \"square-clear\" | \"clear-square\" | \"clear-clear\" | \"clear-circle\" | \"circle-clear\" | \"circle-circle\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "outlined",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftLeft",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftRight",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "blur",
+        "type": "\"small\" | \"medium\" | \"large\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "acceptedFileFormats",
+        "type": "string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hideButtonOnAttach",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasAttachment",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClear",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "flow",
+        "type": "\"horizontal\" | \"vertical\" | \"auto\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dropdownOptions",
+        "type": "DropdownOptions",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "buttonType",
+        "type": "\"button\" | \"iconButton\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    const handleFileSelect = (event) => {\n        const file = event.target.files[0];\n        console.log('Выбран файл:', file.name);\n    };\n    return (\n        <Attach\n            view=\"accent\"\n            text=\"Upload file\"\n            onChange={handleFileSelect}\n        />\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом и типом компонента С помощью свойств",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\"}}>\n            <Attach view=\"accent\" buttonType='button' text=\"Upload file\" />\n            <Attach view=\"secondary\" buttonType='iconButton'/>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление подсказкой с помощью свойства helperText Вид  helperText  задается с помощью свойства  helperTextView . Возможные значения свойства",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ padding: \"1rem\" }}>\n            <Attach helperTextView=\"default\" helperText=\"Caption\" />\n            <Attach helperTextView=\"negative\" helperText=\"Caption\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Расположение элементов Расположение регулируется свойством Flow, которое позволяет размещать элементы вертикально,",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"50px\"}}>\n            <Attach style={{ width: \"400px\" }} helperText='Auto' flow=\"auto\" />\n            <Attach style={{ width: \"400px\" }} helperText='Horizontal' flow=\"horizontal\" />\n            <Attach style={{ width: \"400px\" }} helperText='Vertical' flow=\"vertical\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Attach с несколькими файлами С помощью свойств",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\"}}>\n            <Attach multiple flow=\"horizontal\" style={{ width: \"400px\" }} text=\"Upload files\" />\n            <Attach multiple flow=\"vertical\" style={{ width: \"400px\" }} text=\"Upload files\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Фильтр форматов файлов Свойство  acceptedFileFormats  устанавливает доступные форматы файлов.",
+      "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    const handleFileSelect = (event) => {\n        const file = event.target.files[0];\n        console.log('Выбран файл:', file.name);\n    };\n    return (\n        <Attach\n            acceptedFileFormats={['.pdf', '.doc']}\n            view=\"accent\"\n            text=\"Upload file\"\n            onChange={handleFileSelect}\n        />\n    );\n}"
+    },
+    {
+      "title": "Пример взаимодействия с формой",
+      "snippet": "import React, { useState } from 'react';\nimport { Attach, Button, InformationWrapper } from '@salutejs/plasma-web';\nfunction App() {\n    const [isLoading, setIsLoading] = useState(false);\n    const [attachedFiles, setAttachedFiles] = useState([]);\n    const handleAttachFile = (e) => {\n        setAttachedFiles((prevAttachedFiles) => [\n            ...prevAttachedFiles,\n            {\n                fileData: e.target.files[0],\n                id: e.target.id,\n            },\n        ]);\n    };\n    const handleAttachClear = (id) => {\n        setAttachedFiles(attachedFiles.filter((file) => file.id !== id));\n    };\n    const handleSubmit = (e) => {\n        e.preventDefault();\n        setIsLoading(true);\n        const formData = new FormData(e.target);\n        console.log('formData', Object.fromEntries(formData));\n        setTimeout(() => {\n            setAttachedFiles([]);\n            setIsLoading(false);\n        }, 2000);\n    };\n    return (\n        <>\n            {!isLoading && (\n                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '16px 18px', border: `1px dashed black` }}>\n                    <InformationWrapper labelHtmlFor={`example-id-attach-1`} label=\"Label\" hasRequiredIndicator leftHelper=\"Caption\" titleCaption=\"Title Caption\">\n                        <Attach\n                            id={`example-id-attach-1`}\n                            name={`attach-1`}\n                            text={`Upload avatar`}\n                            onChange={handleAttachFile}\n                            onClear={() => handleAttachClear('1')}\n                            view=\"accent\"\n                        />\n                   </InformationWrapper>\n                    <InformationWrapper\n                        labelHtmlFor={`example-id-attach-2`}\n                        label=\"Label\"\n                        leftHelper=\"Caption\"\n                        titleCaption=\"Title Caption\"\n                        hintText='Example hint text'\n                    >\n                        <Attach\n                            id={`example-id-attach-2`}\n                            name={`attach-2`}\n                            text={`Upload config`}\n                            onChange={handleAttachFile}\n                            onClear={() => handleAttachClear('2')}\n                            view=\"accent\"\n                        />\n                   </InformationWrapper>\n                   <Button style={{ alignSelf: 'end' }} type=\"submit\">Submit</Button>\n                </form>\n            )}\n            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem', margin: '16px 0 0 0', border: '1px dashed gray' }}>\n              <span>\n                {isLoading ? 'Форма отправляется' : 'Прикрепленные к форме файлы:'}\n              </span>\n              {!isLoading && attachedFiles.length > 0 && (\n                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>\n                    {attachedFiles.map((file) => (\n                        <div>{file.fileData.name}</div>\n                    ))}\n                </div>\n              )}\n            </div>\n        </>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Breadcrumbs",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "separator",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "BreadcrumbsItem[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showItems",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "type Items =\n    | {\n          /**\n           * Обработчик клика на элемент\n           */\n          onClick?: () => void;\n          /**\n           * Элемент заголовка\n           */\n          title: string;\n          /**\n           * Элемент выключен\n           */\n          disabled?: boolean;\n      }\n    | {\n          /**\n           * Ссылка на страницу ( если не указана, то ссылка не кликабельна )\n           */\n          href?: string;\n          /**\n           * Элемент заголовка\n           */\n          title: string;\n          /**\n           * Элемент выключен\n           */\n          disabled?: boolean;\n      }\n    | {\n          /**\n           * Функция рендера элемента\n           */\n          renderItem: () => ReactNode;\n      };"
+    },
+    {
+      "title": "Example 2",
+      "snippet": "import React from 'react';\nimport { Breadcrumbs } from '@salutejs/plasma-web';\nexport function App() {\n    const items = [\n        { title: 'Home', href: '/' },\n        { title: 'Without link' },\n        { title: 'Disabled', disabled: true },\n        { title: 'Disabled with link', href: '/', disabled: true },\n        {\n            title: 'On Click',\n            onClick: () => {\n                alert('On Click');\n            },\n        },\n        { renderItem: () => <span style={{ cursor: 'pointer' }}>Custom </span> },\n        { title: 'Main' },\n    ];\n    return (\n        <div>\n            <Breadcrumbs items={items} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Example 3",
+      "snippet": "import React from 'react';\nimport { Breadcrumbs } from '@salutejs/plasma-web';\nexport function App() {\n    const items = [\n        { title: 'Home', href: '/' },\n        { title: 'About as', href: '/' },\n        { renderItem: () => <span>Custom Item</span> },\n        { title: 'Contacts' },\n    ];\n    return (\n        <div style={{\"flexDirection\": 'column'}}>\n            <div>\n                <Breadcrumbs items={items} showItems={2} />\n            </div>\n            <div>\n                 <Breadcrumbs items={items} showItems={3} />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Example 4",
+      "snippet": "import React from 'react';\nimport { Breadcrumbs, Dropdown } from '@salutejs/plasma-web';\nexport function App() {\n    const items = [\n        { title: 'Home', href: '/' },\n        { title: 'About as', href: '/' },\n        {\n            renderItem: () => {\n                const itemsDropdown = [\n                    {\n                        value: 'Custom Item 1',\n                        label: 'Custom Item 1',\n                    },\n                    {\n                        value: 'Custom Item 2',\n                        label: 'Custom Item 2',\n                    },\n                ];\n                return (\n                    <Dropdown variant=\"tight\" placement=\"bottom\" items={itemsDropdown} trigger=\"hover\">\n                        <span>...</span>\n                    </Dropdown>\n                );\n            },\n        },\n        { title: 'Contacts' },\n    ];\n    return (\n        <div style={{height: '200px'}}>\n            <Breadcrumbs items={items} />\n        </div>\n    );\n}"
+    }
+  ]
+}

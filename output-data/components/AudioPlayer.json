@@ -1,0 +1,79 @@
+{
+  "name": "AudioPlayer",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isSelected",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isPlaying",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "canDelete",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClick",
+        "type": "() => void",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDelete",
+        "type": "() => void",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onPlay",
+        "type": "(event: MouseEvent<HTMLSpanElement, MouseEvent>) => void",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование",
+      "snippet": "import React, { useState, useCallback } from 'react';\nimport { AudioPlayer } from '@salutejs/plasma-web';\nexport function App() {\n    const song = {\n        name: 'I’m Not Okay',\n        duration: 128,\n        id: 123,\n        file: 'https://cdn1.newsback.sberdevices.ru/p-newsback/media/uploads/15/159f025fe48c54f70b7a4041edbb413044f01a61.mp3',\n        canDelete: true,\n    };\n    const [state, setState] = useState({\n        isSelected: false,\n        isPlaying: false,\n    });\n    const onSelect = useCallback(() => {\n        setState((prevState) => ({\n            ...prevState,\n            isSelected: !prevState.isSelected,\n        }));\n    }, []);\n    const onPlay = useCallback(() => {\n        setState((prevState) => ({\n            ...prevState,\n            isPlaying: !prevState.isPlaying,\n        }));\n    }, []);\n    const onDelete = useCallback((id) => {\n        alert(`Трек id:${id} будет удалён`);\n    }, []);\n    return (\n      <AudioPlayer\n            title={song.name}\n            duration={song.duration}\n            url={song.file}\n            isPlaying={state.isPlaying}\n            isSelected={state.isSelected}\n            canDelete={song.canDelete}\n            onClick={onSelect}\n            onDelete={() => onDelete(song.id)}\n            onPlay={(event) => {\n                event.stopPropagation();\n                onPlay();\n            }}\n      />\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "name": "Checkbox",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"primary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"tertiary\" | \"paragraph\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "ChangeEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocus",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlur",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "singleLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox label=\"Чекбокс\" description=\"Описание\" defaultChecked />\n    );\n}"
+    },
+    {
+      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox\n            label={<div>Чекбокс со <a href=\"/#\">ссылкой</a></div>}\n            description={<div>Описание чекбокса со <a href=\"/#\">ссылкой</a></div>}\n        />\n    );\n}"
+    },
+    {
+      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox label=\"Чекбокс\" description=\"Описание\" defaultChecked indeterminate checked={false} />\n    );\n}"
+    }
+  ]
+}

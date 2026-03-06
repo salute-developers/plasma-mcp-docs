@@ -1,0 +1,104 @@
+{
+  "name": "Cell",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Компонент ячейки.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "alignContentLeft",
+        "type": "AlignProp",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "alignContentRight",
+        "type": "AlignProp",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "\"filled\" | \"fixed\" | \"auto\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "content",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое использование",
+      "snippet": "import React from 'react';\nimport { Cell } from '@salutejs/plasma-web';\nimport { Avatar } from '@salutejs/plasma-web';\nimport { IconChevronRight } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Cell\n                contentLeft={\n                    <Avatar size=\"m\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n                }\n                size=\"m\"\n                contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}\n                title=\"Title\"\n                subtitle=\"Subtitle\"\n                label=\"Label\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "С использованием своих стилей или встроеных компонентов",
+      "snippet": "import React from 'react';\nimport { Cell , CellTextboxLabel , CellTextboxTitle , CellTextboxSubtitle, CellTextbox } from '@salutejs/plasma-web';\nimport { Avatar } from '@salutejs/plasma-web';\nimport { IconChevronRight } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Cell\n                contentLeft={\n                    <Avatar size=\"m\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n                }\n                size=\"m\"\n                contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}\n            >\n                <CellTextbox>\n                    <CellTextboxLabel>Label</CellTextboxLabel>\n                    <CellTextboxTitle>Title</CellTextboxTitle>\n                    <CellTextboxSubtitle>Subtitle</CellTextboxSubtitle>\n                    <div style={{'font-size': '12px', opacity: 0.4}}>Caption</div>\n                </CellTextbox>\n            </Cell>\n        </div>\n    );\n}"
+    }
+  ]
+}

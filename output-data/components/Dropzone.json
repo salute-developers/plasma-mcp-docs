@@ -1,0 +1,121 @@
+{
+  "name": "Dropzone",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string | (ReactElement<any, string | JSXElementConstructor<any>> & string) | (ReactFragment & string) | (ReactPortal & string)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconPlacement",
+        "type": "\"top\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragEnter",
+        "type": "(((event: DragEvent<HTMLDivElement>) => void) & DragEventHandler<HTMLInputElement>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragLeave",
+        "type": "(((event: DragEvent<HTMLDivElement>) => void) & DragEventHandler<HTMLInputElement>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragOver",
+        "type": "(((event: DragEvent<HTMLDivElement>) => void) & DragEventHandler<HTMLInputElement>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "validator",
+        "type": "((files: File[]) => ValidatorReturnType)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDrop",
+        "type": "(FileProcessHandler & DragEventHandler<HTMLInputElement>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChoseFiles",
+        "type": "FileProcessHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "import React from 'react';\nimport { Dropzone } from '@salutejs/plasma-web';\nexport function App() {\n    const onDragEnter = () => {\n        console.log(\"onDragEnter\")\n    }\n    const onDragLeave = () => {\n        console.log(\"onDragLeave\")\n    }\n    const onDrop = () => {\n        console.log(\"onDrop\")\n    }\n    const onChange = () => {\n        console.log(\"onChange\")\n    }\n    const onChoseFiles = () => {\n        console.log(\"onChoseFiles\")\n    }\n    return (\n        <Dropzone\n            iconPlacement=\"top\"\n            width=\"240\"\n            title=\"Click to upload\"\n            description=\"or drag and drop files here\"\n            onDragEnter={onDragEnter}\n            onDragLeave={onDragLeave}\n            onDrop={onDrop}\n            onChange={onChange}\n            onChoseFiles={onChoseFiles}\n        />\n    );\n}"
+    }
+  ]
+}

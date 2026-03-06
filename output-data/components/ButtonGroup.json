@@ -1,0 +1,77 @@
+{
+  "name": "ButtonGroup",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"primary\" | \"accent\" | \"warning\" | \"dark\" | \"success\" | \"critical\" | \"black\" | \"white\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\" | \"xxs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "gap",
+        "type": "\"none\" | \"dense\" | \"wide\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shape",
+        "type": "\"default\" | \"segmented\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "\"filled\" | \"auto\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isCommonButtonStyles",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Компонент  ButtonGroup  - это обертка для Button. Принимает в себя группу кнопок.",
+      "snippet": "import React from 'react';\nimport { ButtonGroup, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <ButtonGroup>\n            {Array(5)\n                .fill(true)\n                .map((_, i) => (\n                    <Button text={`Button ${i}`} />\n                ))}\n        </ButtonGroup>\n    );\n}"
+    },
+    {
+      "title": "Размер и вид группы кнопок",
+      "snippet": "import React from 'react';\nimport { ButtonGroup, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ButtonGroup size=\"s\" view=\"secondary\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n            <ButtonGroup isCommonButtonStyles={false}>\n                <Button size=\"m\" text=\"Default\" />\n                <Button size=\"s\" text=\"Primary\" view=\"default\" />\n                <Button size=\"xs\" text=\"Success\" view=\"success\" />\n            </ButtonGroup>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ориентация группы кнопок и отступы между кнопками Группа кнопок может располагаться вертикально или горизонтально и иметь три вида отступов",
+      "snippet": "import React from 'react';\nimport { ButtonGroup, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ButtonGroup size=\"xs\" orientation=\"vertical\" gap=\"none\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n            <ButtonGroup size=\"xs\" orientation=\"horizontal\" gap=\"wide\">\n                {Array(4)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Границы кнопки",
+      "snippet": "import React from 'react';\nimport { ButtonGroup, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ButtonGroup size=\"xs\" shape=\"segmented\">\n                {Array(3)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n            <ButtonGroup size=\"xs\" shape=\"default\">\n                {Array(3)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n            <ButtonGroup size=\"xs\" shape=\"pilled\">\n                {Array(3)\n                    .fill(true)\n                    .map((_, i) => (\n                        <Button text={`Button ${i}`} />\n                    ))}\n            </ButtonGroup>\n        </div>\n    );\n}"
+    }
+  ]
+}

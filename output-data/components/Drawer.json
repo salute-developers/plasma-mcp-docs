@@ -1,0 +1,224 @@
+{
+  "name": "Drawer",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "borderRadius",
+        "type": "\"none\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placement",
+        "type": "\"top\" | \"bottom\" | \"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "[number, number] | [string, string]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "positionFixed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "overlay",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "popupInfo",
+        "type": "PopupInfo",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withAnimation",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customBackgroundColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customContentBackgroundColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animationInfo",
+        "type": "DrawerAnimationInfo",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "asModal",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withBlur",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnEsc",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onEscKeyDown",
+        "type": "((event: KeyboardEvent) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onOverlayClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "initialFocusRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focusAfterRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Перед использованием убедитесь, что  PopupBaseProvider  подключен.",
+      "snippet": "import ReactDOM from 'react-dom';\nimport { PopupBaseProvider } from '@salutejs/plasma-web';\nimport { App } from './App';\nReactDOM.render(\n    <PopupBaseProvider>\n        <App />\n    </PopupBaseProvider>,\n    document.getElementById('root')\n);"
+    },
+    {
+      "title": "Отображения Drawer Drawer можно использовать как и на всем окне, так и в отдельном фрейме - свойство  frame .",
+      "snippet": "import React, { useRef } from 'react';\nimport styled, { css } from 'styled-components';\nimport { IconDone } from '@salutejs/plasma-icons';\nimport { surfaceSolid03 } from '@salutejs/plasma-tokens-web';\nimport { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupBaseProvider } from  '@salutejs/plasma-web';\nexport function App() {\n    const [isOpenA, setIsOpenA] = React.useState(false);\n    const [isOpenB, setIsOpenB] = React.useState(false);\n    const ref = useRef();\n    return (\n        <SSRProvider>\n            <PopupBaseProvider>\n                <div style={{height: \"500px\"}}>\n                    <div style={{ display: \"flex\", flexDirection: \"column\" }}>\n                        <Button\n                            text=\"Открыть в document\"\n                            onClick={() => setIsOpenA(true)}\n                            style={{\n                                marginTop: \"1rem\",\n                                width: \"15rem\"\n                            }}\n                        />\n                        <Button\n                            text=\"Открыть во Frame\"\n                            onClick={() => setIsOpenB(true)}\n                            style={{\n                                marginTop: \"1rem\",\n                                width: \"15rem\"\n                            }}\n                        />\n                    </div>\n                    <Drawer\n                        id=\"drawerA\"\n                        opened={isOpenA}\n                        onClose={() => setIsOpenA(false)}\n                        placement=\"right\"\n                        withBlur={false}\n                        closeOnEsc={true}\n                        closeOnOverlayClick={true}\n                        asModal={true}\n                        width=\"25vw\"\n                        height=\"100vh\"\n                    >\n                            <DrawerHeader\n                                hasClose={true}\n                                closePlacement=\"right\"\n                                actions={(\n                                    <Button size=\"s\" view=\"clear\" style={{\n                                        position: \"relative\",\n                                        width: \"1.5rem\",\n                                        height: \"1.5rem\"\n                                    }}>\n                                        <IconDone size=\"s\" />\n                                    </Button>\n                                )}\n                                onClose={() => setIsOpenA(false)}\n                            >\n                                <H3>Header</H3>\n                            </DrawerHeader>\n                            <DrawerContent>Content</DrawerContent>\n                            <DrawerFooter>\n                                <H3>Footer</H3>\n                            </DrawerFooter>\n                        </Drawer>\n                    <div\n                        ref={ref}\n                        style={{\n                            marginTop: \"1rem\",\n                            width: \"400px\",\n                            height: \"500px\",\n                            background: surfaceSolid03,\n                            position: \"absolute\",\n                            display: \"flex\",\n                            alignItems: \"flex-start\",\n                            justifyContent: \"center\",\n                            padding: \"1rem\",\n                            bottom: 0,\n                            right: 0\n                        }}\n                    >\n                        <>Frame</>\n                    </div>\n                    <Drawer\n                        id=\"drawerB\"\n                        opened={isOpenB}\n                        onClose={() => setIsOpenB(false)}\n                        placement=\"right\"\n                        asModal={false}\n                        frame={ref}\n                        width=\"250px\"\n                        height=\"100%\"\n                    >\n                            <DrawerHeader\n                                hasClose={true}\n                                closePlacement=\"right\"\n                                actions={(\n                                    <Button size=\"s\" view=\"clear\" style={{\n                                        position: \"relative\",\n                                        width: \"1.5rem\",\n                                        height: \"1.5rem\"\n                                    }}>\n                                        <IconDone size=\"s\" />\n                                    </Button>\n                                )}\n                                onClose={() => setIsOpenB(false)}\n                            >\n                                <H3>Header</H3>\n                            </DrawerHeader>\n                            <DrawerContent>Content</DrawerContent>\n                            <DrawerFooter>\n                                <H3>Footer</H3>\n                            </DrawerFooter>\n</Drawer>\n                </div>\n            </PopupBaseProvider>\n        </SSRProvider>\n    );\n}"
+    },
+    {
+      "title": "Анимация Для работы с анимацией необходимо использовать свойство  animationInfo .",
+      "snippet": "import React from 'react';\nimport { IconDone } from '@salutejs/plasma-icons';\nimport { createGlobalStyle } from 'styled-components';\nimport { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/plasma-web';\nexport function App() {\n    const [isOpenA, setIsOpenA] = React.useState(false);\n    const [isOpenB, setIsOpenB] = React.useState(false);\n    const animationInfo = {\n        enter: 'enterAnimation 0.2s forwards',\n        exit: 'exitAnimation 0.2s forwards',\n    }\n    const GlobalAnimations = createGlobalStyle`\n        @keyframes enterAnimation {\n            from {\n                transform: translate(100%, -150%);\n                opacity: 0;\n            }\n            to {\n                transform: translate(0, -50%);\n                opacity: 1;\n            }\n        }\n        @keyframes exitAnimation {\n            from {\n                transform: translate(0, -50%);\n                opacity: 1;\n            }\n            to {\n                transform: translate(100%, -150%);\n                opacity: 0;\n            }\n        }\n    `;\n    return (\n        <SSRProvider>\n            <GlobalAnimations />\n            <PopupProvider>\n                <div style={{height: \"500px\"}}>\n                    <div style={{ display: \"flex\", flexDirection: \"column\" }}>\n                        <Button\n                            text=\"Открыть в document\"\n                            onClick={() => setIsOpenA(true)}\n                            style={{\n                                marginTop: \"1rem\",\n                                width: \"15rem\"\n                            }}\n                        />\n                    </div>\n                    <Drawer\n                        animationInfo={animationInfo}\n                        id=\"drawerA\"\n                        opened={isOpenA}\n                        onClose={() => setIsOpenA(false)}\n                        placement=\"right\"\n                        withBlur={false}\n                        closeOnEsc={true}\n                        closeOnOverlayClick={true}\n                        asModal={true}\n                        width=\"25vw\"\n                        height=\"100vh\"\n                    >\n                        <DrawerHeader\n                            hasClose={true}\n                            closePlacement=\"right\"\n                            actions={(\n                                <Button size=\"s\" view=\"clear\" style={{\n                                    position: \"relative\",\n                                    width: \"1.5rem\",\n                                    height: \"1.5rem\"\n                                }}>\n                                    <IconDone size=\"s\" />\n                                </Button>\n                            )}\n                            onClose={() => setIsOpenA(false)}\n                        >\n                            <H3>Header</H3>\n                        </DrawerHeader>\n                        <DrawerContent>Content</DrawerContent>\n                        <DrawerFooter>\n                            <H3>Footer</H3>\n                        </DrawerFooter>\n                    </Drawer>\n                </div>\n            </PopupProvider>\n        </SSRProvider>\n    );\n}"
+    },
+    {
+      "title": "Анимация Для работы с анимацией необходимо использовать свойство  animationInfo .",
+      "snippet": "import React from 'react';\nimport { IconDone } from '@salutejs/plasma-icons';\nimport { SSRProvider, H3, Button, Drawer, DrawerHeader, DrawerContent, DrawerFooter, PopupProvider } from  '@salutejs/plasma-web';\nconst drawerAnimation = `\n    @keyframes enterAnimation {\n        0% {\n            transform: translate(100%, -150%);\n            opacity: 0;\n        }\n        100% {\n            transform: translate(0, -50%);\n            opacity: 1;\n        }\n    }\n    @keyframes exitAnimation {\n        0% {\n            transform: translate(0, -50%);\n            opacity: 1;\n        }\n        100% {\n            transform: translate(100%, -150%);\n            opacity: 0;\n        }\n    }\n`;\nexport function App() {\n    const [isOpenA, setIsOpenA] = React.useState(false);\n    const [isOpenB, setIsOpenB] = React.useState(false);\n    const animationInfo = {\n        enter: 'enterAnimation 0.2s forwards',\n        exit: 'exitAnimation 0.2s forwards',\n    }\n    return (\n        <SSRProvider>\n            <style>{drawerAnimation}</style>\n            <PopupProvider>\n                <div style={{height: \"500px\"}}>\n                    <div style={{ display: \"flex\", flexDirection: \"column\" }}>\n                        <Button\n                            text=\"Открыть в document\"\n                            onClick={() => setIsOpenA(true)}\n                            style={{\n                                marginTop: \"1rem\",\n                                width: \"15rem\"\n                            }}\n                        />\n                    </div>\n                    <Drawer\n                        animationInfo={animationInfo}\n                        id=\"drawerA\"\n                        opened={isOpenA}\n                        onClose={() => setIsOpenA(false)}\n                        placement=\"right\"\n                        withBlur={false}\n                        closeOnEsc={true}\n                        closeOnOverlayClick={true}\n                        asModal={true}\n                        width=\"25vw\"\n                        height=\"100vh\"\n                    >\n                        <DrawerHeader\n                            hasClose={true}\n                            closePlacement=\"right\"\n                            actions={(\n                                <Button size=\"s\" view=\"clear\" style={{\n                                    position: \"relative\",\n                                    width: \"1.5rem\",\n                                    height: \"1.5rem\"\n                                }}>\n                                    <IconDone size=\"s\" />\n                                </Button>\n                            )}\n                            onClose={() => setIsOpenA(false)}\n                        >\n                            <H3>Header</H3>\n                        </DrawerHeader>\n                        <DrawerContent>Content</DrawerContent>\n                        <DrawerFooter>\n                            <H3>Footer</H3>\n                        </DrawerFooter>\n                    </Drawer>\n                </div>\n            </PopupProvider>\n        </SSRProvider>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "name": "Avatar",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xl\" | \"xxl\" | \"fit\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shape",
+        "type": "\"circled\" | \"rounded\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "badgeView",
+        "type": "\"default\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"dark\" | \"light\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "counterView",
+        "type": "\"default\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"dark\" | \"light\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "\"active\" | \"inactive\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isScalable",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "statusLabels",
+        "type": "StatusLabels",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasExtra",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"badge\" | \"counter\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "extraPlacement",
+        "type": "\"top-right\" | \"top-left\" | \"bottom-right\" | \"bottom-left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customBorderRadius",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customBackgroundColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxCount",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Размер аватара Размер задается с помощью свойства  size . Возможные значения свойства",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar size=\"xxl\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n            <Avatar size=\"l\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n            <Avatar size=\"m\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n            <Avatar size=\"s\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Скругления аватара Скругления задается с помощью свойства  shape . Возможные значения",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar shape=\"circled\" status=\"active\" name=\"Иван Фадеев\" />\n            <Avatar shape=\"rounded\" status=\"active\" name=\"Иван Фадеев\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Инициалы вместо фотографии Инициалы можно задать с помощью свойства  name . Желательный формат строки - \"Имя Фамилия\". Также не должно быть свойства url.",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar name=\"Иван Фадеев\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Статус аватара Статус задается с помощью свойства  status . Возможные значения",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar status=\"active\" name=\"Иван Фадеев\" />\n            <Avatar status=\"inactive\" name=\"Иван Фадеев\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Увеличение при наведении Опциональное свойство  \"isScalable\" .",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar isScalable name=\"Иван Фадеев\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Avatar c использованием изображения В данном случае руководствуемся принципом универсального дизайна, т.е. незрячий должен получить ту же информацию, что и зрячий. Поэтому добавляем/используем свойства",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar role=\"button\" tabIndex={0} name=\"Иван Фадеев\" url=\"https://avatars.githubusercontent.com/u/1813468?v=4\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Avatar c текстом В этом случае достаточно указать свойство  name .",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar role=\"button\" tabIndex={0} name=\"Иван Фадеев\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Avatar и статус Если указано свойство  status  его значение будет так же озвучено в комбинации со свойством  name  или  aria-label .",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar role=\"button\" tabIndex={0} name=\"Иван Фадеев\" status=\"inactive\" />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Avatar и дополнительный контент Чтобы отобразить дополнительный контент нужно передать свойство  hasExtra .",
+      "snippet": "import React from 'react';\nimport { Avatar } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Avatar\n                size=\"l\"\n                name=\"Иван Фадеев\"\n                extraPlacement=\"top-left\"\n                type=\"counter\"\n                count={33}\n                counterView=\"positive\"\n                hasExtra\n            />\n            <Avatar\n                size=\"l\"\n                name=\"Иван Фадеев\"\n                extraPlacement=\"top-right\"\n                type=\"counter\"\n                count={33}\n                counterView=\"accent\"\n                hasExtra\n            />\n            <Avatar\n                size=\"l\"\n                name=\"Иван Фадеев\"\n                extraPlacement=\"bottom-right\"\n                type=\"badge\"\n                text=\"15\"\n                badgeView=\"warning\"\n                hasExtra\n            />\n            <Avatar\n                size=\"l\"\n                name=\"Иван Фадеев\"\n                extraPlacement=\"bottom-left\"\n                type=\"badge\"\n                text=\"15\"\n                badgeView=\"negative\"\n                hasExtra\n            />\n        </>\n    );\n}"
+    }
+  ]
+}

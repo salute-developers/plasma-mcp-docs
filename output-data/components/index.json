@@ -1,9 +1,171 @@
 {
   "items": [
     {
+      "name": "Accordion",
+      "href": "Accordion.json",
+      "summary": "Компонент выпадающей информации",
+      "category": "components"
+    },
+    {
+      "name": "Attach",
+      "href": "Attach.json",
+      "summary": "горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
+      "category": "components"
+    },
+    {
+      "name": "AudioPlayer",
+      "href": "AudioPlayer.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Autocomplete",
+      "href": "Autocomplete.json",
+      "summary": "Поле ввода с подсказками в выпадающем списке.",
+      "category": "components"
+    },
+    {
+      "name": "Avatar",
+      "href": "Avatar.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "AvatarGroup",
+      "href": "AvatarGroup.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Badge",
+      "href": "Badge.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Breadcrumbs",
+      "href": "Breadcrumbs.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
       "name": "Button",
       "href": "Button.json",
       "summary": "Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+      "category": "components"
+    },
+    {
+      "name": "ButtonGroup",
+      "href": "ButtonGroup.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Calendar",
+      "href": "Calendar.json",
+      "summary": "Компоненты календарей для выбора даты или диапазона дат.",
+      "category": "components"
+    },
+    {
+      "name": "Card",
+      "href": "Card.json",
+      "summary": "Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок",
+      "category": "components"
+    },
+    {
+      "name": "Carousel",
+      "href": "Carousel.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Cell",
+      "href": "Cell.json",
+      "summary": "Компонент ячейки.",
+      "category": "components"
+    },
+    {
+      "name": "Checkbox",
+      "href": "Checkbox.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Chip",
+      "href": "Chip.json",
+      "summary": "Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+      "category": "components"
+    },
+    {
+      "name": "ChipGroup",
+      "href": "ChipGroup.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "CodeField",
+      "href": "CodeField.json",
+      "summary": "Компонент CodeField используется для ввода OTP-кодов.",
+      "category": "components"
+    },
+    {
+      "name": "CodeInput",
+      "href": "CodeInput.json",
+      "summary": "Компонент CodeInput используется для ввода OTP-кодов.",
+      "category": "components"
+    },
+    {
+      "name": "Combobox",
+      "href": "Combobox.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Counter",
+      "href": "Counter.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "DatePicker",
+      "href": "DatePicker.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "DateTimePicker",
+      "href": "DateTimePicker.json",
+      "summary": "| Обозначение | Отображение | Описание | |-------------|---------------------------------------|----------------------------------| | DD | 01-31 | Дни месяца, 2 цифры | | D | 1-31 | Дни месяца | | MMMM | January...December / январь...декабрь | Месяц года, полное название | | MMM | Jan...Dec / янв.-д",
+      "category": "components"
+    },
+    {
+      "name": "Divider",
+      "href": "Divider.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Drawer",
+      "href": "Drawer.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Dropdown",
+      "href": "Dropdown.json",
+      "summary": "Выпадающий многоуровневый список.",
+      "category": "components"
+    },
+    {
+      "name": "Dropzone",
+      "href": "Dropzone.json",
+      "summary": "",
+      "category": "components"
+    },
+    {
+      "name": "Editable",
+      "href": "Editable.json",
+      "summary": "",
       "category": "components"
     }
   ]

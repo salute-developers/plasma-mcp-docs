@@ -1,0 +1,115 @@
+{
+  "name": "Chip",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"primary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xxs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentClearButton",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClear",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClickClose",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Компонент  Chip  может содержать текст, который указывается в",
+      "snippet": "import React from 'react';\nimport { Chip } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Chip text=\"Текст\" />\n            <Chip text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip text=\"Текст\" />\n            <Chip text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip>\n                Текст\n            </Chip>\n            <Chip text=\"Текст\" hasClear={false} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер Chip",
+      "snippet": "import React from 'react';\nimport { Chip } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Chip text=\"Chip\" size=\"l\" />\n            <Chip text=\"Chip\" size=\"m\" />\n            <Chip text=\"Chip\" size=\"s\" />\n            <Chip text=\"Chip\" size=\"xs\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид Chip",
+      "snippet": "import React from 'react';\nimport { Chip } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Chip text=\"Chip\" size=\"m\" view=\"default\" />\n            <Chip text=\"Chip\" size=\"m\" view=\"secondary\" />\n            <Chip text=\"Chip\" size=\"m\" view=\"accent\" />\n            <Chip text=\"Chip\" size=\"m\" view=\"positive\" />\n            <Chip text=\"Chip\" size=\"m\" view=\"warning\" />\n            <Chip text=\"Chip\" size=\"m\" view=\"negative\" />\n        </div>\n    );\n}"
+    }
+  ]
+}

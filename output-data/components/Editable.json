@@ -1,0 +1,72 @@
+{
+  "name": "Editable",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textComponent",
+        "type": "FC<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"ref\"> & { ref?: ((instance: HTMLDivElement | null) => void) | ... 2 more ... | undefined; }>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "spellCheck",
+        "type": "\"true\" | \"false\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование",
+      "snippet": "import React from 'react';\nimport { Editable } from '@salutejs/plasma-web';\nimport { IconEdit } from '@salutejs/plasma-icons';\nimport { Headline1 } from '@salutejs/plasma-typo';\nexport function App() {\n    return (\n        <Editable\n            icon={<IconEdit size='s' color=\"inherit\" />}\n            textComponent={Headline1}\n            value=\"Default value\"\n            onChange={() => { console.log('handleChange') }}\n        />\n    );\n}"
+    }
+  ]
+}

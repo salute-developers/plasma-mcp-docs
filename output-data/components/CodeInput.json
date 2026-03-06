@@ -1,0 +1,143 @@
+{
+  "name": "CodeInput",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Компонент CodeInput используется для ввода OTP-кодов.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "codeLength",
+        "type": "4 | 5 | 6",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "caption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "captionAlign",
+        "type": "\"center\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "Width<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "allowedSymbols",
+        "type": "string | RegExp",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "itemErrorBehavior",
+        "type": "ItemErrorBehavior",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "codeErrorBehavior",
+        "type": "CodeErrorBehavior",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isError",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "setIsError",
+        "type": "Dispatch<SetStateAction<boolean>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((value: string) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFullCodeEnter",
+        "type": "((code: string) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Размер Размер задается с помощью свойства  size .",
+      "snippet": "import React from 'react';\nimport { CodeInput } from '@salutejs/plasma-giga';\nexport function App() {\n    return (\n        <div style={{ flexDirection: 'column', gap: '2rem' }}>\n            <CodeInput\n                size=\"l\"\n                caption=\"Осталось попыток: 4\"\n                captionAlign=\"center\"\n            />\n            <CodeInput\n                size=\"m\"\n                caption=\"Чтобы выслать вам код повторно подождите: 20 секунд\"\n                captionAlign=\"left\"\n            />\n            <CodeInput\n                size=\"s\"\n                caption=\"Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать\"\n                captionAlign=\"center\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Допустимые символы и поведение ячейки при вводе некорректного символа За",
+      "snippet": "import React from 'react';\nimport { CodeInput } from '@salutejs/plasma-giga';\nexport function App() {\n    return (\n        <div>\n            <CodeInput itemErrorBehavior=\"remove-symbol\" />\n            <CodeInput itemErrorBehavior=\"keep\" />\n            <CodeInput itemErrorBehavior=\"forbid-enter\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Поведение компонента при вводе некорректного кода и индикация ошибки При заполнении всех полей ввода срабатывает колбэк  onFullCodeEnter .",
+      "snippet": "import React, { useState, useRef, Dispatch, SetStateAction } from 'react';\nimport { CodeInput } from '@salutejs/plasma-giga';\nexport function App() {\n    const [disabledFirst, setDisabledFirst] = useState(false);\n    const [isErrorFirst, setIsErrorFirst] = useState(false);\n    const [disabledSecond, setDisabledSecond] = useState(false);\n    const [isErrorSecond, setIsErrorSecond] = useState(false);\n    const onFullCodeEnter = (\n        code: string,\n        errorSetter: Dispatch<SetStateAction<boolean>>,\n        disableSetter: Dispatch<SetStateAction<boolean>>\n    ) => {\n        disableSetter(true);\n        // имитация запроса на сервер\n        setTimeout(() => {\n            disableSetter(false);\n            if (code !== '123456') {\n                errorSetter(true);\n            }\n        }, 3000)\n    }\n    return (\n        <div style={{ flexDirection: 'column', gap: '2rem' }}>\n            <CodeInput\n                itemErrorBehavior=\"remove-symbol\"\n                codeErrorBehavior=\"remove-code\"\n                disabled={disabledFirst}\n                isError={isErrorFirst}\n                setIsError={setIsErrorFirst}\n                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}\n            />\n            <CodeInput\n                itemErrorBehavior=\"remove-symbol\"\n                codeErrorBehavior=\"keep\"\n                disabled={disabledSecond}\n                isError={isErrorSecond}\n                setIsError={setIsErrorSecond}\n                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorSecond, setDisabledSecond)}\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

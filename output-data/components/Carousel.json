@@ -1,0 +1,23 @@
+{
+  "name": "Carousel",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "",
+  "api": {
+    "props": []
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "interface CarouselProps extends HTMLAttributes<HTMLDivElement> {\n    /**\n     * Опции управления пагинацией.\n     */\n    paginationOptions?: {\n        /**\n         * Включение/выключение пагинации.\n         * @default false\n         */\n        disabled?: boolean;\n        /**\n         * Количество видимых точек пагинации.\n         * @default 10\n         */\n        visibleDots?: number;\n        /**\n         * Центрирование активной точки.\n         * @default false\n         */\n        centered?: boolean;\n    };\n    /**\n     * Включение/выключение стрелок управления слайдами.\n     * @default false\n     */\n    controlArrowsDisabled?: boolean;\n    /**\n     * Размер контрола.\n     */\n    size?: string;\n    /**\n     * Вид контрола.\n     * @default default\n     */\n    view?: string;\n}"
+    },
+    {
+      "title": "Использование Для управления пагинацией используется свойство  paginationOptions . Формат следующий",
+      "snippet": "paginationOptions?: {\n        /**\n         * Включение/выключение пагинации.\n         * @default false\n         */\n        disabled?: boolean;\n        /**\n         * Количество видимых точек пагинации.\n         * @default 10\n         */\n        visibleDots?: number;\n        /**\n         * Центрирование активной точки.\n         * @default false\n         */\n        centered?: boolean;\n    };"
+    },
+    {
+      "title": "Примеры",
+      "snippet": "import React from 'react';\nimport { Carousel, CarouselItem } from '@salutejs/plasma-web';\nimport styled from 'styled-components';\nexport function App() {\n    const StyledCard = styled.div`\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        border-radius: 8px;\n        width: 400px;\n        height: 370px;\n        background-color: #add8e6;\n        font-size: 30px;\n    `;\n    const items = Array(10)\n        .fill(1)\n        .map((_, i) => ({\n            id: i,\n            title: i,\n        }));\n    return (\n        <div style={{ display: 'block', width: '600px' }}>\n            <Carousel>\n                {items.map((item, i) => (\n                    <CarouselItem key={i}>\n                        <StyledCard>{item.title}</StyledCard>\n                    </CarouselItem>\n                ))}\n            </Carousel>\n        </div>\n    );\n}"
+    }
+  ]
+}
