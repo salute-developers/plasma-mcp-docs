@@ -1,0 +1,365 @@
+{
+  "name": "NumberFormat",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "NumberFormat",
+  "api": {
+    "props": [
+      {
+        "name": "thousandSeparator",
+        "type": "string | boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "decimalSeparator",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "thousandsGroupStyle",
+        "type": "\"none\" | \"thousand\" | \"lakh\" | \"wan\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "decimalScale",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "fixedDecimalScale",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "allowNegative",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "allowLeadingZeros",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isAllowed",
+        "type": "((values: NumberFormatValues) => boolean)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "(((event?: ChangeEvent<HTMLInputElement>, values?: NumberFormatValues) => void) & ChangeEventHandler<HTMLInputElement>) | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | TextFieldView | \"innerLabel\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "\"warning\" | \"success\" | \"error\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "caption",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "$isFocused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "htmlSize",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animatedHint",
+        "type": "\"placeholder\" | \"label\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSearch",
+        "type": "((value: string, event?: KeyboardEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTarget",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "enumerationType",
+        "type": "\"chip\" | \"plain\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipView",
+        "type": "\"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipType",
+        "type": "\"text\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chips",
+        "type": "TextFieldPrimitiveValue[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeChips",
+        "type": "((value: TextFieldPrimitiveValue[]) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipValidator",
+        "type": "((value: string) => ChipValidatorReturn)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Разделитель тысяч и десятичных знаков",
+      "snippet": "import React from 'react';\nimport { NumberFormat } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\" \"\n                decimalSeparator=\".\"\n                defaultValue=\"123456.789\"\n            />\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\"/\"\n                decimalSeparator=\",\"\n                defaultValue=\"123456,789\"\n            />\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\",\"\n                decimalSeparator=\"$\"\n                defaultValue=\"123456$789\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Стиль группировки тысяч",
+      "snippet": "import React from 'react';\nimport { NumberFormat } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\" \"\n                defaultValue=\"123456789\"\n                thousandsGroupStyle=\"thousand\"\n            />\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\" \"\n                defaultValue=\"123456789\"\n                thousandsGroupStyle=\"lakh\"\n            />\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\" \"\n                defaultValue=\"123456789\"\n                thousandsGroupStyle=\"wan\"\n            />\n            <NumberFormat\n                size=\"l\"\n                thousandSeparator=\" \"\n                defaultValue=\"123456789\"\n                thousandsGroupStyle=\"none\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Количество знаков после запятой",
+      "snippet": "import React from 'react';\nimport { NumberFormat } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>\n            <NumberFormat\n                size=\"l\"\n                defaultValue=\"123\"\n                thousandSeparator=\" \"\n                decimalSeparator=\".\"\n                decimalScale={4}\n                fixedDecimalScale\n            />\n            <NumberFormat\n                size=\"l\"\n                defaultValue=\"123.1\"\n                thousandSeparator=\" \"\n                decimalSeparator=\".\"\n                decimalScale={4}\n                fixedDecimalScale\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Отрицательные числа",
+      "snippet": "import React from 'react';\nimport { NumberFormat } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>\n            <NumberFormat\n                size=\"l\"\n                defaultValue=\"-123\"\n                thousandSeparator=\" \"\n                decimalSeparator=\".\"\n                allowNegative\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ведущие нули",
+      "snippet": "import React from 'react';\nimport { NumberFormat } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>\n            <NumberFormat\n                size=\"l\"\n                defaultValue=\"000123.456\"\n                thousandSeparator=\" \"\n                decimalSeparator=\".\"\n                allowLeadingZeros\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Функция форматирования",
+      "snippet": "const num = 100.23\nconst options = {\n    /**\n     * Разделитель тысяч.\n     * Может быть строкой (например, \" \").\n     * @example 123 456 789\n     */\n    thousandSeparator: ' ',\n    /**\n     * Разделитель десятичных знаков (например, \".\").\n     * @example 123.456\n     */\n    decimalSeparator: '.',\n    /**\n     * Количество знаков после запятой.\n     */\n    decimalScale: 3,\n    /**\n     * Фиксирует количество знаков после запятой, даже если число их не содержит (добавляет нули).\n     */\n    fixedDecimalScale: false,\n    /**\n     * Разрешает ввод отрицательных чисел.\n     */\n    allowNegative: true,\n    /**\n     * Разрешает ведущие нули (например, \"0123\").\n     */\n    allowLeadingZeros: false,\n}\nconst value = numberFormatter(String(num), options)"
+    }
+  ]
+}

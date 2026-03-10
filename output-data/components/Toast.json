@@ -1,0 +1,106 @@
+{
+  "name": "Toast",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Toast",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"primary\" | \"positive\" | \"negative\" | \"dark\" | \"light\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeIconType",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasClose",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onCloseButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Система подсказок",
+      "snippet": "import React from 'react';\nimport { ToastProvider } from '@salutejs/plasma-web';\nexport const App = () => (\n    <ToastProvider>\n        <div className=\"App\">Hello, world!</div>\n    </ToastProvider>\n);"
+    },
+    {
+      "title": "Система подсказок",
+      "snippet": "import React from 'react'\nimport { useToast, Button } from '@salutejs/plasma-web'\nexport const MyComponent = () => {\n    const { showToast, hideToast } = useToast()\n    const onHide = () => {}\n    return (\n        <Button onClick={() => showToast({ text, position, timeout, fade, contentLeft, role, onHide })} />\n    )\n}"
+    },
+    {
+      "title": "Система подсказок",
+      "snippet": "type Position = 'top' | 'bottom';"
+    },
+    {
+      "title": "Аргументы функции showToast",
+      "snippet": "import type { ReactNode } from 'react';\nexport interface ShowToastArgs {\n    /**\n     * Текстовая надпись\n     */\n    text?: string;\n    /**\n     * Слот для контента слева, например `Icon`\n     */\n    contentLeft?: ReactNode;\n    /**\n     * Место отображения подсказки\n     */\n    position?: ToastPosition;\n    /**\n     * WAI-ARIA роль\n     */\n    role?: ToastRole;\n    /**\n     * Отображать ли подложку блока подсказки\n     */\n    fade?: boolean;\n    /**\n     * Значение для дополнительно отступа блока подсказки, считается в rem.\n     */\n    offset?: number;\n    /**\n     * Блок подсказки c округлым border-radius\n     */\n    pilled?: boolean;\n    /**\n     * Отображать ли иконку закрытия\n     */\n    hasClose?: boolean;\n    /**\n     * Размер блока подсказки\n     */\n    size?: string;\n    /**\n     * Вид блока подсказки\n     */\n    view?: string;\n    /**\n     * Время отображения подсказки. Если не передать значение подсказка будет отображаться пока ее не закроют.\n     */\n    timeout?: number;\n    /**\n     * Цвет текста (по умолчанию берётся цвет из view)\n     */\n    textColor?: string;\n    /**\n     * callback срабатывающий в момент события hideToast\n     */\n    onHide?: () => void;\n    /**\n     * callback срабатывающий в момент события showToast\n     */\n    onShow?: () => void;\n}"
+    },
+    {
+      "title": "Пример использования",
+      "snippet": "import React from 'react'\nimport { useToast, ToastProvider, Button } from '@salutejs/plasma-web'\nexport function App() {\n    const ToastExample = () => {\n        const { showToast, hideToast } = useToast()\n        const onShow = () => {}\n        const onHide = () => {}\n        const toastData = {\n            text: 'Подсказка вызванная showToast',\n            textColor: 'cyan',\n            position: 'bottom',\n            role: 'status',\n            hasClose: true,\n            fade: false,\n            size: 'm',\n            view: 'default',\n            timeout: 3000,\n            onShow,\n            onHide\n        }\n        return <Button onClick={() => showToast(toastData)} text=\"Вызвать подсказку\" />\n    }\n    return (\n        <ToastProvider>\n            <ToastExample />\n        </ToastProvider>\n    )\n}"
+    },
+    {
+      "title": "Вид иконки",
+      "snippet": "import React from 'react'\nimport { IconBell } from '@salutejs/plasma-icons';\nimport { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/plasma-web'\nexport function App() {\n    const Icon = () => <IconBell color=\"inherit\" size=\"xs\" />;\n    const ToastExample = () => {\n        const { showToast } = useToast()\n        const onShow = () => {}\n        const onHide = () => {}\n        const toastData = {\n            contentLeft: <Icon />,\n            text: 'Подсказка c иконкой',\n            position: 'bottom',\n            role: 'status',\n            hasClose: true,\n            fade: false,\n            size: 'm',\n            view: 'positive',\n            timeout: 3000,\n            onShow,\n            onHide\n        }\n        return <Button onClick={() => showToast(toastData)} text=\"Вызвать подсказку\" />\n    }\n    return (\n        <ToastProvider>\n            <ToastExample />\n        </ToastProvider>\n    )\n}"
+    }
+  ]
+}

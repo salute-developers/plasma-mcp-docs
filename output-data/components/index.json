@@ -1,172 +1,524 @@
-{
-  "items": [
-    {
-      "name": "Accordion",
-      "href": "Accordion.json",
-      "summary": "Компонент выпадающей информации",
-      "category": "components"
-    },
-    {
-      "name": "Attach",
-      "href": "Attach.json",
-      "summary": "горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
-      "category": "components"
-    },
-    {
-      "name": "AudioPlayer",
-      "href": "AudioPlayer.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Autocomplete",
-      "href": "Autocomplete.json",
-      "summary": "Поле ввода с подсказками в выпадающем списке.",
-      "category": "components"
-    },
-    {
-      "name": "Avatar",
-      "href": "Avatar.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "AvatarGroup",
-      "href": "AvatarGroup.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Badge",
-      "href": "Badge.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Breadcrumbs",
-      "href": "Breadcrumbs.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Button",
-      "href": "Button.json",
-      "summary": "Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
-      "category": "components"
-    },
-    {
-      "name": "ButtonGroup",
-      "href": "ButtonGroup.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Calendar",
-      "href": "Calendar.json",
-      "summary": "Компоненты календарей для выбора даты или диапазона дат.",
-      "category": "components"
-    },
-    {
-      "name": "Card",
-      "href": "Card.json",
-      "summary": "Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок",
-      "category": "components"
-    },
-    {
-      "name": "Carousel",
-      "href": "Carousel.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Cell",
-      "href": "Cell.json",
-      "summary": "Компонент ячейки.",
-      "category": "components"
-    },
-    {
-      "name": "Checkbox",
-      "href": "Checkbox.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Chip",
-      "href": "Chip.json",
-      "summary": "Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
-      "category": "components"
-    },
-    {
-      "name": "ChipGroup",
-      "href": "ChipGroup.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "CodeField",
-      "href": "CodeField.json",
-      "summary": "Компонент CodeField используется для ввода OTP-кодов.",
-      "category": "components"
-    },
-    {
-      "name": "CodeInput",
-      "href": "CodeInput.json",
-      "summary": "Компонент CodeInput используется для ввода OTP-кодов.",
-      "category": "components"
-    },
-    {
-      "name": "Combobox",
-      "href": "Combobox.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Counter",
-      "href": "Counter.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "DatePicker",
-      "href": "DatePicker.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "DateTimePicker",
-      "href": "DateTimePicker.json",
-      "summary": "| Обозначение | Отображение | Описание | |-------------|---------------------------------------|----------------------------------| | DD | 01-31 | Дни месяца, 2 цифры | | D | 1-31 | Дни месяца | | MMMM | January...December / январь...декабрь | Месяц года, полное название | | MMM | Jan...Dec / янв.-д",
-      "category": "components"
-    },
-    {
-      "name": "Divider",
-      "href": "Divider.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Drawer",
-      "href": "Drawer.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Dropdown",
-      "href": "Dropdown.json",
-      "summary": "Выпадающий многоуровневый список.",
-      "category": "components"
-    },
-    {
-      "name": "Dropzone",
-      "href": "Dropzone.json",
-      "summary": "",
-      "category": "components"
-    },
-    {
-      "name": "Editable",
-      "href": "Editable.json",
-      "summary": "",
-      "category": "components"
-    }
-  ]
-}
+[
+  {
+    "name": "Accordion",
+    "href": "Accordion.json",
+    "summary": "Accordion Компонент выпадающей информации",
+    "category": "components"
+  },
+  {
+    "name": "Attach",
+    "href": "Attach.json",
+    "summary": "Attach горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
+    "category": "components"
+  },
+  {
+    "name": "AudioPlayer",
+    "href": "AudioPlayer.json",
+    "summary": "AudioPlayer",
+    "category": "components"
+  },
+  {
+    "name": "Autocomplete",
+    "href": "Autocomplete.json",
+    "summary": "Autocomplete Поле ввода с подсказками в выпадающем списке.",
+    "category": "components"
+  },
+  {
+    "name": "Avatar",
+    "href": "Avatar.json",
+    "summary": "Avatar",
+    "category": "components"
+  },
+  {
+    "name": "AvatarGroup",
+    "href": "AvatarGroup.json",
+    "summary": "AvatarGroup",
+    "category": "components"
+  },
+  {
+    "name": "Badge",
+    "href": "Badge.json",
+    "summary": "Badge",
+    "category": "components"
+  },
+  {
+    "name": "Breadcrumbs",
+    "href": "Breadcrumbs.json",
+    "summary": "Breadcrumbs",
+    "category": "components"
+  },
+  {
+    "name": "Button",
+    "href": "Button.json",
+    "summary": "Button Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+    "category": "components"
+  },
+  {
+    "name": "ButtonGroup",
+    "href": "ButtonGroup.json",
+    "summary": "ButtonGroup",
+    "category": "components"
+  },
+  {
+    "name": "Calendar",
+    "href": "Calendar.json",
+    "summary": "Calendar Компоненты календарей для выбора даты или диапазона дат.",
+    "category": "components"
+  },
+  {
+    "name": "Card",
+    "href": "Card.json",
+    "summary": "Card Визуальный контейнер, который объединяет различные элементы, такие как изображения, текст и кнопки, в единый блок",
+    "category": "components"
+  },
+  {
+    "name": "Carousel",
+    "href": "Carousel.json",
+    "summary": "Carousel",
+    "category": "components"
+  },
+  {
+    "name": "Cell",
+    "href": "Cell.json",
+    "summary": "Cell Компонент ячейки.",
+    "category": "components"
+  },
+  {
+    "name": "Checkbox",
+    "href": "Checkbox.json",
+    "summary": "Checkbox",
+    "category": "components"
+  },
+  {
+    "name": "Chip",
+    "href": "Chip.json",
+    "summary": "Chip Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+    "category": "components"
+  },
+  {
+    "name": "ChipGroup",
+    "href": "ChipGroup.json",
+    "summary": "ChipGroup",
+    "category": "components"
+  },
+  {
+    "name": "CodeField",
+    "href": "CodeField.json",
+    "summary": "CodeField Компонент CodeField используется для ввода OTP-кодов.",
+    "category": "components"
+  },
+  {
+    "name": "CodeInput",
+    "href": "CodeInput.json",
+    "summary": "CodeInput Компонент CodeInput используется для ввода OTP-кодов.",
+    "category": "components"
+  },
+  {
+    "name": "Combobox",
+    "href": "Combobox.json",
+    "summary": "Combobox",
+    "category": "components"
+  },
+  {
+    "name": "Counter",
+    "href": "Counter.json",
+    "summary": "Counter",
+    "category": "components"
+  },
+  {
+    "name": "DatePicker",
+    "href": "DatePicker.json",
+    "summary": "DatePicker Размер DatePicker задаётся с помощью свойства size .",
+    "category": "components"
+  },
+  {
+    "name": "DateTimePicker",
+    "href": "DateTimePicker.json",
+    "summary": "DateTimePicker | Обозначение | Отображение | Описание | |-------------|---------------------------------------|----------------------------------| | DD | 01-31 | Дни месяца, 2 цифры | | D | 1-31 | Дни месяца | | MMMM | January...December / январь...декабрь | Месяц года, полное название | | MMM | Jan",
+    "category": "components"
+  },
+  {
+    "name": "Divider",
+    "href": "Divider.json",
+    "summary": "",
+    "category": "components"
+  },
+  {
+    "name": "Drawer",
+    "href": "Drawer.json",
+    "summary": "Drawer",
+    "category": "components"
+  },
+  {
+    "name": "Dropdown",
+    "href": "Dropdown.json",
+    "summary": "Dropdown Выпадающий многоуровневый список.",
+    "category": "components"
+  },
+  {
+    "name": "Dropzone",
+    "href": "Dropzone.json",
+    "summary": "",
+    "category": "components"
+  },
+  {
+    "name": "Editable",
+    "href": "Editable.json",
+    "summary": "Editable",
+    "category": "components"
+  },
+  {
+    "name": "ElasticGrid",
+    "href": "ElasticGrid.json",
+    "summary": "ElasticGrid",
+    "category": "components"
+  },
+  {
+    "name": "EmbedIconButton",
+    "href": "EmbedIconButton.json",
+    "summary": "EmbedIconButton Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.",
+    "category": "components"
+  },
+  {
+    "name": "File",
+    "href": "File.json",
+    "summary": "File С помощью свойства thumbUrl можно указать URL изображения для предпросмотра.",
+    "category": "components"
+  },
+  {
+    "name": "Flow",
+    "href": "Flow.json",
+    "summary": "Flow Универсальный контейнер для упорядоченного размещения вложенных компонентов (например, медиафайлы, карточки или блоки текста).",
+    "category": "components"
+  },
+  {
+    "name": "Grid",
+    "href": "Grid.json",
+    "summary": "Grid Набор компонентов для создания сетки.",
+    "category": "components"
+  },
+  {
+    "name": "IconButton",
+    "href": "IconButton.json",
+    "summary": "IconButton Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.",
+    "category": "components"
+  },
+  {
+    "name": "Image",
+    "href": "Image.json",
+    "summary": "Image",
+    "category": "components"
+  },
+  {
+    "name": "Indicator",
+    "href": "Indicator.json",
+    "summary": "Indicator Индикаторы могут отображаться в нескольких размерах и цветах.",
+    "category": "components"
+  },
+  {
+    "name": "InformationWrapper",
+    "href": "InformationWrapper.json",
+    "summary": "InformationWrapper Компонент обертка для элементов формы.",
+    "category": "components"
+  },
+  {
+    "name": "Link",
+    "href": "Link.json",
+    "summary": "Link",
+    "category": "components"
+  },
+  {
+    "name": "LinkButton",
+    "href": "LinkButton.json",
+    "summary": "LinkButton Кнопки-ссылки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+    "category": "components"
+  },
+  {
+    "name": "List",
+    "href": "List.json",
+    "summary": "List Компонент списка",
+    "category": "components"
+  },
+  {
+    "name": "Loader",
+    "href": "Loader.json",
+    "summary": "Loader Loader - универсальный компонент для отображения индикаторов загрузки.",
+    "category": "components"
+  },
+  {
+    "name": "Mask",
+    "href": "Mask.json",
+    "summary": "Mask",
+    "category": "components"
+  },
+  {
+    "name": "Modal",
+    "href": "Modal.json",
+    "summary": "# Modal Modal",
+    "category": "components"
+  },
+  {
+    "name": "ModalBase",
+    "href": "ModalBase.json",
+    "summary": "ModalBase Компонент ModalBase во многом схож с PopupBase, добавляет при этом подложку( overlay ), а также блокирует scroll и focus .",
+    "category": "components"
+  },
+  {
+    "name": "NavigationDrawer",
+    "href": "NavigationDrawer.json",
+    "summary": "NavigationDrawer",
+    "category": "components"
+  },
+  {
+    "name": "Note",
+    "href": "Note.json",
+    "summary": "Note Компонент для отображения текста в виде информационных, предупреждающих, обычных подсказок.",
+    "category": "components"
+  },
+  {
+    "name": "Notification",
+    "href": "Notification.json",
+    "summary": "Notification Компонент группы Overlay, является всплывающим элементом поверх контента.",
+    "category": "components"
+  },
+  {
+    "name": "NumberFormat",
+    "href": "NumberFormat.json",
+    "summary": "NumberFormat",
+    "category": "components"
+  },
+  {
+    "name": "NumberInput",
+    "href": "NumberInput.json",
+    "summary": "NumberInput Числовое поле.",
+    "category": "components"
+  },
+  {
+    "name": "Overlay",
+    "href": "Overlay.json",
+    "summary": "Overlay",
+    "category": "components"
+  },
+  {
+    "name": "Pagination",
+    "href": "Pagination.json",
+    "summary": "Pagination Свойство count задаёт общее количество элементов (или страниц, если hasPerPage не указан): Размер задается с помощью свойства size .",
+    "category": "components"
+  },
+  {
+    "name": "Popover",
+    "href": "Popover.json",
+    "summary": "Popover",
+    "category": "components"
+  },
+  {
+    "name": "PopupBase",
+    "href": "PopupBase.json",
+    "summary": "PopupBase",
+    "category": "components"
+  },
+  {
+    "name": "Portal",
+    "href": "Portal.json",
+    "summary": "Portal",
+    "category": "components"
+  },
+  {
+    "name": "PreviewGallery",
+    "href": "PreviewGallery.json",
+    "summary": "PreviewGallery",
+    "category": "components"
+  },
+  {
+    "name": "Price",
+    "href": "Price.json",
+    "summary": "Price",
+    "category": "components"
+  },
+  {
+    "name": "Progress",
+    "href": "Progress.json",
+    "summary": "Progress",
+    "category": "components"
+  },
+  {
+    "name": "ProgressBarCircular",
+    "href": "ProgressBarCircular.json",
+    "summary": "ProgressBarCircular Круговой индикатор прогресса.",
+    "category": "components"
+  },
+  {
+    "name": "Radiobox",
+    "href": "Radiobox.json",
+    "summary": "Radiobox",
+    "category": "components"
+  },
+  {
+    "name": "Range",
+    "href": "Range.json",
+    "summary": "Range При таком варианте свойства firstTextfieldTextBefore и secondTextfieldTextBefore становятся обязательными для подсказки в виде Tooltip - hintText, для подсказки сверху справа - titleCaption: Также доступны слоты для дополнительного контента: Наличие индикатора регулируется свойством hasRequire",
+    "category": "components"
+  },
+  {
+    "name": "Rating",
+    "href": "Rating.json",
+    "summary": "Rating",
+    "category": "components"
+  },
+  {
+    "name": "Segment",
+    "href": "Segment.json",
+    "summary": "Segment Набор компонентов для создания группы сегментов.",
+    "category": "components"
+  },
+  {
+    "name": "Select",
+    "href": "Select.json",
+    "summary": "Select",
+    "category": "components"
+  },
+  {
+    "name": "Sheet",
+    "href": "Sheet.json",
+    "summary": "Sheet",
+    "category": "components"
+  },
+  {
+    "name": "Skeleton",
+    "href": "Skeleton.json",
+    "summary": "Skeleton Набор компонентов для создания скелетов загрузки (placeholders).",
+    "category": "components"
+  },
+  {
+    "name": "Slider",
+    "href": "Slider.json",
+    "summary": "Slider",
+    "category": "components"
+  },
+  {
+    "name": "Spinner",
+    "href": "Spinner.json",
+    "summary": "Spinner",
+    "category": "components"
+  },
+  {
+    "name": "Steps",
+    "href": "Steps.json",
+    "summary": "Steps",
+    "category": "components"
+  },
+  {
+    "name": "Switch",
+    "href": "Switch.json",
+    "summary": "Switch",
+    "category": "components"
+  },
+  {
+    "name": "Table",
+    "href": "Table.json",
+    "summary": "Table Компонент предназначен для визуализации табличных данных с поддержкой сортировки, фильтрации, редактирования ячеек и других интерактивных возможностей.",
+    "category": "components"
+  },
+  {
+    "name": "Tabs",
+    "href": "Tabs.json",
+    "summary": "Tabs Набор компонентов для создания вкладок.",
+    "category": "components"
+  },
+  {
+    "name": "TextArea",
+    "href": "TextArea.json",
+    "summary": "TextArea указав значения в rem или соответствующие свойствам css значения.",
+    "category": "components"
+  },
+  {
+    "name": "TextField",
+    "href": "TextField.json",
+    "summary": "TextField для подсказки в виде Tooltip - hintText , для подсказки сверху справа - titleCaption : Наличие индикатора регулируется свойством hasRequiredIndicator .",
+    "category": "components"
+  },
+  {
+    "name": "TextFieldGroup",
+    "href": "TextFieldGroup.json",
+    "summary": "TextFieldGroup",
+    "category": "components"
+  },
+  {
+    "name": "TextFieldSlider",
+    "href": "TextFieldSlider.json",
+    "summary": "TextFieldSlider С помощью свойства thousandSeparator можно настроить разделитель тысяч: С помощью свойства fixedDecimalScale можно добавить нули до заданного количества знаков после запятой: С помощью свойств textBefore и textAfter можно добавить вспомогательный текст: С помощью свойств contentLeft",
+    "category": "components"
+  },
+  {
+    "name": "TimePicker",
+    "href": "TimePicker.json",
+    "summary": "TimePicker",
+    "category": "components"
+  },
+  {
+    "name": "Toast",
+    "href": "Toast.json",
+    "summary": "Toast",
+    "category": "components"
+  },
+  {
+    "name": "Toolbar",
+    "href": "Toolbar.json",
+    "summary": "Toolbar Toolbar может отображаться в горизонтальном и вертикальном положении с разными размерами.",
+    "category": "components"
+  },
+  {
+    "name": "Tooltip",
+    "href": "Tooltip.json",
+    "summary": "Tooltip",
+    "category": "components"
+  },
+  {
+    "name": "Tour",
+    "href": "Tour.json",
+    "summary": "Tour Компонент для проведения пошагового обучения пользователя ( onboarding ) по элементам интерфейса.",
+    "category": "components"
+  },
+  {
+    "name": "Tree",
+    "href": "Tree.json",
+    "summary": "Tree Многоуровневый раскрывающийся список в виде дерева с возможностью выбора (selection) и выделения (checkbox).",
+    "category": "components"
+  },
+  {
+    "name": "Typography-legacy",
+    "href": "Typography-legacy.json",
+    "summary": "В состав Plasma Web входят компоненты, реализующие типографическую систему типографическую систему Plasma .",
+    "category": "components"
+  },
+  {
+    "name": "Typography",
+    "href": "Typography.json",
+    "summary": "Typography В состав Plasma Web входят компоненты, реализующие типографическую систему типографическую систему Plasma .",
+    "category": "components"
+  },
+  {
+    "name": "Upload",
+    "href": "Upload.json",
+    "summary": "Upload",
+    "category": "components"
+  },
+  {
+    "name": "UploadAudio",
+    "href": "UploadAudio.json",
+    "summary": "UploadAudio",
+    "category": "components"
+  },
+  {
+    "name": "UploadVisual",
+    "href": "UploadVisual.json",
+    "summary": "UploadVisual",
+    "category": "components"
+  },
+  {
+    "name": "ViewContainer",
+    "href": "ViewContainer.json",
+    "summary": "ViewContainer",
+    "category": "components"
+  }
+]

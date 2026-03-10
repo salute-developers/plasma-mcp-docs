@@ -1,0 +1,26 @@
+[
+  {
+    "name": "colors",
+    "href": "colors.json",
+    "summary": "Это позволяет переопределять цвета с помощью Тем .",
+    "category": "design"
+  },
+  {
+    "name": "spacing",
+    "href": "spacing.json",
+    "summary": "Свойства используют сокращенный синтаксис, схожий со styled-system и Bootstrap .",
+    "category": "design"
+  },
+  {
+    "name": "typography-legacy",
+    "href": "typography-legacy.json",
+    "summary": "# Типографическая система Типографическая система Текст – основа интерфейса.",
+    "category": "design"
+  },
+  {
+    "name": "typography",
+    "href": "typography.json",
+    "summary": "Типографическая система представляет собой набор констант ( токенов ) и компонентов .",
+    "category": "design"
+  }
+]

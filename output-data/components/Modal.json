@@ -1,0 +1,111 @@
+{
+  "name": "Modal",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "# Modal Modal",
+  "api": {
+    "props": [
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withBlur",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnEsc",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onEscKeyDown",
+        "type": "((event: KeyboardEvent) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onOverlayClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "initialFocusRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focusAfterRef",
+        "type": "RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeButtonAriaLabel",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showCloseButton",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Провайдер контекста",
+      "snippet": "import ReactDOM from 'react-dom';\nimport { ModalsProvider } from '@salutejs/plasma-web';\nimport { App } from './App';\nReactDOM.render(\n    <ModalsProvider>\n        <App />\n    </ModalsProvider>,\n    document.getElementById('root')\n);"
+    },
+    {
+      "title": "Вызов модального окна",
+      "snippet": "import React from 'react';\nimport { Modal, Headline3, P1, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [isOpen, setIsOpen] = React.useState(false);\n    const close = React.useCallback(() => {\n      setIsOpen(false);\n    });\n    return (\n        <div>\n            <Button text=\"Открыть модальное окно\" onClick={() => setIsOpen(!isOpen)} />\n            <Modal opened={isOpen} onClose={close}>\n                <Headline3 mb={10}>Модальное окно</Headline3>\n                <P1>Содержимое модального окна.</P1>\n                <Button text=\"Закрыть\" onClick={close} />\n            </Modal>\n        </div>\n    );\n}"
+    }
+  ]
+}

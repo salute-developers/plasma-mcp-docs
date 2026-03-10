@@ -1,0 +1,87 @@
+{
+  "name": "LinkButton",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "LinkButton Кнопки-ссылки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\" | \"xxs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  LinkButton  может содержать текст, который указывается в",
+      "snippet": "import React from 'react';\nimport { LinkButton } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <LinkButton text=\"Текст\" />\n            <LinkButton text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <LinkButton text=\"Текст\" contentRight={<IconDownload color=\"inherit\" />} />\n            <LinkButton text=\"Текст\" isLoading />\n            <LinkButton text=\"Текст\" isLoading loader={<div>Loader...</div>} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер кнопки",
+      "snippet": "import React from 'react';\nimport { LinkButton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <LinkButton text=\"Кнопка\" size=\"xl\" />\n            <LinkButton text=\"Кнопка\" size=\"l\" />\n            <LinkButton text=\"Кнопка\" size=\"m\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" />\n            <LinkButton text=\"Кнопка\" size=\"xs\" />\n            <LinkButton text=\"Кнопка\" size=\"xxs\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид кнопки",
+      "snippet": "import React from 'react';\nimport { LinkButton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexWrap: 'wrap' }}>\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"default\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"accent\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"secondary\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"positive\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"warning\" />\n            <LinkButton text=\"Кнопка\" size=\"s\" view=\"negative\" />\n        </div>\n    );\n}"
+    }
+  ]
+}

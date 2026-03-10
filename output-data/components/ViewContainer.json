@@ -1,0 +1,23 @@
+{
+  "name": "ViewContainer",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "ViewContainer",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"onDark\" | \"onLight\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "import React from 'react';\nimport { ViewContainer, Button, Checkbox, TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <ViewContainer\n                style={{\n                    padding: '1rem',\n                    borderRadius: '1rem',\n                    display: 'flex',\n                    flexDirection: 'column',\n                    gap: '1rem',\n                }}\n            >\n                <h3 style={{ margin: 0 }}>Inside default ViewContainer</h3>\n                <Button text=\"default Button\" />\n                <Checkbox checked label=\"Label\" />\n                <TextField value=\"Example Value\" label=\"Label\" labelPlacement=\"inner\" />\n            </ViewContainer>\n            <br />\n            <ViewContainer\n                view=\"onDark\"\n                style={{\n                    background: '#1a1a1a',\n                    color: 'white',\n                    padding: '1rem',\n                    borderRadius: '1rem',\n                    display: 'flex',\n                    flexDirection: 'column',\n                    gap: '1rem',\n                }}\n            >\n                <h3 style={{ margin: 0 }}>Inside onDark ViewContainer</h3>\n                <Button text=\"default Button\" />\n                <Checkbox checked label=\"Label\" />\n                <TextField value=\"Example Value\" label=\"Label\" labelPlacement=\"inner\" />\n            </ViewContainer>\n            <br />\n            <ViewContainer\n                view=\"onLight\"\n                style={{\n                    background: '#ededed',\n                    color: 'black',\n                    padding: '1rem',\n                    borderRadius: '1rem',\n                    display: 'flex',\n                    flexDirection: 'column',\n                    gap: '1rem',\n                }}\n            >\n                <h3 style={{ margin: 0 }}>Inside onLight ViewContainer</h3>\n                <Button text=\"default Button\" />\n                <Checkbox checked label=\"Label\" />\n                <TextField value=\"Example Value\" label=\"Label\" labelPlacement=\"inner\" />\n            </ViewContainer>\n        </div>\n    );\n}"
+    }
+  ]
+}

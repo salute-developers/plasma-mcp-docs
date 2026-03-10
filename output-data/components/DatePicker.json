@@ -2,82 +2,19 @@
   "name": "DatePicker",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "DatePicker Размер DatePicker задаётся с помощью свойства size .",
   "api": {
     "props": [
       {
-        "name": "view",
-        "type": "\"default\"",
+        "name": "onChange",
+        "type": "(((event: { target: { value?: string; name?: string; originalDate?: DateType; isoDate?: string | undefined; }; }) => void) & FormEventHandler<HTMLDivElement>) | undefined",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "size",
-        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "eventTooltipSize",
-        "type": "\"m\" | \"s\"",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "disabled",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "readOnly",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "requiredPlacement",
-        "type": "\"right\" | \"left\"",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "required",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "hasRequiredIndicator",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "value",
-        "type": "string | Date",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "preserveInvalidOnBlur",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "defaultDate",
-        "type": "Date",
+        "name": "lang",
+        "type": "\"ru\" | \"en\"",
         "required": false,
         "default": "",
         "description": ""
@@ -90,29 +27,15 @@
         "description": ""
       },
       {
-        "name": "name",
-        "type": "string",
+        "name": "value",
+        "type": "string | Date",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "valueError",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "valueSuccess",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "leftHelper",
-        "type": "string",
+        "name": "type",
+        "type": "\"Days\" | \"Months\" | \"Years\" | \"Quarters\"",
         "required": false,
         "default": "",
         "description": ""
@@ -132,43 +55,29 @@
         "description": ""
       },
       {
-        "name": "textBefore",
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
         "type": "string",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "textAfter",
-        "type": "string",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "autoComplete",
-        "type": "string",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "onCommitDate",
-        "type": "((value: string | Date, error?: boolean, success?: boolean, dateInfo?: DateInfo | undefined, originalDate?: Date | undefined, isoDate?: string | undefined) => void) | undefined",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "onChangeValue",
-        "type": "((event: SyntheticEvent<HTMLInputElement, Event> | null, value?: string, originalDate?: DateType, isoDate?: string) => void) | undefined",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "onChange",
-        "type": "(((event: { target: { value?: string; name?: string; originalDate?: DateType; isoDate?: string | undefined; }; }) => void) & FormEventHandler<HTMLDivElement>) | undefined",
         "required": false,
         "default": "",
         "description": ""
@@ -181,29 +90,22 @@
         "description": ""
       },
       {
-        "name": "labelPlacement",
-        "type": "string",
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "keepPlaceholder",
-        "type": "boolean",
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "format",
-        "type": "string",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "maskWithFormat",
-        "type": "boolean",
+        "name": "onChangeValue",
+        "type": "((event: SyntheticEvent<HTMLInputElement, Event> | null, value?: string, originalDate?: DateType, isoDate?: string) => void) | undefined",
         "required": false,
         "default": "",
         "description": ""
@@ -300,15 +202,288 @@
         "description": ""
       },
       {
-        "name": "type",
-        "type": "\"Days\" | \"Months\" | \"Years\" | \"Quarters\"",
+        "name": "stretched",
+        "type": "boolean",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "lang",
-        "type": "\"ru\" | \"en\"",
+        "name": "eventTooltipSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placement",
+        "type": "DatePickerPlacement | DatePickerPlacementBasic[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onToggle",
+        "type": "((isOpen: boolean, event?: Event | SyntheticEvent<Element, Event>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnEsc",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasClearDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "preserveInvalidOnBlur",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultDate",
+        "type": "Date",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "valueError",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "valueSuccess",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onCommitDate",
+        "type": "OnCommitDateCallback",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maskWithFormat",
+        "type": "boolean",
         "required": false,
         "default": "",
         "description": ""
@@ -328,71 +503,15 @@
         "description": ""
       },
       {
-        "name": "stretched",
-        "type": "boolean",
+        "name": "dateShortcutsWidth",
+        "type": "Width<string | number>",
         "required": false,
         "default": "",
         "description": ""
       },
       {
-        "name": "isOpen",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "opened",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "placement",
-        "type": "DatePickerPlacement | DatePickerPlacementBasic[]",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "offset",
-        "type": "[number, number]",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "frame",
-        "type": "string | RefObject<HTMLElement>",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "zIndex",
-        "type": "string",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "closeOnOverlayClick",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "closeOnEsc",
-        "type": "boolean",
-        "required": false,
-        "default": "",
-        "description": ""
-      },
-      {
-        "name": "usePortal",
-        "type": "boolean",
+        "name": "dateShortcutsPlacement",
+        "type": "\"right\" | \"left\"",
         "required": false,
         "default": "",
         "description": ""
@@ -405,8 +524,8 @@
         "description": ""
       },
       {
-        "name": "onToggle",
-        "type": "((isOpen: boolean, event?: Event | SyntheticEvent<Element, Event>) => void)",
+        "name": "dateShortcuts",
+        "type": "DateShortcutItem[]",
         "required": false,
         "default": "",
         "description": ""
@@ -415,8 +534,28 @@
   },
   "examples": [
     {
-      "title": "Размер компонента Размер  DatePicker  задаётся с помощью свойства  size .",
-      "snippet": "import React from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <DatePicker\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                contentRight={<IconDone size=\"s\" />}\n                size=\"l\"\n                usePortal\n            />\n        </div>\n    );\n}"
+      "title": "Быстрый старт",
+      "snippet": "import React, {useState} from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [dateValue, setDate] = useState<Date | string | undefined>(new Date());\n    const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());\n    const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());\n    const handleChangeValue = (\n        _: React.SyntheticEvent<HTMLInputElement> | null,\n        value?: string,\n        originalDate?: Date | string | null,\n        isoDate?: string,\n    ) => {\n        setDate(value);\n        setOriginalDate(originalDate);\n        setIsoDate(isoDate);\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>\n            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>\n                <p>Значение date: {String(dateValue)}</p>\n                <p>Значение originalDate: {String(originalDateValue)}</p>\n                <p>Значение isoDate: {isoDateValue}</p>\n            </div>\n            <DatePicker\n                onChangeValue={handleChangeValue}\n                onCommitDate={console.log}\n                label=\"Неконтролируемый DatePicker\"\n                format=\"DD.MM.YYYY\"\n                maskWithFormat\n                lang=\"ru\"\n                contentRight={<IconDone size=\"s\" />}\n                placement=\"bottom\"\n                usePortal\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "export type OnCommitDateCallback = (\n        value: Date | string,\n        error?: boolean,\n        success?: boolean,\n        dateInfo?: DateInfo,\n        originalDate?: Date,\n        isoDate?: string,\n    ) => void;"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "export type FormattedDateValues = {\n        /**\n        * Статус ошибки валидации\n        */\n        error?: boolean;\n        /**\n        * Статус успешной валидации\n        */\n        success?: boolean;\n        /**\n        * Информация о дате (для кварталов и т.д.)\n        */\n        dateInfo?: DateInfo;\n        /**\n        * Дата как экземпляр Date\n        */\n        originalDate?: Date;\n        /**\n        * Дата в формате ISO\n        */\n        isoDate?: string;\n    };\n    export type OnCommitDateCallback = (value: Date | string, formattedValues: FormattedDateValues) => void;"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, {useState} from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [dateValue, setDate] = useState<Date | string | undefined>(new Date());\n    const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());\n    const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());\n    const handleChangeValue = (\n        _: React.SyntheticEvent<HTMLInputElement> | null,\n        value?: string,\n        originalDate?: Date | string | null,\n        isoDate?: string,\n    ) => {\n        setDate(value);\n        setOriginalDate(originalDate);\n        setIsoDate(isoDate);\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>\n            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>\n                <p>Значение date: {String(dateValue)}</p>\n                <p>Значение originalDate: {String(originalDateValue)}</p>\n                <p>Значение isoDate: {isoDateValue}</p>\n            </div>\n            <DatePicker\n                value={dateValue}\n                onChangeValue={handleChangeValue}\n                onCommitDate={console.log}\n                label=\"Контролируемый DatePicker\"\n                format=\"DD.MM.YYYY\"\n                lang=\"ru\"\n                contentRight={<IconDone size=\"s\" />}\n                placement=\"bottom\"\n                usePortal\n                maskWithFormat\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>\n            <DatePicker\n                appearance=\"default\"\n                label=\"Appearance default\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                contentRight={<IconDone size=\"s\" />}\n                usePortal\n            />\n            <DatePicker\n                appearance=\"clear\"\n                hasClearDivider\n                label=\"Appearance clear\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                contentRight={<IconDone size=\"s\" />}\n                usePortal\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const sizes = ['xl', 'l', 'm', 's', 'xs']\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>\n            {sizes.map((size) => (\n                <DatePicker\n                    key={size}\n                    size={size}\n                    label={`Size ${size}`}\n                    leftHelper=\"Подсказка к полю\"\n                    placeholder=\"Введите дату\"\n                    contentRight={<IconDone size=\"s\" />}\n                    usePortal\n                />\n            ))}\n        </div>\n    );\n}"
     },
     {
       "title": "Формат даты",
@@ -427,36 +566,44 @@
       "snippet": "import React from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <DatePicker\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                contentRight={<IconDone size=\"s\" />}\n                placeholder=\"Введите дату\"\n                format=\"DD MMMM YYYY\"\n                lang=\"en\"\n                maskWithFormat\n                usePortal\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Валидация и индикация успешного ввода даты. За индикацию ошибки или успешного ввода отвечают  valueError ,  valueSuccess .",
-      "snippet": "import React, {useState} from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    const [error, setError] = useState(false);\n    const [success, setSuccess] = useState(false);\n    const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {\n        if (dateError) {\n            setError(true);\n            return;\n        }\n        if (dateSuccess) {\n            setSuccess(true);\n        }\n        setIsOpen(false);\n    };\n    return (\n        <div>\n            <DatePicker\n                opened={isOpen}\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                format=\"DD-MM-YYYY\"\n                maskWithFormat\n                valueError={error}\n                valueSuccess={success}\n                contentRight={<IconDone size=\"s\" />}\n                onChangeValue={() => {\n                    setError(false);\n                    setSuccess(false);\n                }}\n                onCommitDate={handleCommitDate}\n                usePortal\n            />\n        </div>\n    );\n}"
+      "title": "Валидация и индикация успешного ввода даты",
+      "snippet": "import React, {useState} from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    const [error, setError] = useState(false);\n    const [success, setSuccess] = useState(false);\n    const handleCommitDate = (newDate: Date | string, formattedValues: { error?: boolean; success?: boolean }) => {\n        const { error: dateError, success: dateSuccess } = formattedValues;\n        if (dateError) {\n            setError(true);\n            return;\n        }\n        if (dateSuccess) {\n            setSuccess(true);\n        }\n        setIsOpen(false);\n    };\n    return (\n        <div>\n            <DatePicker\n                opened={isOpen}\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                format=\"DD-MM-YYYY\"\n                maskWithFormat\n                valueError={error}\n                valueSuccess={success}\n                contentRight={<IconDone size=\"s\" />}\n                onChangeValue={() => {\n                    setError(false);\n                    setSuccess(false);\n                }}\n                onCommitDate={handleCommitDate}\n                usePortal\n            />\n        </div>\n    );\n}"
     },
     {
       "title": "Обязательность поля",
-      "snippet": "import React from 'react';\nimport { DatePicker, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div>\n            <DatePicker\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                format=\"DD MMMM YYYY\"\n                contentRight={<ActionButton />}\n                required\n                requiredPlacement=\"right\"\n            />\n        </div>\n    );\n}"
+      "snippet": "import React from 'react';\nimport { DatePicker, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div>\n            <DatePicker\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                format=\"DD MMMM YYYY\"\n                contentRight={<ActionButton />}\n                hasRequiredIndicator\n                required\n                requiredPlacement=\"right\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "type EventDay {\n        date: Date;\n        color?: string;\n        eventInfo?: ReactNode;\n    }"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "type EventTooltipOptions = {\n    /**\n     * Обертка для всплывающей подсказки для событий.\n     */\n    bodyWrapper?: FC<PropsWithChildren>;\n    /**\n     * Размер всплывающей подсказки для событий.\n     */\n    size?: string;\n    /**\n     * Направление раскрытия тултипа.\n     */\n    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;\n    /**\n     * Отступ окна относительно элемента, у которого оно вызвано.\n     * @default\n     * [0, 8]\n     */\n    offset?: [number, number];\n    /**\n     * Видимость стрелки (хвоста).\n     */\n    hasArrow?: boolean;\n    /**\n     * Анимированное появление/сокрытие.\n     */\n    animated?: boolean;\n    /**\n     * Минимальная ширина окна (в rem).\n     */\n    minWidth?: number | string;\n    /**\n     * Максимальная ширина окна (в rem).\n     */\n    maxWidth?: number | string;\n};"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "import React from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\n    export function App() {\n    const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {\n        return (\n            <div style={{ display: 'flex', flexDirection: 'column' }}>\n                <span>Дата: {dateValue}</span>\n                <span>Цвет: {color}</span>\n            </div>\n        );\n    };\n    const EventTooltipBody = ({ children }: PropsWithChildren) => {\n        return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;\n    };\n    const events = [\n        {\n            date: new Date('2025-07-09'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-09\" />\n        },\n        {\n            date: new Date('2025-07-09'),\n            color: 'purple',\n            eventInfo: <EventNode color=\"purple\" dateValue=\"2025-07-09\" />\n        },\n        {\n            date: new Date('2025-07-10'),\n            color: 'green',\n            eventInfo: <EventNode color=\"green\" dateValue=\"2025-07-10\" />\n        },\n        {\n            date: new Date('2025-07-11'),\n            color: 'blue',\n            eventInfo: <EventNode color=\"blue\" dateValue=\"2025-07-11\" />\n        },\n        {\n            date: new Date('2025-07-12'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-12\" />\n        },\n        {\n            date: new Date('2025-07-12'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-12\" />\n        },\n    ];\n    return (\n        <div>\n            <DatePicker\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                format=\"DD MMMM YYYY\"\n                eventList={events}\n                eventTooltipOptions={{\n                    bodyWrapper: EventTooltipBody,\n                    size: 'm'\n                }}\n                renderFromDate={new Date('2025-07-01')}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "DatePickerRange Props (свойства) для компонента DatePickerRange",
-      "snippet": "import React from 'react';\nimport { DatePickerRange, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div>\n            <DatePickerRange\n                size=\"l\"\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                isDoubleCalendar\n                usePortal\n            />\n        </div>\n    );\n}"
+      "title": "Быстрый старт",
+      "snippet": "import React, {useState} from 'react';\nimport { DatePickerRange, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\ntype DateType = Date | string | undefined | null\nexport function App() {\n    const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);\n    const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);\n    const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);\n    const valueSetter = <T extends unknown, P extends React.Dispatch<React.SetStateAction<any>>>(\n        value: T,\n        sideOfDate: 'start' | 'end',\n        setter: P,\n    ) => {\n        setter((prevValue) => {\n            if (sideOfDate === 'start') {\n                return [value, prevValue[1]];\n            }\n            return [prevValue[0], value];\n        });\n    };\n    const handleChangeValue = (sideOfDate: 'start' | 'end') => (\n        _: React.SyntheticEvent<HTMLInputElement> | null,\n        value?: string,\n        originalDate?: Date | string | null,\n        isoDate?: string,\n    ) => {\n        valueSetter(value, sideOfDate, setDate);\n        valueSetter(originalDate, sideOfDate, setOriginalDate);\n        valueSetter(isoDate, sideOfDate, setIsoDate);\n    };\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>\n            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>\n                <p>Значение date:<br/> {dateValue.map(String).join(' --- ')}</p>\n                <p>Значение originalDate:<br/> {originalDateValue.map(String).join(' --- ')}</p>\n                <p>Значение isoDate:<br/> {isoDateValue.join(' --- ')}</p>\n            </div>\n            <DatePickerRange\n                onChangeFirstValue={handleChangeValue('start')}\n                onChangeSecondValue={handleChangeValue('end')}\n                onCommitFirstDate={console.log}\n                onCommitSecondDate={console.log}\n                label=\"Неконтролируемый RangeDatePicker\"\n                format=\"DD.MM.YYYY\"\n                lang=\"ru\"\n                placement=\"bottom\"\n                isDoubleCalendar\n                usePortal\n                maskWithFormat\n                size=\"l\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Контролируемый вариант компонента Для передачи текущего значения необходимо использовать свойство  value .",
-      "snippet": "import React, {useState} from 'react';\nimport { DatePicker } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [dateValue, setDate] = useState<Date | string | undefined>(new Date());\n    const [originalDateValue, setOriginalDate] = useState<Date | string | null | undefined>(new Date());\n    const [isoDateValue, setIsoDate] = useState<string | undefined>(new Date().toISOString());\n    const handleChangeValue = (\n        _: React.SyntheticEvent<HTMLInputElement> | null,\n        value?: string,\n        originalDate?: Date | string | null,\n        isoDate?: string,\n    ) => {\n        setDate(value);\n        setOriginalDate(originalDate);\n        setIsoDate(isoDate);\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem'}}>\n            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>\n                <p>Значение date: {String(dateValue)}</p>\n                <p>Значение originalDate: {String(originalDateValue)}</p>\n                <p>Значение isoDate: {isoDateValue}</p>\n            </div>\n            <DatePicker\n                value={dateValue}\n                onChangeValue={handleChangeValue}\n                onCommitDate={console.log}\n                label=\"Контролируемый DatePicker\"\n                format=\"DD.MM.YYYY\"\n                lang=\"ru\"\n                contentRight={<IconDone size=\"s\" />}\n                placement=\"bottom\"\n                usePortal\n                maskWithFormat\n            />\n        </div>\n    );\n}"
-    },
-    {
-      "title": "Контролируемый вариант компонента Для передачи текущего значения необходимо использовать свойство  value .",
+      "title": "Быстрый старт",
       "snippet": "import React, {useState} from 'react';\nimport { DatePickerRange } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\ntype DateType = Date | string | undefined | null\nexport function App() {\n    const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);\n    const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);\n    const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);\n    const valueSetter = <T extends unknown, P extends React.Dispatch<React.SetStateAction<any>>>(\n        value: T,\n        sideOfDate: 'start' | 'end',\n        setter: P,\n    ) => {\n        setter((prevValue) => {\n            if (sideOfDate === 'start') {\n                return [value, prevValue[1]];\n            }\n            return [prevValue[0], value];\n        });\n    };\n    const handleChangeValue = (sideOfDate: 'start' | 'end') => (\n        _: React.SyntheticEvent<HTMLInputElement> | null,\n        value?: string,\n        originalDate?: Date | string | null,\n        isoDate?: string,\n    ) => {\n        valueSetter(value, sideOfDate, setDate);\n        valueSetter(originalDate, sideOfDate, setOriginalDate);\n        valueSetter(isoDate, sideOfDate, setIsoDate);\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>\n            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>\n                <p>Значение date:<br/> {dateValue.map(String).join(' --- ')}</p>\n                <p>Значение originalDate:<br/> {originalDateValue.map(String).join(' --- ')}</p>\n                <p>Значение isoDate:<br/> {isoDateValue.join(' --- ')}</p>\n            </div>\n            <DatePickerRange\n                value={dateValue}\n                onChangeFirstValue={handleChangeValue('start')}\n                onChangeSecondValue={handleChangeValue('end')}\n                onCommitFirstDate={console.log}\n                onCommitSecondDate={console.log}\n                label=\"Контролируемый RangeDatePicker\"\n                format=\"DD.MM.YYYY\"\n                lang=\"ru\"\n                placement=\"bottom\"\n                isDoubleCalendar\n                usePortal\n                maskWithFormat\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { DatePickerRange, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>\n            <DatePickerRange\n                appearance=\"default\"\n                size=\"l\"\n                label=\"Appearance default\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                isDoubleCalendar\n                usePortal\n            />\n            <DatePickerRange\n                appearance=\"clear\"\n                size=\"l\"\n                label=\"Appearance clear\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                isDoubleCalendar\n                usePortal\n            />\n            <DatePickerRange\n                appearance=\"clear\"\n                hasClearDivider\n                size=\"l\"\n                label=\"Appearance clear с разделителем\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                isDoubleCalendar\n                usePortal\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { DatePickerRange, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const sizes = ['xl', 'l', 'm', 's', 'xs']\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>\n            {sizes.map((size) => (\n                <DatePickerRange\n                    key={size}\n                    size={size}\n                    label={`Size ${size}`}\n                    leftHelper=\"Подсказка к полю\"\n                    firstPlaceholder=\"Введите дату 1\"\n                    secondPlaceholder=\"Введите дату 2\"\n                    contentRight={<ActionButton />}\n                    isDoubleCalendar\n                    usePortal\n                />\n            ))}\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { DatePickerRange, IconButton } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => {\n        return (\n            <IconButton view=\"clear\" size=\"l\">\n                <IconDone size=\"s\" />\n            </IconButton>\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>\n            <DatePickerRange\n                size=\"l\"\n                label=\"Одиночный календарь\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                usePortal\n            />\n            <DatePickerRange\n                size=\"l\"\n                label=\"Двойной календарь\"\n                leftHelper=\"Подсказка к полю\"\n                firstPlaceholder=\"Введите дату 1\"\n                secondPlaceholder=\"Введите дату 2\"\n                contentRight={<ActionButton />}\n                isDoubleCalendar\n                usePortal\n            />\n        </div>\n    );\n}"
     }
   ]
 }

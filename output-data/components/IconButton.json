@@ -1,0 +1,175 @@
+{
+  "name": "IconButton",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "IconButton Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"accent\" | \"warning\" | \"dark\" | \"success\" | \"critical\" | \"black\" | \"white\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentPlacing",
+        "type": "ContentPlacing",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "additionalContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "Stretching",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "square",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pin",
+        "type": "\"square-square\" | \"square-clear\" | \"clear-square\" | \"clear-clear\" | \"clear-circle\" | \"circle-clear\" | \"circle-circle\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"default\" | \"outline\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "outlined",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftLeft",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shiftRight",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "blur",
+        "type": "\"small\" | \"medium\" | \"large\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  IconButton  может содержать иконку, которая указывается напрямую через  children .",
+      "snippet": "import React from 'react';\nimport { IconButton } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <IconButton>\n                <IconClose color=\"inherit\" />\n            </IconButton>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер кнопки",
+      "snippet": "import React from 'react';\nimport { IconButton } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <IconButton size=\"xl\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"l\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"m\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"xs\">\n                <IconClose color=\"inherit\" size=\"xs\" />\n            </IconButton>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид кнопки",
+      "snippet": "import React from 'react';\nimport { IconButton } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexWrap: 'wrap' }}>\n            <IconButton size=\"s\" view=\"default\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"accent\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"secondary\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"clear\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"success\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"warning\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"critical\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"dark\">\n                <IconClose  color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"black\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton size=\"s\" view=\"white\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Границы кнопки",
+      "snippet": "import React from 'react';\nimport { IconButton } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexWrap: 'wrap' }}>\n            <IconButton pin=\"square-square\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"square-clear\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"clear-square\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"clear-clear\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"clear-circle\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"circle-clear\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n            <IconButton pin=\"circle-circle\">\n                <IconClose color=\"inherit\" />\n            </IconButton>\n        </div>\n    );\n}"
+    }
+  ]
+}

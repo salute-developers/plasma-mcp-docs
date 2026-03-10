@@ -1,0 +1,35 @@
+{
+  "name": "Typography",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Typography В состав Plasma Web входят компоненты, реализующие типографическую систему типографическую систему Plasma .",
+  "api": {
+    "props": []
+  },
+  "examples": [
+    {
+      "title": "Смена тега",
+      "snippet": "import React from 'react';\nimport { BodyM } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <BodyM as=\"h3\">\n            BodyM\n        </BodyM>\n    );\n}"
+    },
+    {
+      "title": "Моноширинные числа (группа Numbers)",
+      "snippet": "<TextM isNumeric={true} />"
+    },
+    {
+      "title": "Hero unit",
+      "snippet": "import React from 'react';\nimport { DsplL, DsplM, DsplS } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'block' }}>\n            <DsplL bold={false}>DsplL</DsplL>\n            <DsplL>DsplL Bold</DsplL>\n            <DsplL medium>DsplL Medium</DsplL>\n            <DsplM bold={false}>DsplM</DsplM>\n            <DsplM>DsplM Bold</DsplM>\n            <DsplM medium>DsplM Medium</DsplM>\n            <DsplS bold={false}>DsplS</DsplS>\n            <DsplS>DsplS Bold</DsplS>\n            <DsplS medium>DsplS Medium</DsplS>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Заголовки Заголовки",
+      "snippet": "import React from 'react';\nimport { H1, H2, H3, H4, H5, H6 } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'block' }}>\n            <H1 bold={false}>H1</H1>\n            <H1>H1 Bold</H1>\n            <H1 medium>H1 Medium</H1>\n            <H2 bold={false}>H2</H2>\n            <H2>H2 Bold</H2>\n            <H2 medium>H2 Medium</H2>\n            <H3 bold={false}>H3</H3>\n            <H3>H3 Bold</H3>\n            <H3 medium>H3 Medium</H3>\n            <H4 bold={false}>H4</H4>\n            <H4>H4 Bold</H4>\n            <H4 medium>H4 Medium</H4>\n            <H5 bold={false}>H5</H5>\n            <H5>H5 Bold</H5>\n            <H5 medium>H5 Medium</H5>\n            <H6 bold={false}>H6</H6>\n            <H6>H6 Bold</H6>\n            <H6 medium>H6 Medium</H6>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Интерфейсы Интерфейсы Типографика для таких частей интерфейса, как button, label, подписи, и т.п.",
+      "snippet": "import React from 'react';\nimport { BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'block' }}>\n            <BodyL>BodyL</BodyL>\n            <BodyL bold>BodyL Bold</BodyL>\n            <BodyL medium>BodyL Medium</BodyL>\n            <BodyM>BodyM</BodyM>\n            <BodyM bold>BodyM Bold</BodyM>\n            <BodyM medium>BodyM Medium</BodyM>\n            <BodyS>BodyS</BodyS>\n            <BodyS bold>BodyS Bold</BodyS>\n            <BodyS medium>BodyS Medium</BodyS>\n            <BodyXS>BodyXS</BodyXS>\n            <BodyXS bold>BodyXS Bold</BodyXS>\n            <BodyXS medium>BodyXS Medium</BodyXS>\n            <BodyXXS>BodyXXS</BodyXXS>\n            <BodyXXS bold>BodyXXS Bold</BodyXXS>\n            <BodyXXS medium>BodyXXS Medium</BodyXXS>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Текст Текст Типографические элементы для описаний к статьям, дополнительной информации и т.д.",
+      "snippet": "import React from 'react';\nimport { TextL, TextM, TextS, TextXS } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'block' }}>\n            <TextL>TextL</TextL>\n            <TextL bold>TextL Bold</TextL>\n            <TextL medium>TextL Medium</TextL>\n            <TextM>TextM</TextM>\n            <TextM bold>TextM Bold</TextM>\n            <TextM medium>TextM Medium</TextM>\n            <TextS>TextS</TextS>\n            <TextS bold>TextS Bold</TextS>\n            <TextS medium>TextS Medium</TextS>\n            <TextXS>TextXS</TextXS>\n            <TextXS bold>TextXS Bold</TextXS>\n            <TextXS medium>TextXS Medium</TextXS>\n        </div>\n    );\n}"
+    }
+  ]
+}

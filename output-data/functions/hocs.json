@@ -1,0 +1,6 @@
+{
+  "name": "hocs",
+  "package": "plasma-web",
+  "category": "functions",
+  "summary": "# Хоки Хоки ## `withAutoFocus` `withAutoFocus` Добавляет фокус при инициализации компонента. ```tsx\nimport React from 'react';\nimport { Button, ButtonProps } from '@salutejs/plasma-core';\nimport { withAutoFocus } from '@salutejs/plasma-web';\n\nconst AutoFocusButton = withAutoFocus<ButtonProps>(Button);\n\nexport const Default = () => {\n    return <AutoFocusButton autoFocus preventScroll={false} />;\n};\n```\n\n## `withSkeleton` `withSkeleton` Делает компонент скелетоном - у него заменяется фоновый цвет, добавляется градиент и текст становится на 100% прозрачным.\nСкелетон управляется параметром  `skeleton` . ```tsx\nimport React from 'react';\nimport { Button, ButtonProps } from '@salutejs/plasma-core';\nimport { withSkeleton, WithSkeletonProps } from '@salutejs/plasma-web';\n\nconst ButtonSkeleton = withSkeleton(Button);\n\nreturn const Default = () => (\n    <>\n        <ButtonSkeleton skeleton /> // Скелетон\n        <ButtonSkeleton /> // Кнопка\n    </>\n);\n```"
+}

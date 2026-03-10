@@ -1,0 +1,434 @@
+{
+  "name": "Mask",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Mask",
+  "api": {
+    "props": [
+      {
+        "name": "onChange",
+        "type": "ChangeEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocus",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlur",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mask",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optionalText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "enumerationType",
+        "type": "\"chip\" | \"plain\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipView",
+        "type": "\"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipType",
+        "type": "\"text\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSearch",
+        "type": "(((value: string, event?: KeyboardEvent<HTMLInputElement>) => void) & ((value: string, event?: KeyboardEvent<HTMLInputElement>) => void)) | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chips",
+        "type": "TextFieldPrimitiveValue[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeChips",
+        "type": "((value: TextFieldPrimitiveValue[]) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipValidator",
+        "type": "((value: string) => ChipValidatorReturn)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maskChar",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maskString",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maskFormat",
+        "type": "IMaskItem[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showMask",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "alwaysShowMask",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showStartChars",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "reformat",
+        "type": "((params: { value: string | IInputValue[]; selection: ISelectRange; input?: string; }) => IInputState)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onValueChange",
+        "type": "((params: { maskedValue: string; value: string; }) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Mask  представляет собой поле ввода с возможностью маскирования значения.",
+      "snippet": "import React from 'react';\nimport { Mask } from '@salutejs/plasma-web';\nimport { IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Mask\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите дату\"\n                mask=\"00/00/0000\"\n                maskString=\"DD/MM/YYYY\"\n                size=\"l\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Маска Маска Маска задается с помощью свойства  mask .",
+      "snippet": "import React from 'react';\nimport { Mask } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Mask\n                label=\"Маска телефона\"\n                placeholder=\"Введите телефон\"\n                mask=\"+7 (000) 000 - 00 - 00\"\n                maskChar=\"_\"\n                size=\"l\"\n                alwaysShowMask\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Маска Маска Маска задается с помощью свойства  mask .",
+      "snippet": "import React from 'react';\nimport { Mask } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Mask\n                label=\"Маска даты\"\n                placeholder=\"Введите дату\"\n                mask=\"00/00/0000\"\n                maskString=\"DD/MM/YYYY\"\n                size=\"l\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Маска Маска Маска задается с помощью свойства  mask .",
+      "snippet": "import React from 'react';\nimport { Mask } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Mask\n                label=\"Маска времени\"\n                placeholder=\"Введите время\"\n                mask=\"1\\0:00\"\n                maskChar=\"_\"\n                size=\"l\"\n                showPrefix\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

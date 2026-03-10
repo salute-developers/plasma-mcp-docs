@@ -1,0 +1,310 @@
+{
+  "name": "Tree",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Tree Многоуровневый раскрывающийся список в виде дерева с возможностью выбора (selection) и выделения (checkbox).",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "TreeItem[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checkable",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checkedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultCheckedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "expandedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultExpandedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "selectedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultSelectedKeys",
+        "type": "Key[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultExpandAll",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoExpandParent",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onTreeSelect",
+        "type": "((selectedKeys: Key[], info: SelectInfo) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onTreeCheck",
+        "type": "((checked: Key[], info: CheckInfo) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onTreeExpand",
+        "type": "((expandedKeys: Key[], info: ExpandInfo) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "arrowPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "virtual",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "itemHeight",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "fullWidthItemSelection",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasIcon",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "renderTitle",
+        "type": "((item: TreeItem) => ReactNode)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "singleLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "\"radio\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "draggable",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragStart",
+        "type": "((info: NodeDragEventParams) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragEnter",
+        "type": "((info: NodeDragEventParams & { expandedKeys: Key[]; }) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragOver",
+        "type": "((info: NodeDragEventParams) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragLeave",
+        "type": "((info: NodeDragEventParams) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDragEnd",
+        "type": "((info: NodeDragEventParams) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDrop",
+        "type": "((info: NodeDragEventParams & { dragNode: EventDataNode; dragNodesKeys: Key[]; dropPosition: number; dropToGap: boolean; }) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "allowDrop",
+        "type": "((options: AllowDropOptions) => boolean)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loadData",
+        "type": "((treeNode: EventDataNode) => Promise<any>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onLoadData",
+        "type": "((loadedKeys: Key[], info: LoadInfo) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "variant",
+        "type": "\"normal\" | \"tight\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "type TreeItem = {\n    /**\n     * Уникальный идентификатор элемента.\n     */\n    key: React.Key;\n    /**\n     * Заголовок элемента.\n     */\n    title?: React.ReactNode | ((data: TreeItem) => React.ReactNode);\n    /**\n     * Classname для текущего элемента.\n     */\n    className?: string;\n    /**\n     * Стиль для текущего элемента.\n     */\n    style?: React.CSSProperties;\n    /**\n     * Флаг выключения элемента.\n     * @default false\n     */\n    disabled?: boolean;\n    /**\n     * Иконка для текущего элемента.\n     */\n    icon?: React.ReactNode;\n    /**\n     * Дочерние items.\n     */\n    children?: TreeItem[];\n    /**\n     * Контент справа.\n     */\n    contentRight?: React.ReactNode;\n};"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React from 'react';\nimport { Tree } from '@salutejs/plasma-web';\nexport function App() {\n    const treeData = [\n        {\n            title: 'Основной каталог',\n            key: '0-0',\n            children: [\n                {\n                    title: 'Документы',\n                    key: '0-0-0',\n                    children: [\n                        {\n                            title: 'Отчёты',\n                            key: '0-0-0-0',\n                            disabled: true,\n                        },\n                        {\n                            title: 'Проекты',\n                            key: '0-0-0-1',\n                            children: [\n                                {\n                                    title: 'Проект Альфа',\n                                    key: '0-0-0-1-0',\n                                },\n                                {\n                                    title: 'Проект Бета',\n                                    key: '0-0-0-1-1',\n                                },\n                            ],\n                        },\n                        {\n                            title: 'Категории',\n                            key: '0-0-0-2',\n                            children: [\n                                {\n                                    title: 'Категория Гамма',\n                                    key: '0-0-0-2-0',\n                                },\n                                {\n                                    title: 'Категория Дельта',\n                                    key: '0-0-0-2-1',\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    title: 'Медиа',\n                    key: '0-0-1',\n                    children: [\n                        {\n                            title: 'Фотографии',\n                            key: '0-0-1-0',\n                        },\n                    ],\n                },\n            ],\n        },\n        {\n            title: 'Корзина',\n            key: '0-1',\n            children: [\n                {\n                    title: 'Удалённые файлы',\n                    key: '0-1-0',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: 'block' }}>\n            <Tree items={treeData} defaultExpandAll />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React from 'react';\nimport { Tree } from '@salutejs/plasma-web';\nexport function App() {\n    const treeData = [\n        {\n            title: 'Основной каталог',\n            key: '0-0',\n            children: [\n                {\n                    title: 'Документы',\n                    key: '0-0-0',\n                    children: [\n                        {\n                            title: 'Отчёты',\n                            key: '0-0-0-0',\n                            disabled: true,\n                        },\n                        {\n                            title: 'Проекты',\n                            key: '0-0-0-1',\n                            children: [\n                                {\n                                    title: 'Проект Альфа',\n                                    key: '0-0-0-1-0',\n                                },\n                                {\n                                    title: 'Проект Бета',\n                                    key: '0-0-0-1-1',\n                                },\n                            ],\n                        },\n                        {\n                            title: 'Категории',\n                            key: '0-0-0-2',\n                            children: [\n                                {\n                                    title: 'Категория Гамма',\n                                    key: '0-0-0-2-0',\n                                },\n                                {\n                                    title: 'Категория Дельта',\n                                    key: '0-0-0-2-1',\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    title: 'Медиа',\n                    key: '0-0-1',\n                    children: [\n                        {\n                            title: 'Фотографии',\n                            key: '0-0-1-0',\n                        },\n                    ],\n                },\n            ],\n        },\n        {\n            title: 'Корзина',\n            key: '0-1',\n            children: [\n                {\n                    title: 'Удалённые файлы',\n                    key: '0-1-0',\n                },\n            ],\n        },\n    ];\n    const [expanded, setExpanded] = React.useState<React.Key[]>([]);\n    const [checked, setChecked] = React.useState<React.Key[]>([]);\n    const [selected, setSelected] = React.useState<React.Key[]>([]);\n    return (\n        <div style={{ display: 'block' }}>\n            <Tree\n                items={treeData}\n                checkable\n                expandedKeys={expanded}\n                onTreeExpand={setExpanded}\n                checkedKeys={checked}\n                onTreeCheck={setChecked}\n                selectedKeys={selected}\n                onTreeSelect={setSelected}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React from 'react';\nimport { Tree } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'block' }}>\n            <Tree\n                items={Array(1000)\n                    .fill(1)\n                    .map((_, i) => ({ key: i.toString(), title: i.toString() }))}\n                height={400}\n                itemHeight={48}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Drag'n'Drop Drag'n'Drop Для включения режима Drag and Drop нужно включить свойство  draggable . Также имеется ряд обработчиков, однако наиболее важным из них является  onDrop .",
+      "snippet": "import React from 'react';\nimport { Tree, TreeProps, TreeItem } from '@salutejs/plasma-web';\nexport function App() {\n    const treeData = [\n        {\n            title: 'Основной каталог',\n            key: '0-0',\n            children: [\n                {\n                    title: 'Документы',\n                    key: '0-0-0',\n                    children: [\n                        {\n                            title: 'Отчёты',\n                            key: '0-0-0-0',\n                            disabled: true,\n                        },\n                        {\n                            title: 'Проекты',\n                            key: '0-0-0-1',\n                            children: [\n                                {\n                                    title: 'Проект Альфа',\n                                    key: '0-0-0-1-0',\n                                },\n                                {\n                                    title: 'Проект Бета',\n                                    key: '0-0-0-1-1',\n                                },\n                            ],\n                        },\n                        {\n                            title: 'Категории',\n                            key: '0-0-0-2',\n                            children: [\n                                {\n                                    title: 'Категория Гамма',\n                                    key: '0-0-0-2-0',\n                                },\n                                {\n                                    title: 'Категория Дельта',\n                                    key: '0-0-0-2-1',\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    title: 'Медиа',\n                    key: '0-0-1',\n                    children: [\n                        {\n                            title: 'Фотографии',\n                            key: '0-0-1-0',\n                        },\n                    ],\n                },\n            ],\n        },\n        {\n            title: 'Корзина',\n            key: '0-1',\n            children: [\n                {\n                    title: 'Удалённые файлы',\n                    key: '0-1-0',\n                },\n            ],\n        },\n    ];\n    const [items, setItems] = React.useState(treeData);\n    const onDrop: TreeProps['onDrop'] = (info) => {\n        const dropKey = info.node.key;\n        const dragKey = info.dragNode.key;\n        const dropPos = info.node.pos.split('-');\n        const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);\n        // Функция-хелпер для прохода по дереву элементов\n        const loop = (\n            data: TreeItem[],\n            key: React.Key,\n            callback: (node: TreeItem, i: number, data: TreeItem[]) => void,\n        ) => {\n            data.forEach((item, index, arr) => {\n                if (item.key === key) {\n                    callback(item, index, arr);\n                    return;\n                }\n                if (item.children) {\n                    loop(item.children, key, callback);\n                }\n            });\n        };\n        const data = [...items];\n        // Ищем draggable-элемент\n        let dragObj: TreeItem;\n        loop(data, dragKey, (item, index, arr) => {\n            arr.splice(index, 1);\n            dragObj = item;\n        });\n        if (dropPosition === 0) {\n            // Вставляем элемент внутрь target-элемента\n            loop(data, dropKey, (item) => {\n                item.children = item.children || [];\n                item.children.unshift(dragObj);\n            });\n        } else {\n            // Вставляем элемент вначале или после target-элемента\n            let ar: TreeItem[] = [];\n            let i: number;\n            loop(data, dropKey, (_item, index, arr) => {\n                ar = arr;\n                i = index;\n            });\n            if (dropPosition === -1) {\n                ar.splice(i!, 0, dragObj!);\n            } else {\n                ar.splice(i! + 1, 0, dragObj!);\n            }\n        }\n        setItems(data);\n    };\n    const allowDrop: TreeProps['allowDrop'] = (info) => {\n        return !info.dropNode.disabled;\n    };\n    return (\n        <div style={{ display: 'block' }}>\n            <Tree items={items} draggable onDrop={onDrop} allowDrop={allowDrop} defaultExpandAll />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Drag'n'Drop Drag'n'Drop Для включения режима Drag and Drop нужно включить свойство  draggable . Также имеется ряд обработчиков, однако наиболее важным из них является  onDrop .",
+      "snippet": "import React from 'react';\nimport { Tree, TreeProps, TreeItem } from '@salutejs/plasma-web';\nexport function App() {\n    const treeData = [\n        {\n            title: 'Основной каталог',\n            key: '0-0',\n            children: [\n                {\n                    title: 'Документы',\n                    key: '0-0-0',\n                    children: [\n                        {\n                            title: 'Отчёты',\n                            key: '0-0-0-0',\n                            disabled: true,\n                        },\n                        {\n                            title: 'Проекты',\n                            key: '0-0-0-1',\n                            children: [\n                                {\n                                    title: 'Проект Альфа',\n                                    key: '0-0-0-1-0',\n                                },\n                                {\n                                    title: 'Проект Бета',\n                                    key: '0-0-0-1-1',\n                                },\n                            ],\n                        },\n                        {\n                            title: 'Категории',\n                            key: '0-0-0-2',\n                            children: [\n                                {\n                                    title: 'Категория Гамма',\n                                    key: '0-0-0-2-0',\n                                },\n                                {\n                                    title: 'Категория Дельта',\n                                    key: '0-0-0-2-1',\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    title: 'Медиа',\n                    key: '0-0-1',\n                    children: [\n                        {\n                            title: 'Фотографии',\n                            key: '0-0-1-0',\n                        },\n                    ],\n                },\n            ],\n        },\n        {\n            title: 'Корзина',\n            key: '0-1',\n            children: [\n                {\n                    title: 'Удалённые файлы',\n                    key: '0-1-0',\n                },\n            ],\n        },\n    ];\n    const [items, setItems] = React.useState(treeData);\n    const onDrop: TreeProps['onDrop'] = (info) => {\n        const dropKey = info.node.key;\n        const dragKey = info.dragNode.key;\n        const dropPos = info.node.pos.split('-');\n        const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);\n        // Функция-хелпер для прохода по дереву элементов\n        const loop = (\n            data: TreeItem[],\n            key: React.Key,\n            callback: (node: TreeItem, i: number, data: TreeItem[]) => void,\n        ) => {\n            data.forEach((item, index, arr) => {\n                if (item.key === key) {\n                    callback(item, index, arr);\n                    return;\n                }\n                if (item.children) {\n                    loop(item.children, key, callback);\n                }\n            });\n        };\n        const data = [...items];\n        // Ищем draggable-элемент\n        let dragObj: TreeItem;\n        loop(data, dragKey, (item, index, arr) => {\n            arr.splice(index, 1);\n            dragObj = item;\n        });\n        if (dropPosition === 0) {\n            // Вставляем элемент внутрь target-элемента\n            loop(data, dropKey, (item) => {\n                item.children = item.children || [];\n                item.children.unshift(dragObj);\n            });\n        } else {\n            // Вставляем элемент вначале или после target-элемента\n            let ar: TreeItem[] = [];\n            let i: number;\n            loop(data, dropKey, (_item, index, arr) => {\n                ar = arr;\n                i = index;\n            });\n            if (dropPosition === -1) {\n                ar.splice(i!, 0, dragObj!);\n            } else {\n                ar.splice(i! + 1, 0, dragObj!);\n            }\n        }\n        setItems(data);\n    };\n    const allowDrop: TreeProps['allowDrop'] = (info) => {\n        if (info.dropNode.disabled || !info.dropNode.children && info.dropPosition === 0) {\n            return false;\n        }\n        return true;\n    };\n    return (\n        <div style={{ display: 'block' }}>\n            <Tree items={items} draggable onDrop={onDrop} allowDrop={allowDrop} defaultExpandAll />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Пример с autoExpandParent",
+      "snippet": "import React from 'react';\nimport { Tree, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [expanded, setExpanded] = React.useState<React.Key[]>([]);\n    const [autoExpandParent, setAutoExpandParent] = React.useState<boolean>(true);\n    const treeData = [\n        {\n            title: 'Основной каталог',\n            key: '0-0',\n            children: [\n                {\n                    title: 'Документы',\n                    key: '0-0-0',\n                    children: [\n                        {\n                            title: 'Отчёты',\n                            key: '0-0-0-0',\n                            disabled: true,\n                        },\n                        {\n                            title: 'Проекты',\n                            key: '0-0-0-1',\n                            children: [\n                                {\n                                    title: 'Проект Альфа',\n                                    key: '0-0-0-1-0',\n                                },\n                                {\n                                    title: 'Проект Бета',\n                                    key: '0-0-0-1-1',\n                                },\n                            ],\n                        },\n                        {\n                            title: 'Категории',\n                            key: '0-0-0-2',\n                            children: [\n                                {\n                                    title: 'Категория Гамма',\n                                    key: '0-0-0-2-0',\n                                },\n                                {\n                                    title: 'Категория Дельта',\n                                    key: '0-0-0-2-1',\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    title: 'Медиа',\n                    key: '0-0-1',\n                    children: [\n                        {\n                            title: 'Фотографии',\n                            key: '0-0-1-0',\n                        },\n                    ],\n                },\n            ],\n        },\n        {\n            title: 'Корзина',\n            key: '0-1',\n            children: [\n                {\n                    title: 'Удалённые файлы',\n                    key: '0-1-0',\n                },\n            ],\n        },\n    ];\n    const handleExpand = (expandedValue) => {\n        setAutoExpandParent(false);\n        setExpanded(expandedValue);\n    };\n    return (\n        <div style={{ display: 'flex', gap: '50px' }}>\n            <Button\n                onClick={() => {\n                    setAutoExpandParent(true);\n                    setExpanded(['0-0-0']);\n                }}\n            >\n                Открыть уровень \"Документы\"\n            </Button>\n            <Tree\n                items={treeData}\n                expandedKeys={expanded}\n                onTreeExpand={handleExpand}\n                autoExpandParent={autoExpandParent}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Асинхронная загрузка элементов",
+      "snippet": "export function App() {\n    const [treeData, setTreeData] = React.useState([\n        { title: 'Открыть для загрузки', key: '0' },\n        { title: 'Конечный элемент', key: '1', isLeaf: true },\n    ]);\n    interface DataNode {\n        title: string;\n        key: string;\n        isLeaf?: boolean;\n        children?: DataNode[];\n    }\n    // Носит иллюстрационный характер и должно настраиваться в индивидуальном порядке на стороне пользователя.\n    const updateTreeData = (list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] =>\n        list.map((node) => {\n            if (node.key === key) {\n                return {\n                    ...node,\n                    children,\n                };\n            }\n            if (node.children) {\n                return {\n                    ...node,\n                    children: updateTreeData(node.children, key, children),\n                };\n            }\n            return node;\n        });\n    return <Tree loadData={({ key, children }) =>\n        new Promise<void>((resolve) => {\n            if (children) {\n                resolve();\n                return;\n            }\n            setTimeout(() => {\n                setTreeData((origin) =>\n                    updateTreeData(origin, key, [{ title: 'Загруженный элемент', key: `${ key }-0` }]),\n                );\n                resolve();\n            }, 2000);\n        })} items={ treeData }/>;\n}"
+    }
+  ]
+}

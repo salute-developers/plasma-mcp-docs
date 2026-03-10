@@ -1,0 +1,26 @@
+[
+  {
+    "name": "hocs",
+    "href": "hocs.json",
+    "summary": "Скелетон управляется параметром skeleton .",
+    "category": "functions"
+  },
+  {
+    "name": "hooks",
+    "href": "hooks.json",
+    "summary": "Принимает параметры active (по умолчанию true ), firstFocusSelector?: string | React.RefObject<HTMLElement> - selector или RefObject, который должен быть в фокусе при открытии, а также focusAfterNode?: React.RefObject<HTMLElement> - элемент для фокуса после закрытия(по умолчанию фокус на последнем п",
+    "category": "functions"
+  },
+  {
+    "name": "mixins",
+    "href": "mixins.json",
+    "summary": "",
+    "category": "functions"
+  },
+  {
+    "name": "utils",
+    "href": "utils.json",
+    "summary": "Значение символов: r - радиус стандартный, h - радиус округлый (вычисляется из высоты).",
+    "category": "functions"
+  }
+]

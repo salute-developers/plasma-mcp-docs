@@ -1,0 +1,110 @@
+{
+  "name": "Tabs",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Tabs Набор компонентов для создания вкладок.",
+  "api": {
+    "props": [
+      {
+        "name": "clip",
+        "type": "\"scroll\" | \"showAll\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"clear\" | \"filled\" | \"divider\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "outsideScroll",
+        "type": "boolean | { left?: string; right?: string; } | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Стандартное подключение, без клавиатурной навигации",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(4).fill(0);\n    const [index, setIndex] = useState(0);\n    return (\n        <div>\n            <Tabs view=\"filled\" stretch size=\"xs\">\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"secondary\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                        onClick={() => setIndex(i)}\n                    >\n                        {`Label${i + 1}`}\n                    </TabItem>\n                ))}\n            </Tabs>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Пример с прокруткой",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem, Button } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(8).fill(0);\n    const [index, setIndex] = useState(0);\n    const specificIndex = 6;\n    return (\n        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>\n            <Tabs view=\"divider\" size=\"xs\" style={{ width: '15rem' }}>\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"divider\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                        onClick={() => setIndex(i)}\n                    >\n                        {`Label${i + 1}`}\n                    </TabItem>\n                ))}\n            </Tabs>\n            <Button onClick={() => setIndex(specificIndex)}>{`Выбрать элемент ${specificIndex + 1}`}</Button>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Расположение табов",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem, IconTabItem } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(8).fill(0);\n    const [index, setIndex] = useState(0);\n    return (\n        <div style={{ gap: '2rem' }}>\n            <Tabs view=\"divider\" orientation=\"vertical\" size=\"xs\" style={{ width: '15rem' }}>\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"divider\"\n                        orientation=\"vertical\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                        onClick={() => setIndex(i)}\n                    >\n                        {`Label${i + 1}`}\n                    </TabItem>\n                ))}\n            </Tabs>\n            <Tabs view=\"divider\" orientation=\"vertical\" size=\"xs\" style={{ width: '15rem' }}>\n                {items.map((_, i) => (\n                    <IconTabItem\n                        view=\"divider\"\n                        orientation=\"vertical\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        onClick={() => setIndex(i)}\n                    >\n                        <IconClock size=\"xs\" color=\"inherit\" />\n                    </IconTabItem>\n                ))}\n            </Tabs>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Пример с прокруткой",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem, IconTabItem, Button } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(8).fill(0);\n    const [index, setIndex] = useState(0);\n    const specificIndex = 6;\n    return (\n        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>\n            <Tabs view=\"divider\" size=\"xs\" style={{ width: '15rem' }}>\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"divider\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                        onClick={() => setIndex(i)}\n                    >\n                        {`Label${i + 1}`}\n                    </TabItem>\n                ))}\n            </Tabs>\n            <Tabs view=\"divider\" size=\"xs\" style={{ width: '15rem' }}>\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"divider\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        onClick={() => setIndex(i)}\n                    >\n                        <IconClock size=\"xs\" color=\"inherit\" />\n                    </TabItem>\n                ))}\n            </Tabs>\n            <Button onClick={() => setIndex(specificIndex)}>{`Выбрать элемент ${specificIndex + 1}`}</Button>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Пример с Dropdown",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem, Dropdown } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(8).fill(0);\n    const [index, setIndex] = useState(0);\n    const maxItemQuantity = 3;\n    const visibleItems = items.slice(0, maxItemQuantity);\n    const otherItems = items.slice(maxItemQuantity);\n    const dropdownItems = otherItems.map((_, i) => {\n        const itemIndex = maxItemQuantity + i;\n        return {\n            label: `Label${itemIndex + 1}`,\n            value: itemIndex,\n        };\n    });\n    return (\n        <div style={{ display:'flex', flexDirection: 'column', gap: '1rem' }}>\n            <div style={{ height: '15rem', alignItems: 'flex-start' }}>\n                <Tabs clip=\"showAll\" view=\"divider\" size=\"xs\">\n                    {visibleItems.map((_, i) => (\n                        <TabItem\n                            key={`item:${i}`}\n                            view=\"divider\"\n                            selected={i === index}\n                            onClick={() => setIndex(i)}\n                            tabIndex={0}\n                            size=\"xs\"\n                        >\n                            {`Label${i + 1}`}\n                        </TabItem>\n                    ))}\n                    {dropdownItems.length > 0 && (\n                        <div style={{ marginLeft: '1.75rem' }}>\n                            <Dropdown size=\"xs\" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>\n                                <TabItem key=\"item:ShowAll\" view=\"divider\" tabIndex={0} size=\"xs\">\n                                    ShowAll\n                                </TabItem>\n                            </Dropdown>\n                        </div>\n                    )}\n                </Tabs>\n            </div>\n            <div style={{ height: '15rem', alignItems: 'flex-start' }}>\n                <Tabs clip=\"showAll\" view=\"divider\" size=\"xs\">\n                    {visibleItems.map((_, i) => (\n                        <IconTabItem\n                            key={`item:${i}`}\n                            view=\"divider\"\n                            selected={i === index}\n                            onClick={() => setIndex(i)}\n                            tabIndex={0}\n                            size=\"xs\"\n                        >\n                            <IconDotsHorizontalOutline color=\"inherit\" size=\"xs\" />\n                        </IconTabItem>\n                    ))}\n                    {dropdownItems.length > 0 && (\n                        <div style={{ marginLeft: '1.75rem' }}>\n                            <Dropdown size=\"xs\" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>\n                                <IconTabItem key=\"item:ShowAll\" view=\"divider\" tabIndex={0} size=\"xs\">\n                                    <IconClock color=\"inherit\" size=\"xs\" />\n                                </IconTabItem>\n                            </Dropdown>\n                        </div>\n                    )}\n                </Tabs>\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Слот дополнительного действия в TabItem",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(4).fill(0);\n    const [index, setIndex] = useState(0);\n    return (\n        <div>\n            <Tabs view=\"filled\" stretch size=\"xs\">\n                {items.map((_, i) => (\n                    <TabItem\n                        view=\"secondary\"\n                        key={`item:${i}`}\n                        size=\"xs\"\n                        selected={i === index}\n                        tabIndex={0}\n                        actionContent={<IconClose size=\"xs\" color=\"inherit\" />}\n                        onClick={() => setIndex(i)}\n                    >\n                        {`Label${i + 1}`}\n                    </TabItem>\n                ))}\n            </Tabs>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Подключение клавиатурной навигации",
+      "snippet": "import React, { useState } from 'react';\nimport { Tabs, TabItem } from '@salutejs/plasma-web';\nimport { IconClock } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = Array(4).fill(0);\n    const [horizontalIndex, setHorizontalIndex] = useState(0);\n    const [verticalIndex, setVerticalIndex] = useState(0);\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"50px\"}}>\n            <div>\n                <Tabs view=\"divider\" stretch size=\"xs\" index={horizontalIndex}>\n                    {items.map((_, i) => (\n                        <TabItem\n                            view=\"divider\"\n                            key={`item:${i}`}\n                            size=\"xs\"\n                            itemIndex={i}\n                            onIndexChange={(i) => setHorizontalIndex(i)}\n                            selected={i === horizontalIndex}\n                            tabIndex={0}\n                            contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                            onClick={() => setHorizontalIndex(i)}\n                        >\n                            {`Label${i + 1}`}\n                        </TabItem>\n                    ))}\n                </Tabs>\n            </div>\n            <div>\n                <Tabs orientation=\"vertical\" view=\"divider\" size=\"xs\" index={verticalIndex}>\n                    {items.map((_, i) => (\n                        <TabItem\n                            orientation=\"vertical\"\n                            view=\"divider\"\n                            key={`item:${i}`}\n                            size=\"xs\"\n                            itemIndex={i}\n                            onIndexChange={(i) => setVerticalIndex(i)}\n                            selected={i === verticalIndex}\n                            tabIndex={0}\n                            contentLeft={<IconClock size=\"xs\" color=\"inherit\" />}\n                            onClick={() => setVerticalIndex(i)}\n                        >\n                            {`Label${i + 1}`}\n                        </TabItem>\n                    ))}\n                </Tabs>\n            </div>\n        </div>\n    );\n}"
+    }
+  ]
+}

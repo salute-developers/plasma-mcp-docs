@@ -1,9 +1,14 @@
 {
-  "builtAt": "2026-03-06T07:09:18.537Z",
+  "builtAt": "2026-03-10T09:15:54.037Z",
   "source": {
     "repo": "https://github.com/salute-developers/plasma"
   },
   "paths": {
-    "componentsIndex": "components/index.json"
+    "components": "components/index.json",
+    "design": "design/index.json",
+    "form": "form/index.json",
+    "functions": "functions/index.json",
+    "intro": "intro/index.json",
+    "next": "next/index.json"
   }
 }

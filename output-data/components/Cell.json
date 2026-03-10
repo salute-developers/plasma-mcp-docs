@@ -2,7 +2,7 @@
   "name": "Cell",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Компонент ячейки.",
+  "summary": "Cell Компонент ячейки.",
   "api": {
     "props": [
       {

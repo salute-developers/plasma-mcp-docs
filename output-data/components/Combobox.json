@@ -2,7 +2,7 @@
   "name": "Combobox",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "Combobox",
   "api": {
     "props": [
       {
@@ -181,6 +181,13 @@
         "description": ""
       },
       {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
         "name": "filter",
         "type": "((item: T, textValue: string) => boolean)",
         "required": false,
@@ -251,6 +258,13 @@
         "description": ""
       },
       {
+        "name": "renderSelectionIcon",
+        "type": "((selected: boolean | \"indeterminate\") => ReactNode)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
         "name": "closeAfterSelect",
         "type": "boolean",
         "required": false,
@@ -309,6 +323,20 @@
       {
         "name": "arrowPlacement",
         "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "flip",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shift",
+        "type": "boolean",
         "required": false,
         "default": "",
         "description": ""
@@ -485,59 +513,63 @@
   },
   "examples": [
     {
-      "title": "Использование Обязательным параметром является только  items . Внутри items может быть такой же вложенный массив items. Формат следующий",
+      "title": "Использование Использование Обязательным параметром является только  items . Внутри items может быть такой же вложенный массив items. Формат следующий",
       "snippet": "type Items = Array<{\n        /**\n         *  Значение у item\n         */\n        value: string;\n        /**\n         * Метка-подпись к item\n         */\n        label: string;\n        /**\n        * Сторона открытия вложенного дропдауна относительно текущего элемента;\n        * @default right\n        */\n        placement?: Placement;\n        /**\n         * Список дочерних items.\n         */\n        items?: Array<ItemOption>;\n        /**\n         * Item не активен\n         */\n        disabled?: boolean;\n        /**\n         * Слот для контента слева\n         */\n        contentLeft?: ReactNode;\n        /**\n         * Слот для контента справа\n         */\n        contentRight?: ReactNode;\n    }>;"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React from 'react';\nimport { Combobox } from '@salutejs/plasma-web';\nexport function App() {\n   const [value, setValue] = useState<string>('');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <div style={{ width: \"300px\" }}>\n                <Combobox\n                    items={items}\n                    value={value}\n                    onChange={setValue}\n                    placeholder=\"Placeholder\"\n                    label=\"Label\"\n                    helperText=\"Helper text\"\n                />\n            </div>\n        </div>\n    );\n}"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React from 'react';\nimport { Combobox } from '@salutejs/plasma-web';\nexport function App() {\n   const [value, setValue] = useState<string[]>([]);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <div style={{ width: \"300px\" }}>\n                <Combobox\n                    multiple\n                    items={items}\n                    value={value}\n                    onChange={setValue}\n                    placeholder=\"Placeholder\"\n                    label=\"Label\"\n                    helperText=\"Helper text\"\n                />\n            </div>\n        </div>\n    );\n}"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React from 'react';\nimport { Combobox, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [multipleValue, setMultipleValue] = useState<string[]>(['brazil', 'north_america']);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <div style={{ width: \"300px\" }}>\n                <Combobox\n                    multiple\n                    items={items}\n                    value={multipleValue}\n                    onChange={setMultipleValue}\n                    placeholder=\"Placeholder\"\n                    label=\"Label\"\n                    helperText=\"Helper text\"\n                />\n            </div>\n            <Button onClick={() => setMultipleValue([])}>Очистить</Button>\n        </div>\n    );\n}"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React, { useRef } from 'react';\nimport { Combobox } from '@salutejs/plasma-web';\nexport function App() {\n   const [value, setValue] = useState<string>('');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    const ref = useRef(null)\n    return (\n        <div style={{ position: \"relative\", height: \"300px\" }} ref={ref}>\n            <div style={{ width: \"300px\" }}>\n                <Combobox\n                    items={items}\n                    value={value}\n                    onChange={setValue}\n                    placeholder=\"Placeholder\"\n                    label=\"Label\"\n                    helperText=\"Helper text\"\n                    portal={ref}\n                    listWidth=\"300px\"\n                />\n            </div>\n        </div>\n    );\n}"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React from 'react';\n import { Combobox } from '@salutejs/plasma-web';\n export function App() {\n     const items = [\n         {\n             value: 'north_america',\n             label: 'Северная Америка',\n         },\n         {\n             value: 'south_america',\n             label: 'Южная Америка',\n             items: [\n                 {\n                     value: 'brazil',\n                     label: 'Бразилия',\n                 },\n                 {\n                     value: 'argentina',\n                     label: 'Аргентина',\n                 },\n             ],\n         },\n     ];\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{ width: \"300px\" }}>\n                 <Combobox\n                     items={items}\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                 />\n             </div>\n         </div>\n     );\n }"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React, { useState } from 'react';\n import { Combobox, Button } from '@salutejs/plasma-web';\n export function App() {\n     const [alwaysOpened, setAlwaysOpened] = useState(false);\n     const items = [\n         {\n             value: 'north_america',\n             label: 'Северная Америка',\n         },\n         {\n             value: 'south_america',\n             label: 'Южная Америка',\n             items: [\n                 {\n                     value: 'brazil',\n                     label: 'Бразилия',\n                 },\n                 {\n                     value: 'argentina',\n                     label: 'Аргентина',\n                 },\n             ],\n         },\n     ];\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{width: \"300px\" }}>\n                 <Button text={ alwaysOpened ? 'По умолчанию' : 'Всегда открыт' } onClick={() => setAlwaysOpened(!alwaysOpened)} style={{ marginBottom: '1rem' }} />\n                 <Combobox\n                     items={items}\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                     alwaysOpened={alwaysOpened}\n                 />\n             </div>\n         </div>\n     );\n }"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React, { useState } from 'react';\n import { Combobox } from '@salutejs/plasma-web';\n export function App() {\n     const items = Array(5000).fill(1).map((_, i) => ({ value: i.toString(), label: i.toString() }));\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{width: \"300px\" }}>\n                 <Combobox\n                     items={items}\n                     virtual\n                     listMaxHeight=\"200px\"\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                 />\n             </div>\n         </div>\n     );\n }"
     },
     {
-      "title": "Примеры",
-      "snippet": "import React, { useState } from 'react';\n import { Combobox } from '@salutejs/plasma-web';\n export function App() {\n     function getRandomData() {\n         return Array(10)\n             .fill(1)\n             .map(() => {\n                 const n = Math.floor(Math.random() * 90000000) + 10000000;\n                 return { value: n.toString(), label: n.toString() };\n             });\n     };\n     const [items, setItems] = useState(getRandomData());\n     const [isInfiniteLoading, setIsInfiniteLoading] = useState(false);\n     const getData = async () => {\n         return new Promise((resolve) => {\n             setTimeout(() => {\n                 resolve(getRandomData());\n             }, 1500);\n         });\n     };\n     const handleScroll = async (e) => {\n         if (isInfiniteLoading) return;\n         if (e.target.scrollTop + e.target.offsetHeight + 10 > e.target.scrollHeight) {\n             setIsInfiniteLoading(true);\n             const res = await getData();\n             setItems([...items, ...res]);\n             setIsInfiniteLoading(false);\n         }\n     };\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{ width: \"300px\" }}>\n                 <Combobox\n                     items={items}\n                     listMaxHeight=\"200px\"\n                     listOverflow=\"scroll\"\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                     onScroll={handleScroll}\n                     afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}\n                 />\n             </div>\n         </div>\n     );\n }"
+      "title": "Примеры Примеры",
+      "snippet": "import React, { useState } from 'react';\n import { Combobox } from '@salutejs/plasma-web';\n export function App() {\n     function getRandomData() {\n         return Array(10)\n             .fill(1)\n             .map(() => {\n                 const n = Math.floor(Math.random() * 90000000) + 10000000;\n                 return { value: n.toString(), label: n.toString() };\n             });\n     };\n     const [items, setItems] = useState(getRandomData());\n     const [isInfiniteLoading, setIsInfiniteLoading] = useState(false);\n     const getData = async () => {\n         return new Promise((resolve) => {\n             setTimeout(() => {\n                 resolve(getRandomData());\n             }, 1500);\n         });\n     };\n     const handleScroll = async (e) => {\n         if (isInfiniteLoading) return;\n         if (e.currentTarget.scrollTop + e.currentTarget.offsetHeight + 10 > e.currentTarget.scrollHeight) {\n             setIsInfiniteLoading(true);\n             const res = await getData();\n             setItems([...items, ...res]);\n             setIsInfiniteLoading(false);\n         }\n     };\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{ width: \"300px\" }}>\n                 <Combobox\n                     items={items}\n                     listMaxHeight=\"200px\"\n                     listOverflow=\"scroll\"\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                     onScroll={handleScroll}\n                     afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}\n                 />\n             </div>\n         </div>\n     );\n }"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "type SelectAllProps = {\n    checked?: boolean;\n    indeterminate?: boolean;\n    label?: string;\n    onClick?: () => void;\n    sticky?: boolean;\n};"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React, { useState, useEffect } from 'react';\nimport { Combobox } from '@salutejs/plasma-web';\nexport function App() {\n    const flatItems = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'rio_de_janeiro',\n            label: 'Рио-де-Жанейро',\n        },\n        {\n            value: 'sao_paulo',\n            label: 'Сан-Паулу',\n        },\n        {\n            value: 'buenos_aires',\n            label: 'Буэнос-Айрес',\n        },\n        {\n            value: 'cordoba',\n            label: 'Кордова',\n        },\n        {\n            value: 'bogota',\n            label: 'Богота',\n        },\n        {\n            value: 'medellin',\n            label: 'Медельин',\n        },\n    ];\n    const [value, setValue] = useState([]);\n    const [checked, setChecked] = useState(false);\n    const [indeterminate, setIndeterminate] = useState(false);\n    const handleClick = () => {\n        if (checked && !indeterminate) {\n            setValue([]);\n        } else {\n            setValue(flatItems.map((item) => item.value));\n        }\n    };\n    useEffect(() => {\n        if (value.length === 0) {\n            setChecked(false);\n            setIndeterminate(false);\n        } else if (value.length === flatItems.length) {\n            setChecked(true);\n            setIndeterminate(false);\n        } else {\n            setChecked(true);\n            setIndeterminate(true);\n        }\n    }, [value]);\n    return (\n        <div style={{ display: \"block\", width: \"300px\", height: \"300px\" }}>\n            <Combobox\n                value={value}\n                onChange={setValue}\n                label=\"Label\"\n                placeholder=\"Placeholder\"\n                items={flatItems}\n                multiple\n                selectAllOptions={{\n                    checked,\n                    indeterminate,\n                    onClick: handleClick,\n                }}\n                listOverflow=\"auto\"\n                listMaxHeight=\"200px\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Примеры",
+      "title": "Примеры Примеры",
       "snippet": "import React, { useState, useEffect } from 'react';\nimport { Combobox } from '@salutejs/plasma-web';\nexport function App() {\n    const shortListItems = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'rio_de_janeiro',\n            label: 'Рио-де-Жанейро',\n        },\n        {\n            value: 'sao_paulo',\n            label: 'Сан-Паулу',\n        },\n    ];\n    const [items, setItems] = useState(shortListItems);\n    const [value, setValue] = useState([]);\n    const [textValue, setTextValue] = useState('');\n    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {\n        if (event.key === 'Enter') {\n            setItems([...items, { value: textValue, label: textValue }]);\n            setValue([...value, textValue]);\n            setTextValue('');\n        }\n    };\n    return (\n        <div style={{ display: \"block\", width: \"300px\", height: \"300px\" }}>\n            <Combobox\n                multiple\n                label=\"Label\"\n                placeholder=\"Placeholder\"\n                items={items}\n                value={value}\n                onChange={setValue}\n                onChangeValue={setTextValue}\n                onKeyDown={handleKeyDown}\n                helperText=\"Введите новое слово\"\n                emptyStateDescription=\"Нажмите Enter, чтобы добавить значение в список.\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Взаимодействие с disabled-элементами Изнутри компонента",
+      "title": "Примеры Примеры",
+      "snippet": "export function App() {\n    const [value, setValue] = useState('brazil');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    const renderSelectionIcon = (selected: boolean | 'indeterminate') => {\n        if (selected === true) {\n            return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;\n        }\n        if (selected === 'indeterminate') {\n            return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;\n        }\n        return null;\n    };\n    return (\n        <div style={{ height: '300px' }}>\n           <div style={{ width: '400px' }}>\n                <Combobox\n                    items={items}\n                    value={value}\n                    onChange={setValue}\n                    renderSelectionIcon={renderSelectionIcon}\n                />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Взаимодействие с disabled-элементами",
       "snippet": "import React, { useState, useEffect } from 'react';\n    import { Combobox } from '@salutejs/plasma-web';\n    export function App() {\n        const items = [\n            {\n                value: 'north_america',\n                label: 'Северная Америка',\n            },\n            {\n                value: 'south_america',\n                label: 'Южная Америка',\n                items: [\n                    {\n                        value: 'brazil',\n                        label: 'Бразилия',\n                        disabled: true,\n                    },\n                    {\n                        value: 'argentina',\n                        label: 'Аргентина',\n                    },\n                ],\n            },\n        ];\n        const [value, setValue] = useState(['brazil']);\n        return (\n            <div style={{ display: \"flex\", height: \"300px\" }}>\n                <div style={{ width: \"300px\" }}>\n                    <Combobox\n                        multiple\n                        label=\"Label\"\n                        placeholder=\"Placeholder\"\n                        items={items}\n                    />\n                </div>\n                <div style={{ width: \"300px\" }}>\n                    <Combobox\n                        multiple\n                        label=\"Label\"\n                        placeholder=\"Placeholder\"\n                        items={items}\n                        value={value}\n                        onChange={setValue}\n                        isTargetAmount\n                    />\n                </div>\n            </div>\n        );\n    }"
     },
     {
-      "title": "TreeView и подсветка найденных элементов Данный пример показывает реализацию подсветки (highlighting) символов в найденных элементах в режиме  treeView .",
+      "title": "TreeView и подсветка найденных элементов",
       "snippet": "import React, { useState } from 'react';\n    import { Combobox, ComboboxItemOption } from '@salutejs/plasma-web';\n    export function App() {\n        const items = [\n            {\n                value: 'asia',\n                label: 'Азия',\n                items: [\n                    {\n                        value: 'china',\n                        label: 'Китай',\n                        items: [\n                            {\n                                value: 'beijing',\n                                label: 'Пекин',\n                            },\n                            {\n                                value: 'shanghai',\n                                label: 'Шанхай',\n                            },\n                        ],\n                    },\n                    {\n                        value: 'japan',\n                        label: 'Япония',\n                        items: [\n                            {\n                                value: 'tokyo',\n                                label: 'Токио',\n                            },\n                            {\n                                value: 'osaka',\n                                label: 'Осака',\n                            },\n                        ],\n                    },\n                    {\n                        value: 'india',\n                        label: 'Индия',\n                        items: [\n                            {\n                                value: 'delhi',\n                                label: 'Дели',\n                            },\n                            {\n                                value: 'mumbai',\n                                label: 'Мумбаи',\n                            },\n                        ],\n                    },\n                    {\n                        value: 'south_korea',\n                        label: 'Южная Корея',\n                        items: [\n                            {\n                                value: 'seoul',\n                                label: 'Сеул',\n                            },\n                            {\n                                value: 'busan',\n                                label: 'Пусан',\n                            },\n                        ],\n                    },\n                    {\n                        value: 'thailand',\n                        label: 'Таиланд',\n                        items: [\n                            {\n                                value: 'bangkok',\n                                label: 'Бангкок',\n                            },\n                            {\n                                value: 'phuket',\n                                label: 'Пхукет',\n                            },\n                        ],\n                    },\n                ],\n            },\n            {\n                value: 'africa',\n                label: 'Африка',\n                isDisabled: true,\n            },\n        ];\n        const [textValue, setTextValue] = useState('');\n        function highlightText(label: string, highlight: string): React.ReactNode {\n            if (!highlight.trim()) return label;\n            const re = new RegExp('(' + highlight + ')', 'ig');\n            const parts = label.split(re);\n            return (\n                <>\n                    {parts.map((part, i) =>\n                        part.toLowerCase() === highlight.toLowerCase() ? (\n                            <mark key={i} style={{ backgroundColor: '#ffeb3b' }}>\n                                {part}\n                            </mark>\n                        ) : (\n                            <span key={i}>{part}</span>\n                        ),\n                    )}\n                </>\n            );\n        }\n        const renderItem = (item: ComboboxItemOption) => {\n            if (!textValue) return item.label;\n            return highlightText(item.label, textValue);\n        };\n        return (\n            <div style={{ display: 'flex', height: '400px' }}>\n                <div style={{ width: '300px' }}>\n                    <Combobox\n                        multiple\n                        treeView\n                        label=\"Введите 'Токио'\"\n                        placeholder=\"Placeholder\"\n                        items={items}\n                        listMaxHeight=\"300px\"\n                        renderItem={renderItem}\n                        onChangeValue={setTextValue}\n                    />\n                </div>\n            </div>\n        );\n    }"
     },
     {

@@ -1,0 +1,30 @@
+{
+  "name": "Indicator",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Indicator Индикаторы могут отображаться в нескольких размерах и цветах.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"black\" | \"white\" | \"inactive\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое использование",
+      "snippet": "import React from 'react';\nimport { Indicator } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"default\" />\n                <Indicator size=\"m\" view=\"default\" />\n                <Indicator size=\"l\" view=\"default\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"accent\" />\n                <Indicator size=\"m\" view=\"accent\" />\n                <Indicator size=\"l\" view=\"accent\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"inactive\" />\n                <Indicator size=\"m\" view=\"inactive\" />\n                <Indicator size=\"l\" view=\"inactive\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"positive\" />\n                <Indicator size=\"m\" view=\"positive\" />\n                <Indicator size=\"l\" view=\"positive\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"warning\" />\n                <Indicator size=\"m\" view=\"warning\" />\n                <Indicator size=\"l\" view=\"warning\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"negative\" />\n                <Indicator size=\"m\" view=\"negative\" />\n                <Indicator size=\"l\" view=\"negative\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"black\" />\n                <Indicator size=\"m\" view=\"black\" />\n                <Indicator size=\"l\" view=\"black\" />\n            </div>\n            <div style={{ display: 'flex' }}>\n                <Indicator size=\"s\" view=\"white\" />\n                <Indicator size=\"m\" view=\"white\" />\n                <Indicator size=\"l\" view=\"white\" />\n            </div>\n        </div>\n    );\n}"
+    }
+  ]
+}

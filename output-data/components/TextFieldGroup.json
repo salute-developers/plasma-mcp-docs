@@ -1,0 +1,70 @@
+{
+  "name": "TextFieldGroup",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "TextFieldGroup",
+  "api": {
+    "props": [
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "gap",
+        "type": "\"none\" | \"dense\" | \"wide\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shape",
+        "type": "\"default\" | \"segmented\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretching",
+        "type": "\"filled\" | \"auto\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isCommonTextFieldStyles",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  TextFieldGroup  - это обертка для TextField. Принимает в себя группу TextField.",
+      "snippet": "import React from 'react';\nimport { TextFieldGroup, TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <TextFieldGroup>\n            {Array(5)\n                .fill(true)\n                .map((_, i) => (\n                    <TextField placeholder={`input #${i}`} />\n                ))}\n        </TextFieldGroup>\n    );\n}"
+    },
+    {
+      "title": "Размер Размер Размер TextFieldGroup задается с помощью свойства  size .",
+      "snippet": "import React from 'react';\nimport { TextFieldGroup, TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldGroup size=\"s\" view=\"secondary\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <TextField placeholder={`input #${i}`} />\n                    ))}\n            </TextFieldGroup>\n            <TextFieldGroup isCommonTextFieldStyles={false}>\n                <TextField placeholder=\"Размер l\" size=\"l\" />\n                <TextField placeholder=\"Размер m\" size=\"m\" />\n                <TextField placeholder=\"Размер s\" size=\"s\" />\n                <TextField placeholder=\"Размер xs\" size=\"xs\" />\n            </TextFieldGroup>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Границы Границы Границы задаются с помощью свойства  shape .",
+      "snippet": "import React from 'react';\nimport { TextFieldGroup, TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldGroup size=\"xs\" shape=\"segmented\">\n                {Array(3)\n                    .fill(true)\n                    .map((_, i) => (\n                        <TextField placeholder={`input #${i}`} />\n                    ))}\n            </TextFieldGroup>\n            <TextFieldGroup size=\"xs\" shape=\"default\">\n                {Array(3)\n                    .fill(true)\n                    .map((_, i) => (\n                        <TextField placeholder={`input #${i}`} />\n                    ))}\n            </TextFieldGroup>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ориентация TextFieldGroup и отступы между TextField",
+      "snippet": "import React from 'react';\nimport { TextFieldGroup, TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldGroup size=\"xs\" orientation=\"vertical\" shape=\"segmented\" gap=\"none\">\n                {Array(5)\n                    .fill(true)\n                    .map((_, i) => (\n                        <TextField placeholder={`input #${i}`} />\n                    ))}\n            </TextFieldGroup>\n            <TextFieldGroup size=\"xs\" orientation=\"horizontal\" gap=\"wide\">\n                {Array(4)\n                    .fill(true)\n                    .map((_, i) => (\n                        <TextField placeholder={`input #${i}`} />\n                    ))}\n            </TextFieldGroup>\n        </div>\n    );\n}"
+    }
+  ]
+}

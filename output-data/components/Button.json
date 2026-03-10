@@ -2,7 +2,7 @@
   "name": "Button",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+  "summary": "Button Кнопки могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
   "api": {
     "props": [
       {
@@ -104,6 +104,13 @@
         "description": ""
       },
       {
+        "name": "appearance",
+        "type": "\"default\" | \"outline\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
         "name": "outlined",
         "type": "boolean",
         "required": false,
@@ -149,7 +156,7 @@
   },
   "examples": [
     {
-      "title": "Использование Компонент  Button  может содержать текст, который указывается в",
+      "title": "Использование Использование Компонент  Button  может содержать текст, который указывается в",
       "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Button text=\"Текст\" />\n            <Button text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Button text=\"Текст\" contentRight={<IconDownload color=\"inherit\" />} />\n            <Button text=\"Текст\" isLoading />\n            <Button text=\"Текст\" isLoading loader={<div>Loader...</div>} />\n        </div>\n    );\n}"
     },
     {
@@ -173,7 +180,7 @@
       "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Button pin=\"square-square\">Button</Button>\n            <Button pin=\"square-clear\">Button</Button>\n            <Button pin=\"clear-square\">Button</Button>\n            <Button pin=\"clear-clear\">Button</Button>\n            <Button pin=\"clear-circle\">Button</Button>\n            <Button pin=\"circle-clear\">Button</Button>\n            <Button pin=\"circle-circle\">Button</Button>\n        </div>\n    );\n}"
     },
     {
-      "title": "Гиперссылка Компонент поддерживает вывод в виде тега  <a> , для этого необходимо указать свойство  as",
+      "title": "Гиперссылка Гиперссылка Компонент поддерживает вывод в виде тега  <a> , для этого необходимо указать свойство  as",
       "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Button as=\"a\" text=\"Гиперссылка\" />\n    );\n}"
     }
   ]

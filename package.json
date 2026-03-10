@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --noEmit",
     "generate": "npx tsx scripts/generate-site.ts",
-    "split-json": "npx tsx scripts/split-output-json.ts",
+    "split-json": "rm -rf ./output-data && npx tsx scripts/split-output-json.ts",
     "clean": "rm -rf dist",
     "serve": "npx http-serve dist -p 8080 -o",
     "preview": "npm run generate && npm run serve",

@@ -1,0 +1,102 @@
+{
+  "name": "Segment",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Segment Набор компонентов для создания группы сегментов.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"filled\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "filledBackground",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "selectionMode",
+        "type": "\"multiple\" | \"single\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clip",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasBackground",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';\nexport function App() {\n    const items = Array(4).fill(0);\n    const SegmentTemplate = () => {\n        const {selectedSegmentItems} = useSegment();\n        return (\n            <>\n                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>\n                <br />\n                <SegmentGroup hasBackground pilled clip={false}>\n                    {items.map((_, i) => (\n                        <SegmentItem\n                            label={`Label ${i}`}\n                            value={`label_${i}`}\n                            key={`label_${i}`}\n                            view='default'\n                            pilled\n                        />\n                    ))}\n                </SegmentGroup>\n            </>\n        )\n    }\n    return (\n        <div style={{ display: \"block\" }} >\n            <SegmentProvider defaultSelected={['label_1']}>\n                <SegmentTemplate/>\n            </SegmentProvider>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, { useState } from 'react';\nimport { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';\nexport function App() {\n    const items = Array(4).fill(0);\n    const [selected, setSelected] = useState(['label_1']);\n    const handleChangeSelected = (selectedLabel) => {\n        setSelected((prevState) => {\n            const newState = [...prevState];\n            const existingIndex = prevState.indexOf(selectedLabel);\n            if (existingIndex !== -1) {\n                newState.splice(existingIndex, 1);\n            } else {\n                newState.push(selectedLabel);\n            }\n            return newState;\n        });\n    };\n    const SegmentTemplate = () => {\n        const {selectedSegmentItems} = useSegment();\n        return (\n            <>\n                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>\n                <br />\n                <SegmentGroup hasBackground pilled clip={false}>\n                    {items.map((_, i) => (\n                        <SegmentItem\n                            label={`Label ${i}`}\n                            value={`label_${i}`}\n                            key={`label_${i}`}\n                            view='default'\n                            pilled\n                        />\n                    ))}\n                </SegmentGroup>\n            </>\n        )\n    }\n    return (\n        <div style={{ display: \"block\" }} >\n            <SegmentProvider selected={selected} onChangeSelected={handleChangeSelected}>\n                <SegmentTemplate/>\n            </SegmentProvider>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';\nexport function App() {\n    const items = Array(4).fill(0);\n    const SegmentTemplate = () => {\n        const {selectedSegmentItems} = useSegment();\n        return (\n            <>\n                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>\n                <br />\n                <SegmentGroup orientation=\"vertical\" hasBackground clip={false}>\n                    {items.map((_, i) => (\n                        <SegmentItem\n                            label={`Label ${i}`}\n                            value={`label_${i}`}\n                            key={`label_${i}`}\n                            view='secondary'\n                        />\n                    ))}\n                </SegmentGroup>\n            </>\n        )\n    }\n    return (\n        <div style={{ display: \"block\" }} >\n            <SegmentProvider defaultSelected={['label_1']}>\n                <SegmentTemplate/>\n            </SegmentProvider>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';\nexport function App() {\n    const items = Array(4).fill(0);\n    const SegmentTemplate = () => {\n        const {selectedSegmentItems} = useSegment();\n        return (\n            <>\n                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>\n                <br />\n                <SegmentGroup hasBackground pilled clip={false}>\n                    {items.map((_, i) => (\n                        <SegmentItem\n                            label={`Label ${i}`}\n                            value={`label_${i}`}\n                            key={`label_${i}`}\n                            view='default'\n                            pilled\n                        />\n                    ))}\n                </SegmentGroup>\n            </>\n        )\n    }\n    return (\n        <div style={{ display: \"block\" }} >\n            <SegmentProvider defaultSelected={['label_1']}>\n                <SegmentTemplate/>\n            </SegmentProvider>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Обязательный активный SegmentItem",
+      "snippet": "import React from 'react';\nimport { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/plasma-web';\nexport function App() {\n    const items = Array(4).fill(0);\n    const SegmentTemplate = () => {\n        const {selectedSegmentItems} = useSegment();\n        return (\n            <>\n                <div>Выбранный элемент: {selectedSegmentItems.join(', ')}</div>\n                <br />\n                <SegmentGroup hasBackground pilled clip={false}>\n                    {items.map((_, i) => (\n                        <SegmentItem\n                            label={`Label ${i}`}\n                            value={`label_${i}`}\n                            key={`label_${i}`}\n                            view='default'\n                            pilled\n                        />\n                    ))}\n                </SegmentGroup>\n            </>\n        )\n    }\n    return (\n        <div style={{ display: \"block\" }} >\n            <SegmentProvider defaultSelected={['label_1']} singleSelectedRequired>\n                <SegmentTemplate/>\n            </SegmentProvider>\n        </div>\n    );\n}"
+    }
+  ]
+}

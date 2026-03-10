@@ -1,0 +1,259 @@
+{
+  "name": "TimePicker",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "TimePicker",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readonly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dropdownAlign",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dropdownWidth",
+        "type": "Width<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dropdownHeight",
+        "type": "Height<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "columnsQuantity",
+        "type": "2 | 3",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretched",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "valueError",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "valueSuccess",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "(((event: TimePickerChangeEvent) => void) & FormEventHandler<HTMLDivElement>)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnEsc",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onToggle",
+        "type": "((isOpen: boolean, event?: Event | SyntheticEvent<Element, Event>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { TimePicker } from '@salutejs/plasma-web';\nexport function App() {\n    const handleTimeChange = (event) => {\n        console.log('Выбрано время:', event.target.value);\n    };\n    return (\n        <div style={{height: '500px'}}>\n            <TimePicker\n                view=\"default\"\n                size=\"m\"\n                placeholder=\"00:00:00\"\n                onChange={handleTimeChange}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом и размером компонента",
+      "snippet": "import React from 'react';\nimport { TimePicker } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\"}}>\n            <TimePicker view=\"default\" size=\"l\" placeholder=\"Большой размер\" />\n            <TimePicker view=\"default\" size=\"m\" placeholder=\"Средний размер\" />\n            <TimePicker view=\"default\" size=\"s\" placeholder=\"Маленький размер\" />\n            <TimePicker view=\"default\" size=\"xs\" placeholder=\"Очень маленький размер\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление форматом времени (с секундами или без)",
+      "snippet": "import React from 'react';\nimport { TimePicker } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\", height: '500px'}}>\n            <TimePicker size=\"s\" columnsQuantity={2} placeholder=\"ЧЧ:мм\" />\n            <TimePicker size=\"s\" columnsQuantity={3} placeholder=\"ЧЧ:мм:сс\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Расположение выпадающего списка",
+      "snippet": "import React from 'react';\nimport { TimePicker } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\", width: \"300px\", height: '500px'}}>\n            <TimePicker size=\"s\" dropdownAlign=\"left\" placeholder=\"Выравнивание слева\" />\n            <TimePicker size=\"s\" dropdownAlign=\"right\" placeholder=\"Выравнивание справа\" />\n        </div>\n    );\n}"
+    }
+  ]
+}

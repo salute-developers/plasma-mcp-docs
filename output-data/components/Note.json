@@ -1,0 +1,105 @@
+{
+  "name": "Note",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Note Компонент для отображения текста в виде информационных, предупреждающих, обычных подсказок.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\" | \"info\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string | (ReactElement<any, string | JSXElementConstructor<any>> & string) | (ReactFragment & string) | (ReactPortal & string)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentBefore",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentBeforeSizing",
+        "type": "\"fixed\" | \"scalable\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stretch",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasClose",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onCloseButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Вид компонента",
+      "snippet": "import React from 'react';\nimport { Note } from '@salutejs/plasma-web';\nimport { IconSaluteOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"default\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n            />\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"positive\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n            />\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"warning\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n            />\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"negative\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n            />\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"info\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер компонента",
+      "snippet": "import React from 'react';\nimport { Note } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ flexDirection: \"column\" }}>\n            <div style={{ display: \"flex\", gap: \"1rem\" }}>\n                <Note\n                    title=\"Title\"\n                    text=\"Text\"\n                    view=\"default\"\n                    size=\"l\"\n                />\n                <Note\n                    title=\"Title\"\n                    text=\"Text\"\n                    view=\"default\"\n                    size=\"m\"\n                />\n                <Note\n                    title=\"Title\"\n                    text=\"Text\"\n                    view=\"default\"\n                    size=\"s\"\n                />\n                <Note\n                    title=\"Title\"\n                    text=\"Text\"\n                    view=\"default\"\n                    size=\"xs\"\n                />\n            </div>\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"default\"\n                size=\"l\"\n                width=\"400\"\n                height=\"116\"\n            />\n            <div style={{ width: \"300px\", height: \"300px\" }}>\n                <Note\n                    title=\"Title\"\n                    text=\"Text\"\n                    view=\"default\"\n                    size=\"l\"\n                    stretch\n                />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размерность и положение contentBefore",
+      "snippet": "import React from 'react';\nimport { Note } from '@salutejs/plasma-web';\nimport { IconSaluteOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"default\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"xs\" color=\"inherit\" />}\n                contentBeforeSizing=\"fixed\"\n            />\n            <Note\n                title=\"Title\"\n                text=\"Text\"\n                view=\"positive\"\n                size=\"s\"\n                contentBefore={<IconSaluteOutline size=\"m\" color=\"inherit\" />}\n                contentBeforeSizing=\"scalable\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "hasClose и contolled вариант",
+      "snippet": "import React from 'react';\nimport { Note, Button } from '@salutejs/plasma-web';\nimport { IconSaluteOutline } from '@salutejs/plasma-icons';\nexport function App() {\n  const [state, setState] = useState(true);\n  return (\n    <div style={{height: '8rem', display: 'block'}}>\n      <Button\n        size=\"s\"\n        style={{ marginBottom: \"0.5rem\" }}\n        onClick={() => setState(!state)}\n      >\n        Открыть\n      </Button>\n      {state && (\n        <Note\n          title=\"Ваш заголовок\"\n          text=\"Пример с возможностью закрыть по control\"\n          view=\"default\"\n          size=\"s\"\n          hasClose\n          onCloseButtonClick={() => {\n            setState(false);\n          }}\n        />\n      )}\n    </div>\n  );\n}"
+    }
+  ]
+}

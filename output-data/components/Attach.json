@@ -2,7 +2,7 @@
   "name": "Attach",
   "package": "plasma-web",
   "category": "components",
-  "summary": "горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
+  "summary": "Attach горизонтально или автоматически (перенес на следующую строку при нехватке ширины компонента Attach).",
   "api": {
     "props": [
       {
@@ -21,7 +21,7 @@
       },
       {
         "name": "size",
-        "type": "undefined",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
         "required": false,
         "default": "",
         "description": ""
@@ -99,6 +99,13 @@
       {
         "name": "pin",
         "type": "\"square-square\" | \"square-clear\" | \"clear-square\" | \"clear-clear\" | \"clear-circle\" | \"circle-clear\" | \"circle-circle\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"default\" | \"outline\"",
         "required": false,
         "default": "",
         "description": ""
@@ -216,23 +223,23 @@
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    const handleFileSelect = (event) => {\n        const file = event.target.files[0];\n        console.log('Выбран файл:', file.name);\n    };\n    return (\n        <Attach\n            view=\"accent\"\n            text=\"Upload file\"\n            onChange={handleFileSelect}\n        />\n    );\n}"
     },
     {
-      "title": "Управление внешним видом и типом компонента С помощью свойств",
+      "title": "Управление внешним видом и типом компонента",
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\"}}>\n            <Attach view=\"accent\" buttonType='button' text=\"Upload file\" />\n            <Attach view=\"secondary\" buttonType='iconButton'/>\n        </div>\n    );\n}"
     },
     {
-      "title": "Управление подсказкой с помощью свойства helperText Вид  helperText  задается с помощью свойства  helperTextView . Возможные значения свойства",
+      "title": "Управление подсказкой с помощью свойства helperText",
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ padding: \"1rem\" }}>\n            <Attach helperTextView=\"default\" helperText=\"Caption\" />\n            <Attach helperTextView=\"negative\" helperText=\"Caption\" />\n        </div>\n    );\n}"
     },
     {
-      "title": "Расположение элементов Расположение регулируется свойством Flow, которое позволяет размещать элементы вертикально,",
+      "title": "Расположение элементов",
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"50px\"}}>\n            <Attach style={{ width: \"400px\" }} helperText='Auto' flow=\"auto\" />\n            <Attach style={{ width: \"400px\" }} helperText='Horizontal' flow=\"horizontal\" />\n            <Attach style={{ width: \"400px\" }} helperText='Vertical' flow=\"vertical\" />\n        </div>\n    );\n}"
     },
     {
-      "title": "Attach с несколькими файлами С помощью свойств",
+      "title": "Attach с несколькими файлами",
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"32px\"}}>\n            <Attach multiple flow=\"horizontal\" style={{ width: \"400px\" }} text=\"Upload files\" />\n            <Attach multiple flow=\"vertical\" style={{ width: \"400px\" }} text=\"Upload files\" />\n        </div>\n    );\n}"
     },
     {
-      "title": "Фильтр форматов файлов Свойство  acceptedFileFormats  устанавливает доступные форматы файлов.",
+      "title": "Фильтр форматов файлов",
       "snippet": "import React from 'react';\nimport { Attach } from '@salutejs/plasma-web';\nexport function App() {\n    const handleFileSelect = (event) => {\n        const file = event.target.files[0];\n        console.log('Выбран файл:', file.name);\n    };\n    return (\n        <Attach\n            acceptedFileFormats={['.pdf', '.doc']}\n            view=\"accent\"\n            text=\"Upload file\"\n            onChange={handleFileSelect}\n        />\n    );\n}"
     },
     {

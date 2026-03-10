@@ -1,0 +1,153 @@
+{
+  "name": "Radiobox",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Radiobox",
+  "api": {
+    "props": [
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"primary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"tertiary\" | \"paragraph\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "ChangeEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocus",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlur",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "singleLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Radiobox  может содержать лейбл и описание.",
+      "snippet": "import React from 'react';\nimport { Radiobox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Radiobox label=\"Радиокнопка\" description=\"Описание\" defaultChecked />\n    );\n}"
+    },
+    {
+      "title": "Группа радиокнопок",
+      "snippet": "<RadioGroup aria-labelledby=\"radiogroup-title-id\">\n    <H3 id=\"radiogroup-title-id\">Заголовок</H3>\n    <Radiobox name=\"radio-1\" label=\"Радиокнопка 1\" description=\"Описание 1\" defaultChecked />\n    <Radiobox name=\"radio-1\" label=\"Радиокнопка 2\" description=\"Описание 2\" />\n</RadioGroup>"
+    }
+  ]
+}

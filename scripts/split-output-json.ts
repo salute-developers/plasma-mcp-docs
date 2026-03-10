@@ -10,7 +10,7 @@ const OutputPropSchema = z.object({
     description: z.string(),
 });
 
-const OutputFileSchema = z.object({
+const ComponentOutputFileSchema = z.object({
     name: z.string(),
     package: z.string(),
     category: z.string(),
@@ -26,27 +26,32 @@ const OutputFileSchema = z.object({
     ),
 });
 
-type OutputFile = z.infer<typeof OutputFileSchema>;
-
-const ComponentsIndexSchema = z.object({
-    items: z.array(
-        z.object({
-            name: z.string(),
-            href: z.string(),
-            summary: z.string(),
-            category: z.string(),
-        }),
-    ),
+const SimpleOutputFileSchema = z.object({
+    name: z.string(),
+    package: z.string(),
+    category: z.string(),
+    summary: z.string(),
 });
+
+type ComponentOutputFile = z.infer<typeof ComponentOutputFileSchema>;
+type SimpleOutputFile = z.infer<typeof SimpleOutputFileSchema>;
+type OutputFile = ComponentOutputFile | SimpleOutputFile;
+
+const IndexItemSchema = z.object({
+    name: z.string(),
+    href: z.string(),
+    summary: z.string(),
+    category: z.string(),
+});
+
+const ComponentsIndexSchema = z.array(IndexItemSchema);
 
 const ManifestSchema = z.object({
     builtAt: z.string(),
     source: z.object({
         repo: z.string(),
     }),
-    paths: z.object({
-        componentsIndex: z.string(),
-    }),
+    paths: z.record(z.string(), z.string()),
 });
 
 interface InputItem {
@@ -58,6 +63,7 @@ interface InputItem {
         source?: {
             url?: unknown;
         };
+        category?: unknown;
         productId?: unknown;
     };
 }
@@ -71,6 +77,10 @@ function sanitizeFilename(name: string): string {
         .trim()
         .replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_')
         .replace(/\s+/g, ' ');
+}
+
+function normalizeCategory(value: string): string {
+    return sanitizeFilename(value) || 'uncategorized';
 }
 
 function uniqueFileName(baseName: string, used: Set<string>): string {
@@ -110,6 +120,10 @@ function cleanText(value: string): string {
         .replace(/\s+\n/g, '\n')
         .replace(/\n{3,}/g, '\n\n')
         .trim();
+}
+
+function normalizeFullContent(value: string): string {
+    return value.replace(/\r\n/g, '\n').trim();
 }
 
 function escapeRegExp(value: string): string {
@@ -226,7 +240,7 @@ function toDefaultString(propRecord: Record<string, unknown>): string {
     return '';
 }
 
-function extractProps(pageContent: string): OutputFile['api']['props'] {
+function extractProps(pageContent: string): ComponentOutputFile['api']['props'] {
     const propsMatch = /\bProps\b/i.exec(pageContent);
     if (!propsMatch) {
         return [];
@@ -287,13 +301,13 @@ function compactTitle(rawTitle: string, fallbackIndex: number): string {
     return cleaned.split(':')[0].trim() || `Example ${fallbackIndex}`;
 }
 
-function extractExamples(pageContent: string): OutputFile['examples'] {
+function extractExamples(pageContent: string): ComponentOutputFile['examples'] {
     const normalized = normalizeMarkdown(pageContent);
     const examplesStart = normalized.search(/^##\s*Примеры\b/im);
     const source = examplesStart >= 0 ? normalized.slice(examplesStart) : normalized;
 
     const regex = /```[\t ]*([a-zA-Z0-9_-]+)?\n([\s\S]*?)```/g;
-    const examples: OutputFile['examples'] = [];
+    const examples: ComponentOutputFile['examples'] = [];
     let match: RegExpExecArray | null;
     let count = 1;
 
@@ -320,9 +334,19 @@ function toOutputItem(item: InputItem): OutputFile {
     const pageContent = asString(item.pageContent);
     const name = asString(item.metadata?.heading?.text);
     const packageName = asString(item.metadata?.productId);
-    const category = extractCategoryFromUrl(asString(item.metadata?.source?.url));
+    const rawCategory = asString(item.metadata?.category) || extractCategoryFromUrl(asString(item.metadata?.source?.url));
+    const category = normalizeCategory(rawCategory);
 
-    const output: OutputFile = {
+    if (category !== 'components') {
+        return SimpleOutputFileSchema.parse({
+            name,
+            package: packageName,
+            category,
+            summary: normalizeFullContent(pageContent),
+        });
+    }
+
+    return ComponentOutputFileSchema.parse({
         name,
         package: packageName,
         category,
@@ -331,15 +355,12 @@ function toOutputItem(item: InputItem): OutputFile {
             props: extractProps(pageContent),
         },
         examples: extractExamples(pageContent),
-    };
-
-    return OutputFileSchema.parse(output);
+    });
 }
 
 function main(): void {
     const inputPath = path.join(__dirname, '..', 'input-data', 'output.json');
     const outputDir = path.join(__dirname, '..', 'output-data');
-    const componentsDir = path.join(outputDir, 'components');
 
     const rawInput = fs.readFileSync(inputPath, 'utf8');
     const parsedInput = JSON.parse(rawInput) as unknown;
@@ -351,55 +372,102 @@ function main(): void {
     if (fs.existsSync(outputDir)) {
         fs.rmSync(outputDir, { recursive: true, force: true });
     }
-    fs.mkdirSync(componentsDir, { recursive: true });
+    fs.mkdirSync(outputDir, { recursive: true });
 
-    const usedNames = new Set<string>();
-    const indexItems: Array<{
+    const usedNamesByCategory = new Map<string, Set<string>>();
+    const indexItemsByCategory = new Map<
+        string,
+        Array<{
+            name: string;
+            href: string;
+            summary: string;
+            category: string;
+        }>
+    >();
+    let created = 0;
+
+    const getUsedNames = (category: string): Set<string> => {
+        const existing = usedNamesByCategory.get(category);
+        if (existing) {
+            return existing;
+        }
+
+        const createdSet = new Set<string>();
+        usedNamesByCategory.set(category, createdSet);
+        return createdSet;
+    };
+
+    const getCategoryIndexItems = (
+        category: string,
+    ): Array<{
         name: string;
         href: string;
         summary: string;
         category: string;
-    }> = [];
-    let created = 0;
+    }> => {
+        const existing = indexItemsByCategory.get(category);
+        if (existing) {
+            return existing;
+        }
+
+        const createdItems: Array<{
+            name: string;
+            href: string;
+            summary: string;
+            category: string;
+        }> = [];
+        indexItemsByCategory.set(category, createdItems);
+        return createdItems;
+    };
 
     parsedInput.forEach((item, index) => {
-        const output = toOutputItem((item ?? {}) as InputItem);
+        const inputItem = (item ?? {}) as InputItem;
+        const output = toOutputItem(inputItem);
+        const pageContent = asString(inputItem.pageContent);
         const baseName = output.name || `item-${index + 1}`;
-        const filename = uniqueFileName(baseName, usedNames);
-        const href = `${filename}.json`;
-        const filePath = path.join(componentsDir, href);
-        fs.writeFileSync(filePath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
-        indexItems.push({
+        const categoryDir = path.join(outputDir, output.category);
+        fs.mkdirSync(categoryDir, { recursive: true });
+
+        const filename = uniqueFileName(baseName, getUsedNames(output.category));
+        const href = path.posix.join(output.category, `${filename}.json`);
+        const filePath = path.join(categoryDir, `${filename}.json`);
+        const indexItem = {
             name: output.name,
             href,
-            summary: output.summary,
+            summary: output.category === 'components' ? output.summary : extractSummary(pageContent, output.name),
             category: output.category,
+        };
+
+        fs.writeFileSync(filePath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
+        getCategoryIndexItems(output.category).push({
+            ...indexItem,
+            href: `${filename}.json`,
         });
         created += 1;
     });
 
-    const componentsIndex = ComponentsIndexSchema.parse({
-        items: indexItems,
-    });
+    const manifestPaths: Record<string, string> = {};
 
-    const componentsIndexPath = path.join(componentsDir, 'index.json');
-    fs.writeFileSync(componentsIndexPath, `${JSON.stringify(componentsIndex, null, 2)}\n`, 'utf8');
+    indexItemsByCategory.forEach((items, category) => {
+        const categoryIndexPath = path.join(outputDir, category, 'index.json');
+        const categoryIndex = ComponentsIndexSchema.parse(items);
+        fs.writeFileSync(categoryIndexPath, `${JSON.stringify(categoryIndex, null, 2)}\n`, 'utf8');
+        manifestPaths[category] = path.posix.join(category, 'index.json');
+        console.log(`Created category index: ${categoryIndexPath}`);
+    });
 
     const manifest = ManifestSchema.parse({
         builtAt: new Date().toISOString(),
         source: {
             repo: 'https://github.com/salute-developers/plasma',
         },
-        paths: {
-            componentsIndex: 'components/index.json',
-        },
+        paths: manifestPaths,
     });
 
     const manifestPath = path.join(outputDir, 'manifest.json');
     fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 
-    console.log(`Created ${created} files in ${componentsDir}`);
-    console.log(`Created index: ${componentsIndexPath}`);
+    console.log(`Created ${created} files in ${outputDir}`);
     console.log(`Created manifest: ${manifestPath}`);
 }
 

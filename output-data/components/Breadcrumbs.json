@@ -2,7 +2,7 @@
   "name": "Breadcrumbs",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "Breadcrumbs",
   "api": {
     "props": [
       {

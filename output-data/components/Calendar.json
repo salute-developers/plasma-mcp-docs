@@ -2,7 +2,7 @@
   "name": "Calendar",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Компоненты календарей для выбора даты или диапазона дат.",
+  "summary": "Calendar Компоненты календарей для выбора даты или диапазона дат.",
   "api": {
     "props": [
       {
@@ -177,47 +177,47 @@
   },
   "examples": [
     {
-      "title": "Calendar Props (свойства) для компонента Calendar",
+      "title": "Calendar Calendar Props (свойства) для компонента Calendar",
       "snippet": "import React from 'react';\nimport { Calendar } from '@salutejs/plasma-web';\nexport function App() {\n    const isRange = false;\n    const isDouble = false;\n    const min = new Date(2022, 4, 0);\n    const max = new Date(2022, 6, 15);\n    const date = {\n        day: 6,\n        monthIndex: 5,\n        year: 2022,\n    }\n    const [value, setValue] = React.useState(undefined);\n    const [valueRange, setValueRange] = React.useState([undefined]);\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    const handleOnRangeChange = React.useCallback((newValue) => {\n        setValueRange(newValue);\n    }, []);\n    const baseEvents = [\n        {\n            date: new Date(2022, 5, 6),\n        },\n        {\n            date: new Date(2022, 5, 10),\n            color: 'red',\n        },\n        {\n            date: new Date(2022, 5, 10),\n            color: 'green',\n        },\n        {\n            date: new Date(2022, 5, 10),\n            color: 'blue',\n        },\n    ];\n    const eventsRange = Array.from(Array(10),((_, day) => ({\n        date: new Date(2022, 5, 15 + day),\n        color: 'purple',\n    })));\n    const disabledDays = Array.from(Array(5),((_, day) => ({\n        date: new Date(2022, 5, 11 + day),\n    })));\n    return (\n        <div>\n            <Calendar\n                isRange={isRange}\n                isDouble={isDouble}\n                value={(isRange ? valueRange : value)}\n                eventList={[...baseEvents, ...eventsRange]}\n                disabledList={disabledDays}\n                date={date}\n                min={min}\n                max={max}\n                onChangeValue={(isRange ? handleOnRangeChange : handleOnChange)}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Calendar Props (свойства) для компонента Calendar",
+      "title": "Calendar Calendar Props (свойства) для компонента Calendar",
       "snippet": "import React from 'react';\nimport { CalendarBase } from '@salutejs/plasma-web';\nexport function App() {\n    const min = new Date(2022, 4, 0);\n    const max = new Date(2022, 7, 15);\n    const [value, setValue] = React.useState(new Date(2022, 5, 6));\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div>\n            <CalendarBase\n                value={value}\n                min={min}\n                max={max}\n                onChangeValue={handleOnChange}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Calendar Props (свойства) для компонента Calendar",
+      "title": "Calendar Calendar Props (свойства) для компонента Calendar",
       "snippet": "import React from 'react';\nimport { CalendarDouble } from '@salutejs/plasma-web';\nexport function App() {\n    const min = new Date(2022, 4, 0);\n    const max = new Date(2022, 7, 15);\n    const [value, setValue] = React.useState(new Date(2022, 5, 6));\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div>\n            <CalendarDouble\n                value={value}\n                min={min}\n                max={max}\n                onChangeValue={handleOnChange}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Calendar Props (свойства) для компонента Calendar",
+      "title": "Calendar Calendar Props (свойства) для компонента Calendar",
       "snippet": "import React from 'react';\nimport { CalendarBaseRange } from '@salutejs/plasma-web';\nexport function App() {\n    const min = new Date(2022, 4, 0);\n    const max = new Date(2022, 7, 15);\n    const [value, setValue] = React.useState([new Date(2022, 5, 6), new Date(2022, 5, 16)]);\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div>\n            <CalendarBaseRange\n                value={value}\n                min={min}\n                max={max}\n                onChangeValue={handleOnChange}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Calendar Props (свойства) для компонента Calendar",
+      "title": "Calendar Calendar Props (свойства) для компонента Calendar",
       "snippet": "import React from 'react';\nimport { CalendarDoubleRange } from '@salutejs/plasma-web';\nexport function App() {\n    const min = new Date(2022, 4, 0);\n    const max = new Date(2022, 7, 15);\n    const [value, setValue] = React.useState([new Date(2022, 5, 6), new Date(2022, 6, 16)]);\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div>\n            <CalendarDoubleRange\n                value={value}\n                min={min}\n                max={max}\n                onChangeValue={handleOnChange}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Размер календаря. Размер календаря задается с помощью свойства  size .",
+      "title": "Размер календаря.",
       "snippet": "import React from 'react';\nimport { CalendarBase } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = React.useState(undefined);\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div style={{ display: \"grid\", gridTemplateColumns: \"1fr 1fr\", gap: \"2rem\" }}>\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                size=\"l\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                size=\"m\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                size=\"s\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                size=\"xs\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Сетка выбора даты. Конечное отображение сетки календаря задается с помощью свойства  type .",
+      "title": "Сетка выбора даты.",
       "snippet": "import React from 'react';\nimport { CalendarBase } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = React.useState(undefined);\n    const handleOnChange = React.useCallback((newValue) => {\n        setValue(newValue);\n    }, []);\n    return (\n        <div style={{ display: \"grid\", gridTemplateColumns: \"1fr 1fr\", gap: \"2rem\" }}>\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                type=\"Days\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                type=\"Months\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                type=\"Quarters\"\n            />\n            <CalendarBase\n                value={value}\n                onChangeValue={handleOnChange}\n                type=\"Years\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Выбор языка. Для выбора языка необходимо указать свойство  locale",
+      "title": "Выбор языка.",
       "snippet": "import React from 'react';\nimport { CalendarBase } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"grid\", gridTemplateColumns: \"1fr 1fr\", gap: \"2rem\" }}>\n            <CalendarBase\n                type=\"Days\"\n                locale=\"en\"\n            />\n            <CalendarBase\n                type=\"Months\"\n                locale=\"en\"\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "type EventDay {\n        date: Date;\n        color?: string;\n        eventInfo?: ReactNode;\n    }"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "type EventTooltipOptions = {\n    /**\n     * Обертка для всплывающей подсказки для событий.\n     */\n    bodyWrapper?: FC<PropsWithChildren>;\n    /**\n     * Размер всплывающей подсказки для событий.\n     */\n    size?: string;\n    /**\n     * Направление раскрытия тултипа.\n     */\n    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;\n    /**\n     * Отступ окна относительно элемента, у которого оно вызвано.\n     * @default\n     * [0, 8]\n     */\n    offset?: [number, number];\n    /**\n     * Видимость стрелки (хвоста).\n     */\n    hasArrow?: boolean;\n    /**\n     * Анимированное появление/сокрытие.\n     */\n    animated?: boolean;\n    /**\n     * Минимальная ширина окна (в rem).\n     */\n    minWidth?: number | string;\n    /**\n     * Максимальная ширина окна (в rem).\n     */\n    maxWidth?: number | string;\n};"
     },
     {
-      "title": "Всплывающая подсказка для событий календаря С помощью  eventList ,  eventMonthList ,  eventQuarterList  и  eventYearList",
+      "title": "Всплывающая подсказка для событий календаря",
       "snippet": "import React from 'react';\nimport { CalendarBase } from '@salutejs/plasma-web';\n    export function App() {\n    const EventNode = ({ dateValue, color }: { dateValue: string; color: string }) => {\n        return (\n            <div style={{ display: 'flex', flexDirection: 'column' }}>\n                <span>Дата: {dateValue}</span>\n                <span>Цвет: {color}</span>\n            </div>\n        );\n    };\n    const EventTooltipBody = ({ children }: PropsWithChildren) => {\n        return <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>{children}</div>;\n    };\n    const events = [\n        {\n            date: new Date('2025-07-09'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-09\" />\n        },\n        {\n            date: new Date('2025-07-09'),\n            color: 'purple',\n            eventInfo: <EventNode color=\"purple\" dateValue=\"2025-07-09\" />\n        },\n        {\n            date: new Date('2025-07-10'),\n            color: 'green',\n            eventInfo: <EventNode color=\"green\" dateValue=\"2025-07-10\" />\n        },\n        {\n            date: new Date('2025-07-11'),\n            color: 'blue',\n            eventInfo: <EventNode color=\"blue\" dateValue=\"2025-07-11\" />\n        },\n        {\n            date: new Date('2025-07-12'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-12\" />\n        },\n        {\n            date: new Date('2025-07-12'),\n            color: 'red',\n            eventInfo: <EventNode color=\"red\" dateValue=\"2025-07-12\" />\n        },\n    ];\n    return (\n        <div>\n            <CalendarBase\n                type=\"Days\"\n                eventList={events}\n                eventTooltipOptions={{\n                    bodyWrapper: EventTooltipBody,\n                    size: 'm'\n                }}\n                renderFromDate={new Date('2025-07-01')}\n            />\n        </div>\n    );\n}"
     }
   ]

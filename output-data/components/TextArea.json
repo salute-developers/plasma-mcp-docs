@@ -1,0 +1,445 @@
+{
+  "name": "TextArea",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "TextArea указав значения в rem или соответствующие свойствам css значения.",
+  "api": {
+    "props": [
+      {
+        "name": "onChange",
+        "type": "ChangeEventHandler<HTMLTextAreaElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocus",
+        "type": "FocusEventHandler<HTMLTextAreaElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlur",
+        "type": "FocusEventHandler<HTMLTextAreaElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"primary\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "form",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "\"\" | \"warning\" | \"success\" | \"error\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clear",
+        "type": "true",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optionalText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "cols",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dirName",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "wrap",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoResize",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxAuto",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minAuto",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "headerSlot",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "resize",
+        "type": "\"none\" | \"both\" | \"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "rightHelper",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelperPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOpened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelAriaHidden",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <TextArea\n                label=\"Uncontrolled TextArea\"\n                defaultValue=\"Дефолтное значение\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n                view=\"default\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, { useState } from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    const [text, setText] = useState('Значение поля');\n    return (\n        <div>\n            <TextArea\n                value={text}\n                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {\n                    setText(e.target.value);\n                }}\n                label=\"Controlled TextArea\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n                view=\"default\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextArea\n                view=\"default\"\n                appearance=\"default\"\n                label=\"Appearance default\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                view=\"default\"\n                appearance=\"clear\"\n                label=\"Appearance clear\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                view=\"positive\"\n                appearance=\"clear\"\n                hasDivider\n                label=\"Appearance clear\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextArea\n                view=\"default\"\n                label=\"Status default\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                view=\"positive\"\n                label=\"Status positive\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                view=\"warning\"\n                label=\"Status warning\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                view=\"negative\"\n                label=\"Status negative\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextArea\n                size=\"xl\"\n                label=\"Size xl\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                size=\"l\"\n                label=\"Size l\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                size=\"m\"\n                label=\"Size m\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                size=\"s\"\n                label=\"Size s\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n            <TextArea\n                size=\"xs\"\n                label=\"Size xs\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размеры компонента",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextArea\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                height={10}\n                width={20}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размеры компонента",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextArea\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                rows={5}\n                cols={20}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Autoresize Autoresize Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра  value ).",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = React.useState('Значение');\n    return (\n        <div>\n            <TextArea\n                placeholder=\"Введите значение\"\n                value={value}\n                onChange={(e) => {\n                    setValue(e.target.value);\n                }}\n                autoResize\n                minAuto={3}\n                maxAuto={5}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Подсказки Подсказки Для вывода подсказки снизу от поля используйте свойство  leftHelper  и/или  rightHelper ,",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextArea\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                leftHelper=\"Подсказка снизу слева\"\n                rightHelper=\"Подсказка снизу справа\"\n                titleCaption=\"Подсказка сверху\"\n                hintText=\"Подсказка в виде Tooltip\"\n                hintView=\"default\"\n                hintSize=\"m\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Обязательность поля",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <TextArea\n                hasRequiredIndicator\n                required\n                requiredPlacement=\"right\"\n                label=\"Лейбл\"\n                leftHelper=\"Подсказка к полю\"\n                placeholder=\"Введите значение\"\n                contentRight={<IconDownload />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Слот для контента над вводимым текстом",
+      "snippet": "import React from 'react';\nimport { TextArea, TextS } from '@salutejs/plasma-web';\nimport { surfaceSolid03 } from '@salutejs/plasma-tokens-web';\nexport function App() {\n    const HeaderSlot = () => (\n       <div style={{ margin: \"0 0.75rem\", padding: \"0.5rem 0\", borderBottom: `0.063rem solid ${surfaceSolid03}` }}>\n           <TextS>Дополнительный контент</TextS>\n       </div>\n    )\n    return (\n        <div>\n            <TextArea\n                headerSlot={<HeaderSlot />}\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                leftHelper=\"Подсказка снизу слева\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Clear (DEPRECATED)",
+      "snippet": "import React from 'react';\nimport { TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = React.useState('Значение');\n    return (\n        <div>\n            <TextArea\n                placeholder=\"Введите значение\"\n                value={value}\n                onChange={(e) => {\n                    setValue(e.target.value);\n                }}\n                clear\n                hasDivider\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

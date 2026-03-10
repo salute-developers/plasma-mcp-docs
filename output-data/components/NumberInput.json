@@ -1,0 +1,216 @@
+{
+  "name": "NumberInput",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "NumberInput Числовое поле.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"accent\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shape",
+        "type": "\"pilled\" | \"cornered\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "inputBackgroundType",
+        "type": "\"clear\" | \"fill\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "segmentation",
+        "type": "\"default\" | \"segmented\" | \"solid\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "precision",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customIncrementButton",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "incrementIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customDecrementButton",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "decrementIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isManualInput",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((event: SyntheticEvent<HTMLInputElement, Event> | null, value: string | number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onIncrement",
+        "type": "((value: number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDecrement",
+        "type": "((value: number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Контролируемый NumberInput:",
+      "snippet": "import React, { useState } from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = useState(5);\n    const handleChange = (_, newValue) => {\n        setValue(newValue);\n    };\n    return (\n        <div>\n            <NumberInput value={value} onChange={handleChange} width={188} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид числового поля",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput width={188} view=\"default\" />\n            <NumberInput width={188} view=\"secondary\" />\n            <NumberInput width={188} view=\"accent\" />\n            <NumberInput width={188} view=\"clear\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Модификация вида числового поля",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput width={188} view=\"default\" segmentation=\"default\" />\n            <NumberInput width={188} view=\"default\" segmentation=\"segmented\" />\n            <NumberInput width={188} view=\"default\" segmentation=\"solid\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Граница числового поля",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput width={188} view=\"default\" segmentation=\"default\" shape=\"cornered\" />\n            <NumberInput width={188} view=\"default\" segmentation=\"solid\" shape=\"cornered\" />\n            <NumberInput width={188} view=\"default\" segmentation=\"default\" shape=\"pilled\" />\n            <NumberInput width={188} view=\"default\" segmentation=\"solid\" shape=\"pilled\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер числового поля",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput width={188} size=\"l\" />\n            <NumberInput width={188} size=\"m\" />\n            <NumberInput width={188} size=\"s\" />\n            <NumberInput width={188} size=\"xs\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Состояние загрузки числового поля",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput size=\"l\" width={188} isLoading />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ручной ввод",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <NumberInput size=\"l\" width={188} isManualInput />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Кастомные иконки для кнопок",
+      "snippet": "import React from 'react';\nimport { NumberInput } from '@salutejs/plasma-web';\nimport { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <NumberInput\n                size=\"l\"\n                incrementIcon={<IconVolumeLevel2Fill color=\"inherit\"/>}\n                decrementIcon={<IconVolumeLevel1Fill color=\"inherit\"/>}\n                width={188}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Кастомные кнопки увеличения/уменьшения значения",
+      "snippet": "import React, {useState} from 'react';\nimport { NumberInput, IconButton } from '@salutejs/plasma-web';\nimport { IconVolumeLevel1Fill, IconVolumeLevel2Fill } from '@salutejs/plasma-icons';\nexport function App() {\n    const [currentValue, setCurrentValue] = useState(0);\n    const min = 0;\n    const max = 10;\n    const step = 2\n    const handleIncrement = () => {\n        const diffValue = Number(currentValue) + step;\n        const resValue = currentValue >= max ? max : diffValue;\n        setCurrentValue(resValue);\n    };\n    const handleDecrement = () => {\n        const diffValue = Number(currentValue) - step;\n        const resValue = currentValue <= min ? min : diffValue;\n        setCurrentValue(resValue);\n    };\n    const CustomIncrementButton = () => (\n        <IconButton\n            view={currentValue !== max ? \"accent\" : \"critical\"}\n            size=\"l\"\n            disabled={currentValue === max}\n            onClick={handleIncrement}\n        >\n            <IconVolumeLevel2Fill color=\"inherit\"/>\n        </IconButton>\n    )\n    const CustomDecrementButton = () => (\n        <IconButton\n            view={currentValue !== min ? \"accent\" : \"critical\"}\n            size=\"l\"\n            disabled={currentValue === min}\n            onClick={handleDecrement}\n        >\n            <IconVolumeLevel1Fill color=\"inherit\"/>\n        </IconButton>\n    )\n    return (\n        <div>\n            <NumberInput\n                value={currentValue}\n                step={step}\n                size=\"l\"\n                customIncrementButton={<CustomIncrementButton />}\n                customDecrementButton={<CustomDecrementButton />}\n                width={188}\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

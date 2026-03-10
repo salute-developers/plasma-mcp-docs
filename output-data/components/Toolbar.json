@@ -1,0 +1,52 @@
+{
+  "name": "Toolbar",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Toolbar Toolbar может отображаться в горизонтальном и вертикальном положении с разными размерами.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasShadow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Toolbar  должен содержать контент передаваемый в  children .",
+      "snippet": "import React from 'react';\nimport { Toolbar } from '@salutejs/plasma-web';\nimport { IconEdit } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <Toolbar>\n            <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            <ToolbarDivider />\n            <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n        </Toolbar>\n    );\n}"
+    },
+    {
+      "title": "Размер Toolbar",
+      "snippet": "import React from 'react';\nimport { Toolbar } from '@salutejs/plasma-web';\nimport { IconEdit } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Toolbar size=\"l\">\n                <Button square size=\"l\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"l\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"l\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"l\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n            <Toolbar size=\"m\">\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n            <Toolbar size=\"m\">\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"s\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"s\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n            <Toolbar size=\"xs\">\n                <Button square size=\"xs\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"xs\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"xs\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"xs\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Положение Toolbar",
+      "snippet": "import React from 'react';\nimport { Toolbar } from '@salutejs/plasma-web';\nimport { IconEdit } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Toolbar orientation=\"vertical\">\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n            <Toolbar orientation=\"horizontal\">\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <ToolbarDivider />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n                <Button square size=\"m\" view=\"clear\" contentLeft={<IconEdit />} />\n            </Toolbar>\n        </div>\n    );\n}"
+    }
+  ]
+}

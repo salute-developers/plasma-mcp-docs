@@ -1,0 +1,244 @@
+{
+  "name": "PreviewGallery",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "PreviewGallery",
+  "api": {
+    "props": [
+      {
+        "name": "items",
+        "type": "(PreviewGalleryItemProps & Omit<SortableElementProps, \"index\">)[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "interactionType",
+        "type": "InteractionType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxHeight",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "actionIcon",
+        "type": "Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "itemSize",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemsSortEnd",
+        "type": "(({ oldIndex, newIndex }: SortableIndexProps) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemAction",
+        "type": "((id: string | number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemClick",
+        "type": "((id: string | number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "axis",
+        "type": "Axis",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "lockAxis",
+        "type": "Axis",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperClass",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "transitionDuration",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keyboardSortingTransitionDuration",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keyCodes",
+        "type": "{ lift?: number[]; drop?: number[]; cancel?: number[] | undefined; up?: number[] | undefined; down?: number[] | undefined; } | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pressDelay",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pressThreshold",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shouldCancelStart",
+        "type": "((event: SortEvent | SortEventWithTag) => boolean)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "updateBeforeSortStart",
+        "type": "SortStartHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSortStart",
+        "type": "SortStartHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSortMove",
+        "type": "SortMoveHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSortEnd",
+        "type": "SortEndHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSortOver",
+        "type": "SortOverHandler",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "useDragHandle",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "useWindowAsScrollContainer",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hideSortableGhost",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "lockToContainerEdges",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "lockOffset",
+        "type": "Offset | [Offset, Offset]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "getContainer",
+        "type": "ContainerGetter",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "getHelperDimensions",
+        "type": "((sort: SortStart) => Dimensions)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperContainer",
+        "type": "HTMLElement | HelperContainerGetter",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disableAutoscroll",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState, useCallback } from 'react';\nimport { IconTrashFilled } from '@salutejs/plasma-icons';\nimport { PreviewGallery, arrayItemRemoving, arrayItemSelecting } from '@salutejs/plasma-web';\nexport function App() {\n    const images = [\n        {\n            id: Math.random(),\n            image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg',\n            caption: '3:24',\n            tooltip: {\n                text: 'Высокое качество воспроизведения',\n                placement: 'top',\n            },\n        },\n        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },\n        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg', actionDisabled: true },\n        { id: 4 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_4.jpg' },\n    ];\n    const [items, setItems] = useState(images);\n    const onItemRemove = useCallback((id) => {\n        setItems((oldItems) => {\n            const newItems = arrayItemRemoving(oldItems, id);\n            if (newItems.length === 1) {\n                newItems[0].isSelected = true;\n            }\n            return newItems;\n        });\n    }, []);\n    const onItemClick = useCallback((id) => {\n        setItems((oldItems) => {\n            return arrayItemSelecting(oldItems, id);\n        });\n    }, []);\n    return (\n         <section style={{width: '23.75rem'}}>\n             <PreviewGallery\n                items={items}\n                onItemAction={onItemRemove}\n                actionIcon={<IconTrashFilled size=\"xs\" color=\"inherit\" />}\n                onItemClick={onItemClick}\n              />\n         </section>\n    )\n}"
+    },
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState, useCallback } from 'react';\nimport { IconTrash } from '@salutejs/plasma-icons';\nimport { PreviewGallery, arrayItemRemoving, arrayItemSwapping } from '@salutejs/plasma-web';\nexport function App() {\n    const images = [\n        {\n            id: Math.random(),\n            image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg',\n            caption: '3:24',\n            tooltip: {\n                text: 'Высокое качество воспроизведения',\n                placement: 'top',\n            },\n        },\n        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },\n        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg', actionDisabled: true },\n        { id: 4 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_4.jpg' },\n    ];\n    const [items, setItems] = useState(images);\n    const onItemRemove = useCallback((id) => {\n        setItems((oldItems) => {\n            const newItems = arrayItemRemoving(oldItems, id);\n            if (newItems.length === 1) {\n                newItems[0].isSelected = true;\n            }\n            return newItems;\n        });\n    }, []);\n    const onItemsSortEnd = useCallback(({ oldIndex, newIndex }) => {\n        setItems((oldItems) => {\n            return arrayItemSwapping(oldItems, oldIndex, newIndex);\n        });\n    }, []);\n    return (\n        <section style={{width: '23.75rem'}}>\n            <PreviewGallery\n                interactionType=\"draggable\"\n                items={items}\n                actionIcon={<IconTrash size=\"xs\" color=\"inherit\" />}\n                onItemAction={onItemRemove}\n                onItemsSortEnd={onItemsSortEnd}\n            />\n        </section>\n    );\n}"
+    }
+  ]
+}

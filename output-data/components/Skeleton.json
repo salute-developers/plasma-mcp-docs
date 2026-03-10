@@ -1,0 +1,96 @@
+{
+  "name": "Skeleton",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Skeleton Набор компонентов для создания скелетов загрузки (placeholders).",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"lighter\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"caption\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"body1\" | \"body2\" | \"body3\" | \"button1\" | \"button2\" | \"display1\" | \"display2\" | \"display3\" | \"footnote1\" | \"footnote2\" | \"headline1\" | ... 18 more ...",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customGradientColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customFadeInColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customFadeOutColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "roundness",
+        "type": "0 | 4 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animationType",
+        "type": "\"shimmer\" | \"pulse\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "lighter",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Тип анимации",
+      "snippet": "import React from 'react';\nimport { LineSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <LineSkeleton size=\"h3\" animationType=\"shimmer\" />\n    );\n}"
+    },
+    {
+      "title": "Тип анимации",
+      "snippet": "import React from 'react';\nimport { LineSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <LineSkeleton size=\"h3\" animationType=\"pulse\" />\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { LineSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <LineSkeleton size=\"h3\" />\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { RectSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <RectSkeleton width=\"12rem\" height=\"8rem\" />\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { TextSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <TextSkeleton size=\"textM\" lines={4} />\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { Button, withSkeleton } from '@salutejs/plasma-web';\nexport function App() {\n    const ButtonSkeleton = withSkeleton(Button);\n    return (\n        <ButtonSkeleton\n            fullWidth\n            text=\"Загрузка...\"\n            view=\"primary\"\n            size=\"s\"\n            scaleOnInteraction={false}\n            outlined={false}\n            skeleton={true}\n            tabIndex={-1}\n        />\n    );\n}"
+    },
+    {
+      "title": "Доступность Доступность При использовании  withSkeleton  необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой",
+      "snippet": "import React, { useState } from 'react';\nimport { Button, withSkeleton } from '@salutejs/plasma-web';\nconst ButtonSkeleton = withSkeleton(Button);\nexport default function App() {\n    const [skeleton, setSkeleton] = useState(false);\n    return (\n        <ButtonSkeleton\n            type=\"button\"\n            text={skeleton ? 'Загрузка' : 'Нажмите'}\n            skeleton={skeleton}\n            aria-busy={skeleton}\n            onClick={() => setSkeleton((prevValue) => !prevValue)}\n        />\n    );\n}"
+    }
+  ]
+}

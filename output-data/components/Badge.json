@@ -2,7 +2,7 @@
   "name": "Badge",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "Badge",
   "api": {
     "props": [
       {
@@ -86,23 +86,23 @@
   },
   "examples": [
     {
-      "title": "Размер badge Размер задается с помощью свойства  size . Возможные значения свойства",
+      "title": "Размер badge",
       "snippet": "import React from 'react';\nimport { Badge } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Badge text=\"Бейдж\" size=\"l\" />\n            <Badge text=\"Бейдж\" size=\"m\" />\n            <Badge text=\"Бейдж\" size=\"s\" />\n            <Badge text=\"Бейдж\" size=\"xs\" />\n        </div>\n    );\n}"
     },
     {
-      "title": "Скругленность badge Скругленность задается с помощью свойства  pilled",
+      "title": "Скругленность badge",
       "snippet": "import React from 'react';\nimport { Badge } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Badge text=\"Бейдж\" size=\"l\" pilled />\n            <Badge text=\"Бейдж\" size=\"m\" pilled />\n            <Badge text=\"Бейдж\" size=\"s\" pilled />\n            <Badge text=\"Бейдж\" size=\"xs\" pilled />\n        </div>\n    );\n}"
     },
     {
-      "title": "Вид badge Вид  badge  задается с помощью свойства  view .",
+      "title": "Вид badge",
       "snippet": "import React from 'react';\nimport { Badge } from '@salutejs/plasma-web';\nexport function App() {\n    const Badges = ({transparent, clear}) => {\n        return (\n            <div style={{ display: 'flex', gap: '0.5rem' }}>\n                <Badge text=\"Бейдж\" size=\"l\" view=\"primary\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"accent\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"positive\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"warning\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"negative\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"dark\" transparent={transparent} clear={clear} />\n                <Badge text=\"Бейдж\" size=\"l\" view=\"light\" transparent={transparent} clear={clear} />\n            </div>\n        )\n    }\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>\n            <Badges />\n            <Badges transparent />\n            <Badges clear />\n        </div>\n    );\n}"
     },
     {
-      "title": "Иконка слева / справа В левой или правой части badge можно отобразить иконку.",
+      "title": "Иконка слева / справа",
       "snippet": "import React from 'react';\nimport { Badge } from '@salutejs/plasma-web';\nimport { IconEye } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Badge\n                text=\"Бейдж\"\n                size=\"l\"\n                view=\"primary\"\n                contentLeft={\n                    <IconEye color=\"inherit\" size=\"xs\" />\n                }\n            />\n            <Badge\n                text=\"Бейдж\"\n                size=\"l\"\n                view=\"primary\"\n                contentRight={\n                    <IconEye color=\"inherit\" size=\"xs\" />\n                }\n            />\n            <Badge\n                size=\"l\"\n                view=\"default\"\n                contentLeft={\n                    <IconEye color=\"inherit\" size=\"xs\" />\n                }\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Задание цвета текста и фона Цвет текста и фона можно задать с помощью свойств",
+      "title": "Задание цвета текста и фона",
       "snippet": "import React from 'react';\nimport { Badge } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Badge\n                text=\"Бейдж\"\n                size=\"l\"\n                view=\"default\"\n                customColor=\"antiquewhite\"\n                customBackgroundColor=\"darkolivegreen\"\n            />\n        </div>\n    );\n}"
     }
   ]

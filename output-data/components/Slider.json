@@ -1,0 +1,269 @@
+{
+  "name": "Slider",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Slider",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"accent\" | \"gradient\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "rangeValuesPlacement",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "settings",
+        "type": "Partial<{ indent?: number; fontSizeMultiplier?: number; backgroundColor?: string | undefined; fillColor?: string | undefined; }> | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((event: FormTypeNumber) => void) | ((value: number) => void) | ((values: number[]) => void) | ((event: FormTypeString) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "number | number[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "type": "number | number[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "scaleAlign",
+        "type": "\"none\" | \"bottom\" | \"side\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sliderAlign",
+        "type": "\"none\" | \"center\" | \"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "reversed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelReversed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeCommitted",
+        "type": "((value: number) => void) | ((value: number[]) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string | string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showCurrentValue",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showRangeValues",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showScale",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hideMinValueDiff",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hideMaxValueDiff",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "multipleStepSize",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"single\" | \"double\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pointerSize",
+        "type": "\"none\" | \"small\" | \"large\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pointerVisibility",
+        "type": "\"always\" | \"hover\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "currentValueVisibility",
+        "type": "\"always\" | \"hover\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeTextField",
+        "type": "((value: number[], event: ChangeEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlurTextField",
+        "type": "((value: number[], event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onKeyDownTextField",
+        "type": "((value: number[], event: KeyboardEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState } from 'react';\nimport { Slider  } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = useState(30);\n    const onChangeCommittedHandle = (value) => {\n        setValue(value);\n    };\n    const onChangeHandle = (value) => {\n        setValue(value);\n    };\n    return (\n        <section>\n            <Slider onChange={onChangeHandle} onChangeCommitted={onChangeCommittedHandle} min={0} max={100} value={value} />\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState } from 'react';\nimport { Slider  } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = useState([10, 80]);\n    const sortValues = (values) => {\n        return values\n            .map((val) => {\n                if (val < 0) {\n                    return 0;\n                }\n                if (val > 100) {\n                    return 100;\n                }\n                return val;\n            })\n            .sort((a, b) => a - b);\n    };\n    const onChangeHandle = (values) => {\n        setValue(sortValues(values));\n    };\n    const onChangeCommitedHandle = (values) => {\n        setValue(sortValues(values));\n    };\n    const onBlurTextField = (values) => {\n        setValue(sortValues(values));\n    };\n    const onKeyDownTextField = (values, event) => {\n        if (event.key === 'Enter') {\n            setValue(sortValues(values));\n        }\n    };\n    return (\n        <section>\n            <Slider value={value}\n                onKeyDownTextField={onKeyDownTextField}\n                onBlurTextField={onBlurTextField}\n                onChangeCommitted={onChangeCommitedHandle}\n                onChange={onChangeHandle} min={0} max={100} />\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Вертикальное отображение",
+      "snippet": "import React, { useState } from 'react';\nimport { Slider  } from '@salutejs/plasma-web';\nimport { IconMic } from '@salutejs/plasma-icons';\nexport function App() {\n    const [value, setValue] = useState(30);\n    const onChangeCommittedHandle = (value) => {\n        setValue(value);\n    };\n    const onChangeHandle = (value) => {\n        setValue(value);\n    };\n    return (\n        <section style={{ height: '300px' }}>\n            <Slider\n                value={value}\n                onChange={onChangeHandle}\n                onChangeCommitted={onChangeCommittedHandle}\n                min={0}\n                max={100}\n                label=\"Громкость\"\n                labelContent={<IconMic size=\"s\" />}\n                orientation=\"vertical\"\n                sliderAlign=\"center\"\n                size=\"m\"\n            />\n        </section>\n    );\n}"
+    }
+  ]
+}

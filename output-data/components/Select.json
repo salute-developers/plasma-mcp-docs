@@ -1,0 +1,550 @@
+{
+  "name": "Select",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Select",
+  "api": {
+    "props": [
+      {
+        "name": "onChange",
+        "type": "((value: T, item: K | null) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onScroll",
+        "type": "((e: UIEvent<HTMLElement, UIEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "separator",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "\"warning\" | \"success\" | \"error\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "\"textfield-like\" | \"button-like\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "K[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placement",
+        "type": "SelectPlacement | SelectPlacementBasic[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "variant",
+        "type": "\"normal\" | \"tight\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "ZIndex",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "listMaxHeight",
+        "type": "Height<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "listWidth",
+        "type": "Width<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "portal",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "renderItem",
+        "type": "((item: K) => ReactNode)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "renderSelectionIcon",
+        "type": "((selected: boolean | \"indeterminate\") => ReactNode)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeAfterSelect",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onToggle",
+        "type": "((isOpen: boolean) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "beforeList",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "afterList",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "virtual",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "\"radio\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "treeView",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "arrowPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "flip",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "shift",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "listHeight",
+        "type": "Height<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "listOverflow",
+        "type": "Overflow",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isTargetAmount",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "renderValue",
+        "type": "((item: K) => string)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipClickArea",
+        "type": "ChipClickArea",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optionalText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemSelect",
+        "type": "((e: K, event: SyntheticEvent<Element, Event>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipType",
+        "type": "\"text\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "multiselect",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "renderTarget",
+        "type": "((item: K | K[], opened?: boolean) => ReactNode)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasItems",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onScrollBottom",
+        "type": "((e: UIEvent<HTMLElement, UIEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"dark\" | \"black\" | \"white\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipView",
+        "type": "\"default\" | \"secondary\" | \"accent\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "selectAllOptions",
+        "type": "SelectAllProps",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Обязательным параметром являются",
+      "snippet": "type Items = Array<{\n        /**\n         *  Значение у item\n         */\n        value: string;\n        /**\n         * Метка-подпись к item\n         */\n        label: string;\n        /**\n        * Сторона открытия вложенного дропдауна относительно текущего элемента;\n        */\n        placement: SelectPlacement | Array<SelectPlacementBasic>;\n        /**\n         * Список дочерних items.\n         */\n        items?: Array<ItemOption>;\n        /**\n         * Item не активен\n         */\n        disabled?: boolean;\n        /**\n         * Слот для контента слева\n         */\n        contentLeft?: ReactNode;\n        /**\n         * Слот для контента справа\n         */\n        contentRight?: ReactNode;\n        /**\n         * Выбранный item.\n         * @deprecated\n         */\n        isActive?: boolean;\n        /**\n         * Кастомный цвет текста\n         * @deprecated\n         */\n        color?: string;\n        /**\n         * Айтем не активен\n         * @deprecated использовать disabled\n         */\n        isDisabled?: boolean;\n    }>;"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const [singleValue, setSingleValue] = useState('');\n    const [multipleValue, setMultipleValue] = useState([]);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: 'flex', gap: '30px', height: '300px' }}>\n            <div style={{width: '300px'}}>\n                <Select items={items} value={singleValue} onChange={setSingleValue} label=\"Label\" placeholder=\"Placeholder\" helperText=\"Helper text\" />\n            </div>\n            <div style={{width: '300px'}}>\n                <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label=\"Label\" placeholder=\"Placeholder\" helperText=\"Helper text\" />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const [singleValue, setSingleValue] = useState('');\n    const [multipleValue, setMultipleValue] = useState([]);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: 'flex', gap: '30px', height: '300px' }}>\n            <div style={{width: '300px'}}>\n                <Select items={items} label=\"Single\" target=\"button-like\" value={singleValue} onChange={setSingleValue} />\n            </div>\n            <div style={{width: '300px'}}>\n                <Select multiselect items={items} label=\"Multiple\" target=\"button-like\" value={multipleValue} onChange={setMultipleValue} />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\nimport { Select, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [multipleValue, setMultipleValue] = useState(['brazil', 'north_america']);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: 'flex', gap: '30px', height: '300px' }}>\n            <div style={{width: '300px'}}>\n                <Select multiselect items={items} label=\"Label\" placeholder=\"Placeholder\" value={multipleValue} onChange={setMultipleValue} />\n            </div>\n            <Button onClick={() => setMultipleValue([])}>Очистить</Button>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const [singleValue, setSingleValue] = useState('');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    const renderValue = (itemData): string => {\n        if (!Array.isArray(itemData)) {\n            return `${itemData.value} - ${itemData.label}`;\n        }\n        return '';\n    };\n    return (\n        <div style={{ height: '300px' }}>\n            <div style={{ width: '300px' }}>\n                <Select\n                    items={items}\n                    label=\"Label\"\n                    placeholder=\"Placeholder\"\n                    value={singleValue}\n                    onChange={setSingleValue}\n                    renderValue={renderValue}\n                />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\nimport { Select, Cell } from '@salutejs/plasma-web';\nexport function App() {\n    const [multipleValue, setMultipleValue] = useState([]);\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n        },\n    ];\n    const renderTarget = (itemData, opened) => {\n        console.log(opened);\n        if (Array.isArray(itemData)) {\n            if (itemData.length === 0) {\n                return (\n                    <div style={{ padding: '0.5rem 0' }}>\n                        <Cell\n                            view=\"default\"\n                            title=\"Выберите страну\"\n                            subtitle=\"Subtitle\"\n                            label=\"Label\"\n                        />\n                    </div>\n                );\n            }\n            const title = itemData.map((item) => item.label).join(', ');\n            return (\n                <div style={{ padding: '0.5rem 0.75rem' }}>\n                    <Cell view=\"default\" title={title} subtitle=\"Subtitle\" label=\"Label\" />\n                </div>\n            );\n        }\n    }\n    const renderItem = ({ value, label }) => (\n        <Cell\n            view=\"default\"\n            title={label}\n            label=\"Top left\"\n            contentRight={<Cell view=\"default\" title=\"Bottom right\" label=\"Top right\" />}\n        />\n    )\n    return (\n        <div style={{ height: '300px' }}>\n           <div style={{ width: '400px' }}>\n                <Select\n                    items={items}\n                    value={multipleValue}\n                    onChange={setMultipleValue}\n                    multiselect\n                    renderTarget={renderTarget}\n                    renderItem={renderItem}\n                />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "export function App() {\n    const [value, setValue] = useState('brazil');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    const renderSelectionIcon = (selected: boolean | 'indeterminate') => {\n        if (selected === true) {\n            return <div style={{ width: '10px', height: '10px', borderRadius: '100%', background: 'red' }} />;\n        }\n        if (selected === 'indeterminate') {\n            return <div style={{ width: '10px', height: '10px', background: 'blue' }} />;\n        }\n        return null;\n    };\n    return (\n        <div style={{ height: '300px' }}>\n           <div style={{ width: '400px' }}>\n                <Select\n                    items={items}\n                    value={value}\n                    onChange={setValue}\n                    renderSelectionIcon={renderSelectionIcon}\n                />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React, { useRef } from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = useState('');\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    const ref = useRef(null)\n    return (\n        <div style={{ position: \"relative\", height: \"300px\" }} ref={ref}>\n            <div style={{width: '300px'}}>\n                <Select items={items} label=\"Label\" placeholder=\"Placeholder\" value={value} onChange={setValue} portal={ref} listWidth=\"300px\" />\n            </div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React from 'react';\n import { Select } from '@salutejs/plasma-web';\n export function App() {\n     const items = [\n         {\n             value: 'north_america',\n             label: 'Северная Америка',\n         },\n         {\n             value: 'south_america',\n             label: 'Южная Америка',\n             items: [\n                 {\n                     value: 'brazil',\n                     label: 'Бразилия',\n                 },\n                 {\n                     value: 'argentina',\n                     label: 'Аргентина',\n                 },\n             ],\n         },\n     ];\n     return (\n         <div style={{ height: '300px' }}>\n             <div style={{width: '300px'}}>\n                 <Select items={items} label=\"Label\" placeholder=\"Placeholder\" />\n             </div>\n         </div>\n     );\n }"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React, { useState } from 'react';\n import { Select } from '@salutejs/plasma-web';\n export function App() {\n     const items = Array(5000).fill(1).map((_, i) => ({ value: i.toString(), label: i.toString() }));\n     return (\n         <div style={{ width: \"300px\", height: \"300px\" }}>\n             <Select\n                 items={items}\n                 virtual\n                 listMaxHeight=\"200px\"\n                 placeholder=\"Placeholder\"\n                 label=\"Label\"\n                 helperText=\"Helper text\"\n             />\n         </div>\n     );\n }"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React, { useState } from 'react';\n import { Select } from '@salutejs/plasma-web';\n export function App() {\n     function getRandomData() {\n         return Array(10)\n             .fill(1)\n             .map(() => {\n                 const n = Math.floor(Math.random() * 90000000) + 10000000;\n                 return { value: n.toString(), label: n.toString() };\n             });\n     };\n     const [items, setItems] = useState(getRandomData());\n     const [isInfiniteLoading, setIsInfiniteLoading] = useState(false);\n     const getData = async () => {\n         return new Promise((resolve) => {\n             setTimeout(() => {\n                 resolve(getRandomData());\n             }, 1500);\n         });\n     };\n     const handleScroll = async (e) => {\n         if (isInfiniteLoading) return;\n         if (e.currentTarget.scrollTop + e.currentTarget.offsetHeight + 10 > e.currentTarget.scrollHeight) {\n             setIsInfiniteLoading(true);\n             const res = await getData();\n             setItems([...items, ...res]);\n             setIsInfiniteLoading(false);\n         }\n     };\n     return (\n         <div style={{ height: \"300px\" }}>\n             <div style={{ width: \"300px\" }}>\n                 <Select\n                     items={items}\n                     listMaxHeight=\"200px\"\n                     listOverflow=\"scroll\"\n                     placeholder=\"Placeholder\"\n                     label=\"Label\"\n                     helperText=\"Helper text\"\n                     onScroll={handleScroll}\n                     afterList={isInfiniteLoading ? <center>Загружаю...</center> : undefined}\n                 />\n             </div>\n         </div>\n     );\n }"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "type SelectAllProps = {\n    checked?: boolean;\n    indeterminate?: boolean;\n    label?: string;\n    onClick?: () => void;\n    sticky?: boolean;\n};"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React, { useState } from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const flatItems = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'rio_de_janeiro',\n            label: 'Рио-де-Жанейро',\n        },\n        {\n            value: 'sao_paulo',\n            label: 'Сан-Паулу',\n        },\n        {\n            value: 'buenos_aires',\n            label: 'Буэнос-Айрес',\n        },\n        {\n            value: 'cordoba',\n            label: 'Кордова',\n        },\n        {\n            value: 'bogota',\n            label: 'Богота',\n        },\n        {\n            value: 'medellin',\n            label: 'Медельин',\n        },\n    ];\n    const [value, setValue] = useState([]);\n    const [checked, setChecked] = useState(false);\n    const [indeterminate, setIndeterminate] = useState(false);\n    const handleClick = () => {\n        if (checked && !indeterminate) {\n            setValue([]);\n        } else {\n            setValue(flatItems.map((item) => item.value));\n        }\n    };\n    React.useEffect(() => {\n        if (value.length === 0) {\n            setChecked(false);\n            setIndeterminate(false);\n        } else if (value.length === flatItems.length) {\n            setChecked(true);\n            setIndeterminate(false);\n        } else {\n            setChecked(true);\n            setIndeterminate(true);\n        }\n    }, [value]);\n    return (\n        <div style={{ display: \"block\", width: \"300px\", height: \"300px\" }}>\n            <Select\n                value={value}\n                onChange={setValue}\n                label=\"Label\"\n                placeholder=\"Placeholder\"\n                items={flatItems}\n                multiselect\n                selectAllOptions={{\n                    checked,\n                    indeterminate,\n                    onClick: handleClick,\n                }}\n                listOverflow=\"auto\"\n                listMaxHeight=\"200px\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры В режиме  textfield  доступны только следующие варианты  view",
+      "snippet": "import React, { useState } from 'react';\nimport { Select } from '@salutejs/plasma-web';\nexport function App() {\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"block\", width: \"300px\", height: \"300px\" }}>\n            <Select\n                label=\"Label\"\n                placeholder=\"Placeholder\"\n                items={items}\n                treeView\n                arrowPlacement=\"right\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Взаимодействие с disabled-элементами",
+      "snippet": "import React, { useState } from 'react';\n    import { Select } from '@salutejs/plasma-web';\n    export function App() {\n        const items = [\n            {\n                value: 'north_america',\n                label: 'Северная Америка',\n            },\n            {\n                value: 'south_america',\n                label: 'Южная Америка',\n                items: [\n                    {\n                        value: 'brazil',\n                        label: 'Бразилия',\n                        disabled: true,\n                    },\n                    {\n                        value: 'argentina',\n                        label: 'Аргентина',\n                    },\n                ],\n            },\n        ];\n        const [value, setValue] = useState(['brazil']);\n        return (\n            <div style={{ display: \"flex\", height: \"300px\" }}>\n                <div style={{ width: \"300px\" }}>\n                    <Select\n                        multiselect\n                        label=\"Label\"\n                        placeholder=\"Placeholder\"\n                        items={items}\n                    />\n                </div>\n                <div style={{ width: \"300px\" }}>\n                    <Select\n                        multiselect\n                        label=\"Label\"\n                        placeholder=\"Placeholder\"\n                        items={items}\n                        value={value}\n                        onChange={setValue}\n                        isTargetAmount\n                    />\n                </div>\n            </div>\n        );\n    }"
+    },
+    {
+      "title": "Использование с React Hook Form и нативной формой",
+      "snippet": "import React from 'react';\nimport { useForm, SubmitHandler } from 'react-hook-form';\nimport { Select, Button } from '@salutejs/plasma-web';\nexport function App() {\n    type Inputs = {\n        Select: string,\n        SelectMulti: string[]\n    }\n    const { register, handleSubmit } = useForm<Inputs>({\n        defaultValues: {\n            Select: 'north_america',\n            SelectMulti: ['brazil']\n        }\n    });\n    const onSubmit: SubmitHandler<Inputs> = (data) => {\n        console.log(data);\n    };\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>\n                <Select\n                    items={items}\n                    {...register('Select')}\n                />\n                <Select\n                    items={items}\n                    {...register('SelectMulti')}\n                    multiselect\n                />\n                <Button type=\"submit\">Отправить</Button>\n            </form>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Использование с React Hook Form и нативной формой",
+      "snippet": "import React from 'react';\nimport { useForm, Controller, SubmitHandler } from 'react-hook-form';\nimport { Select, Button } from '@salutejs/plasma-web';\nexport function App() {\n    type Inputs = {\n        select: string,\n        selectMulti: string[]\n    }\n    const { control, handleSubmit } = useForm<Inputs>({\n        defaultValues: {\n            select: 'north_america',\n            selectMulti: ['brazil']\n        }\n    });\n    const onSubmit: SubmitHandler<Inputs> = (data) => {\n        console.log(data);\n    };\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>\n                <Controller\n                    control={control}\n                    name=\"Select\"\n                    render={({ field: { onChange, value, ref } }) => (\n                    <Select\n                        items={items}\n                        ref={ref}\n                        value={value}\n                        onChange={onChange}\n                    />\n                    )}\n                />\n                <Controller\n                    control={control}\n                    name=\"SelectMulti\"\n                    render={({ field: { onChange, value, ref } }) => (\n                    <Select\n                        items={items}\n                        ref={ref}\n                        value={value}\n                        onChange={onChange}\n                        multiselect\n                    />\n                    )}\n                />\n                <Button type=\"submit\">Отправить</Button>\n            </form>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Использование с React Hook Form и нативной формой",
+      "snippet": "import React from 'react';\nimport { useForm, Controller, SubmitHandler } from 'react-hook-form';\nimport { Select, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {\n        event.preventDefault();\n        const formData = new FormData(event.currentTarget);\n        for (const [name, value] of formData) {\n            console.log(name, value);\n        }\n    };\n    const items = [\n        {\n            value: 'north_america',\n            label: 'Северная Америка',\n        },\n        {\n            value: 'south_america',\n            label: 'Южная Америка',\n            items: [\n                {\n                    value: 'brazil',\n                    label: 'Бразилия',\n                },\n                {\n                    value: 'argentina',\n                    label: 'Аргентина',\n                },\n            ],\n        },\n    ];\n    return (\n        <div style={{ display: \"flex\", gap: \"30px\", height: \"300px\" }}>\n            <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>\n                <Select label=\"Select\" name=\"Select\" defaultValue={\"brazil\"} items={items} />\n                <Select label=\"Select\" name=\"SelectMulti\" defaultValue={[\"brazil\"]} items={items} multiselect />\n                <Button type=\"submit\">Отправить</Button>\n            </form>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Поиск совпадений с функцией подсветки символов",
+      "snippet": "import React, { useState } from 'react';\nimport { Select, TextField } from '@salutejs/plasma-web';\nimport { IconCloseCircleOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    const items = [\n        {\n            value: 'beijing',\n            label: 'Пекин',\n        },\n        {\n            value: 'shanghai',\n            label: 'Шанхай',\n        },\n        {\n            value: 'tokyo',\n            label: 'Токио',\n        },\n        {\n            value: 'osaka',\n            label: 'Осака',\n        },\n        {\n            value: 'delhi',\n            label: 'Дели',\n        },\n        {\n            value: 'mumbai',\n            label: 'Мумбаи',\n        },\n        {\n            value: 'seoul',\n            label: 'Сеул',\n        },\n        {\n            value: 'busan',\n            label: 'Пусан',\n        },\n        {\n            value: 'bangkok',\n            label: 'Бангкок',\n        },\n        {\n            value: 'phuket',\n            label: 'Пхукет',\n        },\n    ];\n    const [textValue, setTextValue] = useState('');\n    function highlightText(label: string, highlight: string): React.ReactNode {\n        if (!highlight.trim()) return label;\n        const re = new RegExp('(' + highlight + ')', 'ig');\n        const parts = label.split(re);\n        return (\n            <>\n                {parts.map((part, i) =>\n                    part.toLowerCase() === highlight.toLowerCase() ? (\n                        <mark key={i} style={{ backgroundColor: '#ffeb3b' }}>\n                            {part}\n                        </mark>\n                    ) : (\n                        <span key={i}>{part}</span>\n                    ),\n                )}\n            </>\n        );\n    }\n    const renderItem = (item: SelectItemOption) => {\n        if (!textValue) return item.label;\n        return highlightText(item.label, textValue);\n    };\n    return (\n        <div style={{ display: 'flex', height: '400px' }}>\n            <div style={{ width: '300px' }}>\n                <Select\n                    multiselect\n                    variant=\"tight\"\n                    placeholder=\"Placeholder\"\n                    items={items}\n                    listMaxHeight=\"300px\"\n                    renderItem={renderItem}\n                    onToggle={(open) => {\n                        if (open) {\n                            setTextValue(\"\");\n                        }\n                    }}\n                    beforeList={<TextField placeholder=\"Введите 'Токио'\" size=\"s\" value={textValue} onChange={(e) => setTextValue(e.target.value)} contentRight={textValue && <IconCloseCircleOutline onClick={() => setTextValue(\"\")} color=\"gray\" size=\"xs\" />} />}\n                />\n            </div>\n        </div>\n    );\n}"
+    }
+  ]
+}

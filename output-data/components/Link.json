@@ -1,0 +1,37 @@
+{
+  "name": "Link",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Link",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"primary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"tertiary\" | \"paragraph\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "import React from 'react';\nimport { P1, Link } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <P1>\n            Скачайте <Link href=\"/\" target=\"_blank\">приложение</Link>.\n        </P1>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "name": "TextField",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "TextField для подсказки в виде Tooltip - hintText , для подсказки сверху справа - titleCaption : Наличие индикатора регулируется свойством hasRequiredIndicator .",
+  "api": {
+    "props": [
+      {
+        "name": "contentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | TextFieldView | \"innerLabel\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "\"warning\" | \"success\" | \"error\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "caption",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "$isFocused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "htmlSize",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animatedHint",
+        "type": "\"placeholder\" | \"label\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSearch",
+        "type": "((value: string, event?: KeyboardEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "clear",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTarget",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "enumerationType",
+        "type": "\"chip\" | \"plain\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipView",
+        "type": "\"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipType",
+        "type": "\"text\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chips",
+        "type": "TextFieldPrimitiveValue[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeChips",
+        "type": "((value: TextFieldPrimitiveValue[]) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "chipValidator",
+        "type": "((value: string) => ChipValidatorReturn)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, {useState} from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <TextField\n                label=\"Uncontrolled TextField\"\n                defaultValue=\"Дефолтное значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n                status=\"default\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, {useState} from 'react';\nimport { DateTimePicker } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    const [text, setText] = useState('Значение поля');\n    return (\n        <div>\n            <TextField\n                value={text}\n                onChange={(e: ChangeEvent<HTMLInputElement>) => {\n                    setText(e.target.value);\n                }}\n                label=\"Uncontrolled TextField\"\n                defaultValue=\"Дефолтное значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n                status=\"default\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React, {useState} from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextField\n                status=\"default\"\n                appearance=\"default\"\n                label=\"Appearance default\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                status=\"default\"\n                appearance=\"clear\"\n                label=\"Appearance clear\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                status=\"success\"\n                appearance=\"clear\"\n                hasDivider\n                label=\"Appearance clear\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React, {useState} from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextField\n                status=\"default\"\n                label=\"View default\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                status=\"success\"\n                label=\"View success\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                status=\"warning\"\n                label=\"View warning\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                status=\"error\"\n                label=\"View error\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React, {useState} from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>\n            <TextField\n                size=\"xl\"\n                label=\"Size xl\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                size=\"l\"\n                label=\"Size l\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                size=\"m\"\n                label=\"Size m\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                size=\"s\"\n                label=\"Size s\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n            <TextField\n                size=\"xs\"\n                label=\"Size xs\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Подсказки Подсказки Для вывода подсказки снизу от поля используйте свойство  helperText ,",
+      "snippet": "import React from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextField\n                placeholder=\"Введите значение\"\n                helperText=\"Подсказка снизу\"\n                titleCaption=\"Подсказка сверху\"\n                hintText=\"Подсказка в виде Tooltip\"\n                hintView=\"default\"\n                hintSize=\"m\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Обязательность поля",
+      "snippet": "import React from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nimport { IconBellFill, IconDone } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <TextField\n                hasRequiredIndicator\n                required\n                requiredPlacement=\"right\"\n                label=\"Лейбл\"\n                helperText=\"Подсказка к полю\"\n                placeholder=\"Введите значение\"\n                contentLeft={<IconBellFill size=\"s\" color=\"inherit\" />}\n                contentRight={<IconDone size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Режим ввода (DEPRECATED)",
+      "snippet": "import React from 'react';\nimport { TextField } from '@salutejs/plasma-web';\nexport function App() {\n    const validateChip = (value) => (value === 'Значение 1' ? { view: 'negative' } : {});\n    return (\n        <div>\n            <TextField\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                size=\"l\"\n                enumerationType=\"chip\"\n                helperText=\"Подсказка снизу\"\n                chips={[\"Значение 1\", \"Значение 2\"]}\n                chipView=\"positive\"\n                chipValidator={validateChip}\n            />\n            <TextField\n                placeholder=\"Введите значение\"\n                defaultValue=\"Значение\"\n                size=\"l\"\n                enumerationType=\"chip\"\n                helperText=\"Подсказка снизу\"\n                chips={[\"Значение 1\"]}\n                chipType=\"text\"\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

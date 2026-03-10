@@ -1,0 +1,188 @@
+{
+  "name": "Notification",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Notification Компонент группы Overlay, является всплывающим элементом поверх контента.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\" | \"info\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "layout",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"xs\" | \"xxs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeIconType",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxWidth",
+        "type": "MaxWidth<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "width",
+        "type": "Width<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "UNSAFE_SSR_ENABLED",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconPlacement",
+        "type": "\"top\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "showCloseIcon",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "customCloseIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onCloseButtonClick",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onTimeoutClose",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, { useCallback } from 'react';\nimport { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-web';\nexport function App() {\n    const handleShow = useCallback(() => {\n        addNotification({\n            id: 'incoming-call',\n            title: 'Входящий вызов',\n            children: 'Принять?',\n        }, 3000);\n    }, []);\n    const handleHide = useCallback(() => {\n        closeNotification('incoming-call');\n    }, []);\n    return (\n        <NotificationsProvider>\n            <ButtonGroup isCommonButtonStyles={false}>\n                <Button view=\"accent\" text=\"Показать оповещение\" onClick={handleShow} />\n                <Button view=\"secondary\" text=\"Скрыть оповещение\" onClick={handleHide} />\n            </ButtonGroup>\n        </NotificationsProvider>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import { addNotification, closeNotification } from '@salutejs/plasma-web';\nconst NotificationID = addNotification({\n    id: 'incoming-call',\n    title: 'Входящий вызов',\n    children: 'Принять?',\n    onTimeoutClose: () => {\n        console.log(\"Callback, вызываемый при автоматическом закрытии по timeout.\")\n    },\n}, 3000);\ncloseNotification(NotificationID);"
+    },
+    {
+      "title": "NotificationsProvider NotificationsProvider",
+      "snippet": "import ReactDOM from 'react-dom';\nimport { NotificationsProvider } from '@salutejs/plasma-web';\nimport { App } from './App';\nReactDOM.render(\n    <NotificationsProvider>\n        <App />\n    </NotificationsProvider>,\n    document.getElementById('root')\n);"
+    },
+    {
+      "title": "NotificationsProvider NotificationsProvider",
+      "snippet": "export function App() {\n    return (\n        <NotificationsProvider>\n                ...\n        </NotificationsProvider>\n    );\n}"
+    },
+    {
+      "title": "Позиционирование Позиционирование С помощью свойства  placement  у компонента  NotificationsProvider  можно задать позиционирование для Notification.",
+      "snippet": "type NotificationPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';"
+    },
+    {
+      "title": "Позиционирование Позиционирование С помощью свойства  placement  у компонента  NotificationsProvider  можно задать позиционирование для Notification.",
+      "snippet": "import { NotificationsProvider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <NotificationsProvider placement=\"top-right\">\n            ...\n        </NotificationsProvider>\n    );\n}"
+    },
+    {
+      "title": "Управлением внешним видом",
+      "snippet": "//INFO: В данном случае значении цвета будет как во `view='positive'`\naddNotification({\n    view: 'positive',\n    icon: <IconBell color=\"inherit\" size=\"xs\" />,\n    ...\n}, 3000);"
+    },
+    {
+      "title": "Переопределение цвета у заголовка и контентной части",
+      "snippet": "import React, { useCallback } from 'react';\nimport { IconBell } from '@salutejs/plasma-icons';\nimport { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-web';\nexport function App() {\n    const handleShow = useCallback(() => {\n        // INFO: Настраиваем содержимое и внешний вид компонента Notification\n        addNotification({\n            id: 'incoming-call',\n            title: 'Входящий вызов',\n            icon: <IconBell color=\"inherit\" size=\"xs\" />,\n            children: 'Принять?',\n            view: 'positive',\n            textColor: 'black',\n            titleColor: 'blue'\n        }, 3000);\n    }, []);\n    const handleHide = useCallback(() => {\n        closeNotification('incoming-call');\n    }, []);\n    return (\n        <NotificationsProvider>\n            <ButtonGroup isCommonButtonStyles={false}>\n                <Button view=\"accent\" text=\"Показать оповещение\" onClick={handleShow} />\n                <Button view=\"secondary\" text=\"Скрыть оповещение\" onClick={handleHide} />\n            </ButtonGroup>\n        </NotificationsProvider>\n    );\n}"
+    },
+    {
+      "title": "Управление шириной уведомления",
+      "snippet": "import React, { useCallback } from 'react';\nimport { IconBell } from '@salutejs/plasma-icons';\nimport { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-web';\nexport function App() {\n    const handleShow = useCallback(() => {\n        addNotification({\n            id: 'incoming-call',\n            title: 'Входящий вызов',\n            icon: <IconBell color=\"inherit\" size=\"xs\" />,\n            children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',\n            view: 'positive',\n            width: 'fit-content',\n            maxWidth: '30rem'\n        }, 3000);\n    }, []);\n    const handleHide = useCallback(() => {\n        closeNotification('incoming-call');\n    }, []);\n    return (\n        <NotificationsProvider>\n            <ButtonGroup isCommonButtonStyles={false}>\n                <Button view=\"accent\" text=\"Показать оповещение\" onClick={handleShow} />\n                <Button view=\"secondary\" text=\"Скрыть оповещение\" onClick={handleHide} />\n            </ButtonGroup>\n        </NotificationsProvider>\n    );\n}"
+    }
+  ]
+}

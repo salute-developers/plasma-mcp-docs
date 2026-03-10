@@ -2,7 +2,7 @@
   "name": "Checkbox",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "Checkbox",
   "api": {
     "props": [
       {
@@ -156,15 +156,15 @@
   },
   "examples": [
     {
-      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "title": "Использование Использование Компонент  Checkbox  может содержать лейбл и описание.",
       "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox label=\"Чекбокс\" description=\"Описание\" defaultChecked />\n    );\n}"
     },
     {
-      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "title": "Использование Использование Компонент  Checkbox  может содержать лейбл и описание.",
       "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox\n            label={<div>Чекбокс со <a href=\"/#\">ссылкой</a></div>}\n            description={<div>Описание чекбокса со <a href=\"/#\">ссылкой</a></div>}\n        />\n    );\n}"
     },
     {
-      "title": "Использование Компонент  Checkbox  может содержать лейбл и описание.",
+      "title": "Использование Использование Компонент  Checkbox  может содержать лейбл и описание.",
       "snippet": "import React from 'react';\nimport { Checkbox } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Checkbox label=\"Чекбокс\" description=\"Описание\" defaultChecked indeterminate checked={false} />\n    );\n}"
     }
   ]

@@ -1,0 +1,86 @@
+{
+  "name": "UploadAudio",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "UploadAudio",
+  "api": {
+    "props": [
+      {
+        "name": "content",
+        "type": "string | Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "progress",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((file: File, event?: ChangeEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "StatusType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "validate",
+        "type": "((files: FileList | null, accept?: string) => ValidationResult)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onValidation",
+        "type": "((result: ValidationResult) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState, useCallback } from 'react';\nimport { UploadAudio } from '@salutejs/plasma-web';\nexport function App() {\n    const [progress, setProgress] = useState(undefined);\n    const [state, setState] = useState({\n        status: undefined,\n        message: undefined,\n    });\n    const onValidation = useCallback((result) => {\n        const { message, status: rStatus } = result;\n        setState((prevState) => ({\n            ...prevState,\n            message,\n            status: rStatus,\n        }));\n    }, []);\n    const onChange = useCallback(() => {\n        const interval = setInterval(\n            () =>\n                setProgress((prevValue) => {\n                    const value = prevValue === undefined ? 0 : prevValue;\n                    if (value + 5 > 100) {\n                        clearInterval(interval);\n                        return undefined;\n                    }\n                    return value + 5;\n                }),\n            1000,\n        );\n    }, []);\n    return (\n        <section>\n            <UploadAudio\n                progress={progress}\n                onChange={onChange}\n                onValidation={onValidation}\n                status={state.status}\n                message={state.message}\n            />\n        </section>\n    );\n}"
+    }
+  ]
+}

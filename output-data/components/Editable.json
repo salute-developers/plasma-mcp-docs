@@ -2,7 +2,7 @@
   "name": "Editable",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "Editable",
   "api": {
     "props": [
       {
@@ -65,7 +65,7 @@
   },
   "examples": [
     {
-      "title": "Использование",
+      "title": "Использование Использование",
       "snippet": "import React from 'react';\nimport { Editable } from '@salutejs/plasma-web';\nimport { IconEdit } from '@salutejs/plasma-icons';\nimport { Headline1 } from '@salutejs/plasma-typo';\nexport function App() {\n    return (\n        <Editable\n            icon={<IconEdit size='s' color=\"inherit\" />}\n            textComponent={Headline1}\n            value=\"Default value\"\n            onChange={() => { console.log('handleChange') }}\n        />\n    );\n}"
     }
   ]

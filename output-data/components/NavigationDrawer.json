@@ -1,0 +1,106 @@
+{
+  "name": "NavigationDrawer",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "NavigationDrawer",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "\"overlay\" | \"static\" | \"drawer\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onHide",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sections",
+        "type": "SectionItem<true>[] | SectionItem<false>[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withContentLeft",
+        "type": "true",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React from 'react';\nimport { NavigationDrawer } from '@salutejs/plasma-web';\nexport function App() {\n    const sections = [{\n        items: [\n            {\n                label: 'Главная',\n                selected: true\n            },\n            {\n                label: 'Выход',\n            },\n        ]\n    }];\n     return (\n        <div>\n            <NavigationDrawer\n                sections={sections}\n            >\n            Основной контент\n            </NavigationDrawer>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React from 'react';\nimport { NavigationDrawer } from '@salutejs/plasma-web';\nexport function App() {\n    const ContentLeft = (\n        <div style={{backgroundColor: '#99999950', width: '100%', height: '100%'}}/>\n    )\n    const sections = [\n        {\n            label: 'Section 1',\n            items: [\n                {\n                    label: 'Item 1',\n                    contentLeft: ContentLeft,\n                    selected: true,\n                },\n                {\n                    label: 'Item 2',\n                    contentLeft: ContentLeft,\n                    counter: 1,\n                },\n                {\n                    label: 'Item 3',\n                    contentLeft: ContentLeft,\n                    disabled: true,\n                },\n                {\n                    label: 'Item 4',\n                    contentLeft: ContentLeft,\n                    hasIndicator: true,\n                },\n                { label: 'Item 5', contentLeft: ContentLeft },\n            ],\n        },\n    ];\n     return (\n        <div>\n            <NavigationDrawer\n                sections={sections}\n            >\n            Основной контент\n            </NavigationDrawer>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React, { useState } from 'react';\nimport { NavigationDrawer, Button } from '@salutejs/plasma-web';\nimport { IconBlankOutline, IconSettingsFill, IconHomeAltFill, IconLogout, IconStacksOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(true);\n    return (\n        <div style={{position: 'relative'}}>\n            <NavigationDrawer\n                opened={isOpen}\n                sections={[\n                    {\n                        label: 'Основная секция',\n                        items: [\n                            {\n                                label: 'Главная',\n                                icon: <IconHomeAltFill />,\n                                selected: true,\n                                action: () => console.log('Главная')\n                            },\n                            {\n                                label: 'Настройки',\n                                icon: <IconSettingsFill />,\n                                action: () => console.log('Настройки'),\n                            },\n                        ]\n                    },\n                    {\n                        label: 'Документы',\n                        items: [\n                            {\n                                label: 'Обзор документов',\n                                icon: <IconBlankOutline />,\n                                action: () => console.log('Обзор документов'),\n                            },\n                            {\n                                label: 'С индикатором',\n                                icon: <IconStacksOutline />,\n                                action: () => console.log('С индикатором'),\n                                hasIndicator: true\n                            },\n                        ]\n                    },\n                    {\n                        items: [\n                            {\n                                label: 'Выход',\n                                icon: <IconLogout />,\n                                action: () => console.log('Выход')\n                            },\n                        ]\n                    }\n                ]}\n            >\n                <div style={{ padding: '20px' }}>\n                    <Button onClick={() => setIsOpen(!isOpen)}>\n                        Переключить меню\n                    </Button>\n                    <p>Основной контент приложения</p>\n                </div>\n            </NavigationDrawer>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React, { useState } from 'react';\nimport { NavigationDrawer, Button } from '@salutejs/plasma-web';\nimport { IconBlankOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    return (\n        <div\n            style={{\n                width: 500,\n                height: 300,\n                position: 'relative',\n                overflow: 'hidden',\n                transform: 'translateZ(0)',\n            }}\n        >\n            <NavigationDrawer\n                mode=\"overlay\"\n                opened={isOpen}\n                onHide={() => setIsOpen(false)}\n                sections={[\n                    {\n                        hasDivider: false,\n                        items: [\n                            {\n                                label: 'Пункт меню',\n                                action: () => console.log('Клик'),\n                                icon: <IconBlankOutline />,\n                            }\n                        ]\n                    }\n                ]}\n            >\n                <div style={{ padding: '20px', width: '100%' }}>\n                    <Button onClick={() => setIsOpen(true)}>\n                        Открыть меню\n                    </Button>\n                    <p>Основной контент</p>\n                </div>\n            </NavigationDrawer>\n    </div>\n);\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React, { useState } from 'react';\nimport { NavigationDrawer, Button } from '@salutejs/plasma-web';\nimport { IconBlankOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    return (\n        <div\n            style={{\n                width: 500,\n                height: 300,\n                position: 'relative',\n                overflow: 'hidden',\n                transform: 'translateZ(0)',\n            }}\n        >\n            <NavigationDrawer\n                mode=\"drawer\"\n                opened={isOpen}\n                sections={[\n                    {\n                        hasDivider: false,\n                        items: [\n                            {\n                                label: 'Пункт меню',\n                                action: () => console.log('Клик'),\n                                icon: <IconBlankOutline />,\n                            }\n                        ]\n                    }\n                ]}\n            >\n                <div style={{ padding: '20px' }}>\n                    <p>Основной контент</p>\n                    <Button onClick={() => setIsOpen(!isOpen)}>\n                        Переключить меню\n                    </Button>\n                </div>\n            </NavigationDrawer>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Примеры Примеры",
+      "snippet": "import React, { useState, useRef, useEffect } from 'react';\nimport { NavigationDrawer } from '@salutejs/plasma-web';\nimport { IconBlankOutline } from '@salutejs/plasma-icons';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    const ref = useRef<HTMLDivElement>(null);\n    useEffect(() => {\n        if (ref.current) {\n            const sidebar = ref.current.childNodes[0] as HTMLDivElement;\n            sidebar.onmouseenter = () => {\n                setIsOpen(true);\n            };\n            sidebar.onmouseleave = () => {\n                setIsOpen(false);\n            };\n        }\n    }, [ref]);\n    return (\n        <div\n            style={{\n                width: 500,\n                height: 300,\n                position: 'relative',\n                overflow: 'hidden',\n                transform: 'translateZ(0)',\n            }}\n        >\n            <NavigationDrawer\n                mode=\"drawer\"\n                opened={isOpen}\n                ref={ref}\n                sections={[\n                    {\n                        hasDivider: false,\n                        items: [\n                            {\n                                label: 'Пункт меню',\n                                action: () => console.log('Клик'),\n                                icon: <IconBlankOutline />,\n                            }\n                        ]\n                    }\n                ]}\n            >\n                <div style={{ padding: '20px' }}>\n                    <p>Основной контент</p>\n                </div>\n            </NavigationDrawer>\n        </div>\n    );\n}"
+    }
+  ]
+}

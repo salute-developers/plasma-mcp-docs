@@ -2,7 +2,7 @@
   "name": "AvatarGroup",
   "package": "plasma-web",
   "category": "components",
-  "summary": "",
+  "summary": "AvatarGroup",
   "api": {
     "props": []
   },

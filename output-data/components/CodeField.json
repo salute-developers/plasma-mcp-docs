@@ -2,7 +2,7 @@
   "name": "CodeField",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Компонент CodeField используется для ввода OTP-кодов.",
+  "summary": "CodeField Компонент CodeField используется для ввода OTP-кодов.",
   "api": {
     "props": [
       {
@@ -135,7 +135,7 @@
   },
   "examples": [
     {
-      "title": "Размер Размер задается с помощью свойства  size .",
+      "title": "Размер Размер Размер задается с помощью свойства  size .",
       "snippet": "import React from 'react';\nimport { CodeField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ flexDirection: 'column', gap: '2rem' }}>\n            <CodeField\n                size=\"l\"\n                caption=\"Осталось попыток: 4\"\n                captionAlign=\"center\"\n            />\n            <CodeField\n                size=\"m\"\n                caption=\"Чтобы выслать вам код повторно подождите: 20 секунд\"\n                captionAlign=\"left\"\n            />\n            <CodeField\n                width=\"25\"\n                caption=\"Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать\"\n                captionAlign=\"center\"\n            />\n        </div>\n    );\n}"
     },
     {
@@ -143,15 +143,15 @@
       "snippet": "import React from 'react';\nimport { CodeField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ flexDirection: 'column', gap: '2rem' }}>\n            <div style={{ display: 'flex', gap: '2rem' }}>\n                <CodeField shape=\"default\" codeLength={4} />\n                <CodeField shape=\"segmented\"  codeLength={4} />\n            </div>\n            <div style={{ display: 'flex', gap: '2rem' }}>\n                <CodeField shape=\"default\" codeLength={5} />\n                <CodeField shape=\"segmented\"  codeLength={5} />\n            </div>\n            <div style={{ display: 'flex', gap: '2rem' }}>\n                <CodeField shape=\"default\" codeLength={6} />\n                <CodeField shape=\"segmented\"  codeLength={6} />\n            </div>\n        </div>\n    );\n}"
     },
     {
-      "title": "Допустимые символы и поведение ячейки при вводе некорректного символа За",
+      "title": "Допустимые символы и поведение ячейки при вводе некорректного символа",
       "snippet": "import React from 'react';\nimport { CodeField } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <CodeField value=\"123\" itemErrorBehavior=\"remove-symbol\" />\n            <CodeField value=\"123\" itemErrorBehavior=\"keep\" />\n            <CodeField value=\"123\" itemErrorBehavior=\"forbid-enter\" />\n        </div>\n    );\n}"
     },
     {
-      "title": "Поведение компонента при вводе некорректного кода и индикация ошибки При заполнении всех полей ввода срабатывает колбэк  onFullCodeEnter .",
+      "title": "Поведение компонента при вводе некорректного кода и индикация ошибки",
       "snippet": "import React, { useState, useRef, Dispatch, SetStateAction } from 'react';\nimport { CodeField } from '@salutejs/plasma-web';\nexport function App() {\n    const [disabledFirst, setDisabledFirst] = useState(false);\n    const [isErrorFirst, setIsErrorFirst] = useState(false);\n    const [disabledSecond, setDisabledSecond] = useState(false);\n    const [isErrorSecond, setIsErrorSecond] = useState(false);\n    const onFullCodeEnter = (\n        code: string,\n        errorSetter: Dispatch<SetStateAction<boolean>>,\n        disableSetter: Dispatch<SetStateAction<boolean>>\n    ) => {\n        disableSetter(true);\n        // имитация запроса на сервер\n        setTimeout(() => {\n            disableSetter(false);\n            if (code !== '123456') {\n                errorSetter(true);\n            }\n        }, 3000)\n    }\n    return (\n        <div style={{ flexDirection: 'column', gap: '2rem' }}>\n            <CodeField\n                itemErrorBehavior=\"remove-symbol\"\n                codeErrorBehavior=\"remove-code\"\n                disabled={disabledFirst}\n                isError={isErrorFirst}\n                setIsError={setIsErrorFirst}\n                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}\n            />\n            <CodeField\n                itemErrorBehavior=\"remove-symbol\"\n                codeErrorBehavior=\"keep\"\n                disabled={disabledSecond}\n                isError={isErrorSecond}\n                setIsError={setIsErrorSecond}\n                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorSecond, setDisabledSecond)}\n            />\n        </div>\n    );\n}"
     },
     {
-      "title": "Работа с OTP-кодом из СМС Функционал  Web OTP API  актуален только в мобильных браузерах.",
+      "title": "Работа с OTP-кодом из СМС",
       "snippet": "Ваш код подтверждения: 123456.\n@plasma.sberdevices.ru #123456"
     }
   ]

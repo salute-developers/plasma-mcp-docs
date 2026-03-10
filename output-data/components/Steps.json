@@ -1,0 +1,108 @@
+{
+  "name": "Steps",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Steps",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"accent\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "itemView",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "StepItemProps[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "orientation",
+        "type": "StepsOrientation",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentAlign",
+        "type": "StepsContentAlign",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasContent",
+        "type": "StepsContent",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasLoader",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "current",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "StepStatus",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((item: StepItemProps, index: number, prevIndex?: number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Внешнее управление",
+      "snippet": "import React, { useState } from 'react';\nimport { Steps, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const items = [{\n        indicator: 1,\n    }, {\n        indicator: 2,\n    }, {\n        indicator: 3,\n    }];\n    const [current, setCurrent] = useState<number>(0);\n    const onClick = () => setCurrent(() => current + 1);\n    return (\n        <section>\n            <Steps items={items} current={current} />\n            <br />\n            <Button view=\"secondary\" onClick={onClick}>\n                Next\n            </Button>\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Управление через onChange и статус шага",
+      "snippet": "import React, { useState } from 'react';\nimport { Steps, StepItemProps  } from '@salutejs/plasma-web';\nexport function App() {\n    const initialItems = [{\n        indicator: 1,\n        title: 'Title',\n        content: 'Content',\n    }, {\n        indicator: 2,\n        title: 'Title',\n        content: 'Content',\n    }, {\n        indicator: 3,\n        title: 'Title',\n        content: 'Content',\n    }];\n    const [items, setItems] = useState(initialItems);\n    const onChange = (item: StepItemProps, index: number, prevIndex: number) => {\n        if (prevIndex !== undefined) {\n            items[prevIndex].status = 'completed';\n        }\n        items[index].status = 'active';\n        setItems([...items]);\n    };\n    return (\n        <section>\n            <Steps items={items} onChange={onChange} />\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Использование свойства ItemView",
+      "snippet": "import React, { useState } from 'react';\nimport { Steps, StepItemProps  } from '@salutejs/plasma-web';\nexport function App() {\n    const initialItems = [{\n        indicator: 1,\n        title: 'Title',\n        content: 'Content',\n    }, {\n        indicator: 2,\n        title: 'Title',\n        content: 'Content',\n    }, {\n        indicator: 3,\n        title: 'Title',\n        content: 'Content',\n    }];\n    const [items, setItems] = useState(initialItems);\n    const onChange = (item: StepItemProps, index: number, prevIndex: number) => {\n        if (prevIndex !== undefined) {\n            items[prevIndex].status = 'completed';\n        }\n        items[index].status = 'active';\n        setItems([...items]);\n    };\n    return (\n        <section>\n            <Steps items={items} itemView=\"positive\" onChange={onChange} />\n        </section>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "name": "UploadVisual",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "UploadVisual",
+  "api": {
+    "props": [
+      {
+        "name": "maxCount",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "content",
+        "type": "string | Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "progress",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((file: File, event?: ChangeEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "StatusType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "validate",
+        "type": "((files: FileList | null, accept?: string) => ValidationResult)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onValidation",
+        "type": "((result: ValidationResult) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "(PreviewGalleryItemProps & Omit<SortableElementProps, \"index\">)[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "interactionType",
+        "type": "InteractionType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxHeight",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "actionIcon",
+        "type": "Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "itemSize",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemsSortEnd",
+        "type": "(({ oldIndex, newIndex }: SortableIndexProps) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemAction",
+        "type": "((id: string | number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onItemClick",
+        "type": "((id: string | number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useCallback, useState } from 'react';\nimport { UploadVisual, arrayItemRemoving, arrayItemSelecting } from '@salutejs/plasma-web';\nexport function App() {\n    const images = [\n        { id: Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg', caption: '3:24' },\n        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },\n        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg' },\n    ];\n    const addedImage = { id: 6 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_5.jpg' };\n    const [state, setState] = useState({\n        status: undefined,\n        progress: undefined,\n        message: undefined,\n    });\n    const [items, setItems] = useState(images);\n    const onItemRemove = useCallback((id) => {\n        setItems((oldItems) => {\n            const newItems = arrayItemRemoving(oldItems, id);\n            if (newItems.length === 1) {\n                newItems[0].isSelected = true;\n            }\n            return newItems;\n        });\n    }, []);\n    const onItemSelect = useCallback((id) => {\n        setItems((oldItems) => {\n            return arrayItemSelecting(oldItems, id);\n        });\n    }, []);\n    const onValidation = useCallback(\n        (result) => {\n            const { message, status: rStatus } = result;\n            setState((prevState) => ({\n                ...prevState,\n                message,\n                status: rStatus,\n            }));\n        },\n        [setState],\n    );\n    const onChange = useCallback(() => {\n        const interval = setInterval(\n            () =>\n                setState(({ progress }) => {\n                    const value = progress === undefined ? 0 : progress;\n                    if (value + 25 > 100) {\n                        clearInterval(interval);\n                        setItems((prevItems) => [...prevItems, addedImage]);\n                        return {\n                            progress: undefined,\n                            status: undefined,\n                            message: undefined,\n                        };\n                    }\n                    return {\n                        status: undefined,\n                        progress: value + 25,\n                        message: undefined,\n                    };\n                }),\n            1000,\n        );\n    }, [setState, setItems]);\n    return (\n        <section>\n            <UploadVisual\n                maxCount={6}\n                items={items}\n                status={state.status}\n                progress={state.progress}\n                message={state.message}\n                onChange={onChange}\n                onItemAction={onItemRemove}\n                onItemClick={onItemSelect}\n                onValidation={onValidation}\n            />\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useCallback, useState } from 'react';\nimport { UploadVisual, arrayItemRemoving, arrayItemSwapping } from '@salutejs/plasma-web';\nexport function App() {\n    const images = [\n        { id: Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg', caption: '3:24' },\n        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },\n        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg' },\n    ];\n    const addedErrorImage = {\n        id: 7 * Math.random(),\n        image: './images/320_320_5.jpg',\n        status: 'error',\n    };\n    const [state, setState] = useState({\n        status: undefined,\n        progress: undefined,\n        message: undefined,\n    });\n    const [items, setItems] = useState(images);\n    const onItemRemove = useCallback((id) => {\n        setItems((oldItems) => {\n            const newItems = arrayItemRemoving(oldItems, id);\n            if (newItems.length === 1) {\n                newItems[0].isSelected = true;\n            }\n            return newItems;\n        });\n    }, []);\n    const onItemsSortEnd = useCallback(({ oldIndex, newIndex }) => {\n        setItems((oldItems) => {\n            return arrayItemSwapping(oldItems, oldIndex, newIndex);\n        });\n    }, []);\n    const onValidation = useCallback(\n        (result) => {\n            const { message, status: rStatus } = result;\n            setState((prevState) => ({\n                ...prevState,\n                message,\n                status: rStatus,\n            }));\n        },\n        [setState],\n    );\n    const onChange = useCallback(() => {\n        const interval = setInterval(\n            () =>\n                setState(({ progress }) => {\n                    const value = progress === undefined ? 0 : progress;\n                    if (value + 25 > 100) {\n                        clearInterval(interval);\n                        setItems((prevItems) => [...prevItems, addedErrorImage]);\n                        return {\n                            status: 'error',\n                            progress: undefined,\n                            message: 'Изображение не загрузилось',\n                        };\n                    }\n                    return {\n                        status: undefined,\n                        progress: value + 25,\n                        message: undefined,\n                    };\n                }),\n            1000,\n        );\n    }, [setState, setItems]);\n    return (\n        <section>\n            <UploadVisual\n                items={items}\n                status={state.status}\n                progress={state.progress}\n                message={state.message}\n                onChange={onChange}\n                onItemAction={onItemRemove}\n                onItemsSortEnd={onItemsSortEnd}\n                onValidation={onValidation}\n                interactionType=\"draggable\"\n            />\n        </section>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Price",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Price",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "currency",
+        "type": "\"rub\" | \"usd\" | \"eur\" | \"inr\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stroked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minimumFractionDigits",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "periodicity",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "stroke",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Example 1",
+      "snippet": "import React from 'react';\nimport { Price } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column' }}>\n            <Price currency=\"rub\" minimumFractionDigits={3}>12345.67</Price>\n            <Price locale=\"en\" currency=\"rub\" minimumFractionDigits={3} stroked>12345.67</Price>\n        </div>\n    );\n}"
+    }
+  ]
+}

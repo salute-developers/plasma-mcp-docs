@@ -1,0 +1,35 @@
+{
+  "name": "Typography-legacy",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "В состав Plasma Web входят компоненты, реализующие типографическую систему типографическую систему Plasma .",
+  "api": {
+    "props": []
+  },
+  "examples": [
+    {
+      "title": "Смена тега",
+      "snippet": "import React from 'react';\nimport { BodyM } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <BodyM as=\"h3\">\n            BodyM\n        </BodyM>\n    );\n}"
+    },
+    {
+      "title": "Заголовки Заголовки",
+      "snippet": "import React from 'react';\nimport { Headline1, Headline2, Headline3, Headline4 } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Headline1>Headline1</Headline1>\n            <Headline2>Headline2</Headline2>\n            <Headline3>Headline3</Headline3>\n            <Headline4>Headline4</Headline4>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Основной текст",
+      "snippet": "import React from 'react';\nimport { Body1, Body2, ParagraphText1, ParagraphText2 } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Body1>Body1</Body1>\n            <Body2>Body2</Body2>\n            <ParagraphText1>ParagraphText1</ParagraphText1>\n            <ParagraphText2>ParagraphText2</ParagraphText2>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вспомогательный текст",
+      "snippet": "import React from 'react';\nimport { Footnote1, Footnote2 } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Footnote1>Footnote1</Footnote1>\n            <Footnote2>Footnote2</Footnote2>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Контролы Контролы",
+      "snippet": "import React from 'react';\nimport { Button1, Button2 } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Button1>Button1</Button1>\n            <Button2>Button2</Button2>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Дополнительные Дополнительные",
+      "snippet": "import React from 'react';\nimport { Caption, Underline } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Caption>Caption</Caption>\n            <Underline>Underline</Underline>\n        </div>\n    );\n}"
+    }
+  ]
+}

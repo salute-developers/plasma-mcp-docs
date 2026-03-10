@@ -1,0 +1,135 @@
+{
+  "name": "Rating",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Rating",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"accent\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"s\" | \"l\" | \"xs\" | \"xxs\" | \"displayL\" | \"displayM\" | \"displayS\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "number | null",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasValue",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "precision",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "valuePlacement",
+        "type": "\"before\" | \"after\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconSlot",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconSlotOutline",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconSlotHalf",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasIcons",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "iconQuantity",
+        "type": "1 | 5 | 10",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperTextStretching",
+        "type": "\"filled\" | \"fixed\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Rating  представляет собой неинтерактивный компонент для отображения оценки.",
+      "snippet": "import React from 'react';\nimport { Rating } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Rating\n                view=\"default\"\n                size=\"l\"\n                value={3.8}\n                helperText=\"Helper text\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид Rating",
+      "snippet": "import React from 'react';\nimport { Rating } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n            <Rating\n                view=\"default\"\n                size=\"l\"\n                value={3.8}\n                helperText=\"Helper text\"\n            />\n            <Rating\n                view=\"accent\"\n                size=\"l\"\n                value={3.8}\n                helperText=\"Helper text\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер Rating",
+      "snippet": "import React from 'react';\n    import { Rating } from '@salutejs/plasma-web';\n    export function App() {\n        return (\n            <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n                <Rating\n                    view=\"default\"\n                    size=\"l\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"m\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"s\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"xs\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"xxs\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n            </div>\n        );\n    }"
+    },
+    {
+      "title": "Размер Rating",
+      "snippet": "import React from 'react';\n    import { Rating } from '@salutejs/plasma-web';\n    export function App() {\n        return (\n            <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n                <Rating\n                    view=\"default\"\n                    size=\"h1\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"h2\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"h3\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"h4\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"h5\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n            </div>\n        );\n    }"
+    },
+    {
+      "title": "Размер Rating",
+      "snippet": "import React from 'react';\n    import { Rating } from '@salutejs/plasma-web';\n    export function App() {\n        return (\n            <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n                <Rating\n                    view=\"default\"\n                    size=\"displayL\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"displayM\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n                <Rating\n                    view=\"default\"\n                    size=\"displayS\"\n                    value={3.8}\n                    helperText=\"Helper text\"\n                />\n            </div>\n        );\n    }"
+    },
+    {
+      "title": "Количество иконок в Rating",
+      "snippet": "import React from 'react';\nimport { Rating } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n            <Rating\n                view=\"default\"\n                size=\"l\"\n                value={3.8}\n                iconQuantity={5}\n                helperText=\"Helper text\"\n            />\n            <Rating\n                view=\"accent\"\n                size=\"l\"\n                value={3.8}\n                iconQuantity={10}\n                helperText=\"Helper text\"\n            />\n            <Rating\n                view=\"accent\"\n                size=\"l\"\n                value={3.8}\n                iconQuantity={1}\n                helperText=\"Helper text\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Положение значения в Rating",
+      "snippet": "import React from 'react';\nimport { Rating } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n            <Rating\n                view=\"default\"\n                size=\"l\"\n                value={3.8}\n                valuePlacement=\"before\"\n                helperText=\"Helper text\"\n            />\n            <Rating\n                view=\"accent\"\n                size=\"l\"\n                value={3.8}\n                valuePlacement=\"after\"\n                helperText=\"Helper text\"\n            />\n            <Rating\n                view=\"accent\"\n                size=\"l\"\n                value={3.8}\n                hasValue={false}\n                helperText=\"Helper text\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Пользовтельские иконки в Rating",
+      "snippet": "import React from 'react';\nimport { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';\nimport { ratingClasses, Rating } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: \"flex\", flexDirection: \"column\", gap: \"2rem\" }}>\n            <Rating\n                view=\"default\"\n                size=\"l\"\n                value={3.8}\n                helperText=\"Helper text\"\n                iconSlot={<IconKeyFill size=\"s\" className={ratingClasses.customIconSizing} />}\n                iconSlotOutline={<IconLockFill size=\"s\" className={ratingClasses.customIconSizing} />}\n                iconSlotHalf={<IconKeyOutline size=\"s\" className={ratingClasses.customIconSizing} />}\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "name": "Sheet",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Sheet",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "handlePlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentHeader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isHeaderFixed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentFooter",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isFooterFixed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasHandle",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withOverlay",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withBlur",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withTransition",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "throttleMs",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasScrollEvents",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Sheet  может содержать любой контент напрямую через  children . Также есть возможность добавить любой контент в заголовок и футер с помощью свойств  contentHeader  и  contentFooter .",
+      "snippet": "import React, { useState } from 'react';\nimport { Sheet } from '@salutejs/plasma-web';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [opened, setOpened] = useState(false);\n    return (\n        <>\n            <Button onClick={() => setOpened(true)}>Открыть</Button>\n            <Sheet opened={opened}\n                onClose={() => setOpened(false)}\n                contentHeader={\n                    <div>\n                        <h4>header</h4>\n                    </div>\n                }\n                contentFooter={\n                    <div>\n                        <p>footer</p>\n                    </div>\n                }\n            >\n                <div style={{ 'padding-bottom': '300px' }}>body</div>\n            </Sheet>\n        </>\n    );\n}"
+    },
+    {
+      "title": "Закрепление заголовка и футера",
+      "snippet": "import React, { useState } from 'react';\nimport { Sheet } from '@salutejs/plasma-web';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [opened, setOpened] = useState(false);\n    return (\n        <>\n            <Button onClick={() => setOpened(true)}>Открыть</Button>\n            <Sheet opened={opened}\n                onClose={() => setOpened(false)}\n                contentHeader={\n                    <div>\n                        <h4>header</h4>\n                    </div>\n                }\n                contentFooter={\n                    <div>\n                        <p>footer</p>\n                    </div>\n                }\n                isFooterFixed\n                isHeaderFixed\n            >\n                <div style={{ 'padding-bottom': '300px' }}>body</div>\n            </Sheet>\n        </>\n    );\n}"
+    },
+    {
+      "title": "Подложка Подложка Наличие или отсутствие подложки задается с помощью свойства  withOverlay . В случае, когда подложка отсутствует, у пользователя появляется возможность взаимодействовать с контентом вне шторки.",
+      "snippet": "import React, { useState } from 'react';\nimport { Sheet } from '@salutejs/plasma-web';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [opened, setOpened] = useState(false);\n    return (\n        <>\n            <Button onClick={() => setOpened(!opened)}>\n                {opened ? 'Закрыть' : 'Открыть'}\n            </Button>\n            <Sheet opened={opened}\n                onClose={() => setOpened(false)}\n                withOverlay={false}\n            >\n                <div style={{ 'padding-bottom': '300px' }}>body</div>\n            </Sheet>\n        </>\n    );\n}"
+    },
+    {
+      "title": "Подложка Подложка Наличие или отсутствие подложки задается с помощью свойства  withOverlay . В случае, когда подложка отсутствует, у пользователя появляется возможность взаимодействовать с контентом вне шторки.",
+      "snippet": "import React, { useState } from 'react';\nimport { Sheet } from '@salutejs/plasma-web';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [opened, setOpened] = useState(false);\n    return (\n        <>\n            <Button onClick={() => setOpened(!opened)}>\n                {opened ? 'Закрыть' : 'Открыть'}\n            </Button>\n            <Sheet opened={opened}\n                onClose={() => setOpened(false)}\n                withBlur\n            >\n                <div style={{ 'padding-bottom': '300px' }}>body</div>\n            </Sheet>\n        </>\n    );\n}"
+    }
+  ]
+}

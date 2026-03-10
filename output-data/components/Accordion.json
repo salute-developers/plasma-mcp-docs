@@ -2,7 +2,7 @@
   "name": "Accordion",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Компонент выпадающей информации",
+  "summary": "Accordion Компонент выпадающей информации",
   "api": {
     "props": [
       {
@@ -14,7 +14,7 @@
       },
       {
         "name": "size",
-        "type": "\"m\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"s\" | \"l\" | \"xs\"",
+        "type": "\"m\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"s\" | \"l\" | \"xs\"",
         "required": false,
         "default": "",
         "description": ""

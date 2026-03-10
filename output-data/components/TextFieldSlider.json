@@ -1,0 +1,403 @@
+{
+  "name": "TextFieldSlider",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "TextFieldSlider С помощью свойства thousandSeparator можно настроить разделитель тысяч: С помощью свойства fixedDecimalScale можно добавить нули до заданного количества знаков после запятой: С помощью свойств textBefore и textAfter можно добавить вспомогательный текст: С помощью свойств contentLeft",
+  "api": {
+    "props": [
+      {
+        "name": "onChange",
+        "type": "((event?: ChangeEvent<HTMLInputElement>, values?: Values) => void) | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "type": "number | (number & readonly string[])",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "keepPlaceholder",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optionalText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeTextField",
+        "type": "((values?: Values) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "thousandSeparator",
+        "type": "string | boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "decimalSeparator",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "thousandsGroupStyle",
+        "type": "\"none\" | \"thousand\" | \"lakh\" | \"wan\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "decimalScale",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "fixedDecimalScale",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sliderView",
+        "type": "\"default\" | \"accent\" | \"gradient\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasScale",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasPointer",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeSlider",
+        "type": "((values?: Values) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                step={1}\n                defaultValue={50}\n                hasScale\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                view=\"default\"\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n            />\n            <TextFieldSlider\n                view=\"positive\"\n                min={0}\n                max={100}\n                defaultValue={75}\n                hasScale\n            />\n            <TextFieldSlider\n                view=\"warning\"\n                min={0}\n                max={100}\n                defaultValue={25}\n                hasScale\n            />\n            <TextFieldSlider\n                view=\"negative\"\n                min={0}\n                max={100}\n                defaultValue={25}\n                hasScale\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                size=\"xs\"\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n            />\n            <TextFieldSlider\n                size=\"s\"\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n            />\n            <TextFieldSlider\n                size=\"m\"\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n            />\n            <TextFieldSlider\n                size=\"l\"\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Шкала значений",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                titleCaption=\"Без шкалы\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                titleCaption=\"Со шкалой\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Шаг изменения",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={10000}\n                step={500}\n                defaultValue={5000}\n                hasScale\n                titleCaption=\"Шаг 500\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                step={0.1}\n                defaultValue={50.5}\n                decimalScale={1}\n                hasScale\n                titleCaption=\"Шаг 0.1\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Форматирование чисел",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                step={0.01}\n                defaultValue={50.555}\n                decimalScale={2}\n                hasScale\n                titleCaption=\"2 знака после запятой\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                step={0.001}\n                defaultValue={50.555}\n                decimalScale={3}\n                hasScale\n                titleCaption=\"3 знака после запятой\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Форматирование чисел",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100000}\n                step={1000}\n                defaultValue={50000}\n                thousandSeparator=\" \"\n                hasScale\n                titleCaption=\"Пробел\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100000}\n                step={1000}\n                defaultValue={50000}\n                thousandSeparator=\",\"\n                hasScale\n                titleCaption=\"Запятая\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Форматирование чисел",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                decimalScale={2}\n                fixedDecimalScale\n                hasScale\n                titleCaption=\"50.00\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50.5}\n                decimalScale={2}\n                fixedDecimalScale\n                hasScale\n                titleCaption=\"50.50\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Ручка слайдера",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasPointer={true}\n                hasScale\n                titleCaption=\"С ручкой (по умолчанию)\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasPointer={false}\n                hasScale\n                titleCaption=\"Без ручки\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Дополнительный контент",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                titleCaption=\"Объём\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Дополнительный контент",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                textBefore=\"от\"\n                textAfter=\"до\"\n                style={{ width: '222px' }}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Дополнительный контент",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nimport { IconPlasma, IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                contentLeft={<IconPlasma size=\"s\" color=\"inherit\" />}\n                contentRight={<IconClose size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Индикаторы обязательности",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                required\n                hasRequiredIndicator\n                titleCaption=\"Обязательное поле\"\n            />\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                optional\n                optionalText=\"опционально\"\n                titleCaption=\"Опциональное поле\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Состояния Состояния Компонент поддерживает различные состояния с помощью свойств  disabled  и  readOnly",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                disabled\n                titleCaption=\"Неактивный компонент\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Состояния Состояния Компонент поддерживает различные состояния с помощью свойств  disabled  и  readOnly",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                readOnly\n                titleCaption=\"Только для чтения\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Контролируемый режим",
+      "snippet": "import React, { useState } from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    const [value, setValue] = useState(50);\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                value={value}\n                onChange={(event, values) => setValue(values.raw)}\n                hasScale\n                titleCaption={`Текущее значение: ${value}`}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Контролируемый режим",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                onChange={(event, values) => console.log('Value changed:', values)}\n                hasScale\n                titleCaption=\"Неконтролируемый компонент\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Обработка событий",
+      "snippet": "import React, { useState } from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    const [log, setLog] = useState('');\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <TextFieldSlider\n                min={0}\n                max={100}\n                defaultValue={50}\n                hasScale\n                onChange={(event, values) => setLog(`onChange: ${values.formatted}`)}\n                onChangeTextField={(values) => setLog(`onChangeTextField: ${values.formatted}`)}\n                onChangeSlider={(values) => setLog(`onChangeSlider: ${values.formatted}`)}\n                titleCaption=\"Измените значение\"\n            />\n            <div>Последнее событие: {log}</div>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Валидация Валидация Компонент автоматически валидирует введенные значения. При попытке ввести значение больше максимального или меньше минимального, отображается анимация ошибки и значение возвращается к границе диапазона",
+      "snippet": "import React from 'react';\nimport { TextFieldSlider } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <TextFieldSlider\n                min={10}\n                max={90}\n                defaultValue={50}\n                hasScale\n                titleCaption=\"Попробуйте ввести 5 или 100\"\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

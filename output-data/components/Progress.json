@@ -1,0 +1,51 @@
+{
+  "name": "Progress",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Progress",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"primary\" | \"accent\" | \"warning\" | \"success\" | \"info\" | \"error\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "displayValue",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "Status",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Вид прогресса",
+      "snippet": "import React from 'react';\nimport { Progress } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Progress value={25} view=\"success\" displayValue />\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "name": "Tooltip",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Tooltip",
+  "api": {
+    "props": [
+      {
+        "name": "text",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | RefObject<...> | ((instance: HTMLElement | null) => void) | null",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minWidth",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxWidth",
+        "type": "string | number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onDismiss",
+        "type": "(() => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "trigger",
+        "type": "\"none\" | \"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mouseEnterDelay",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mouseLeaveDelay",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hoverTimeout",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isVisible",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое применение",
+      "snippet": "import React from 'react';\nimport { Tooltip, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, max-content)', gridGap: '1rem 3.5rem', padding: '3.5rem'}}>\n            <Tooltip\n                target={<Tooltip target={<Button>Btn</Button>} placement=\"left\" opened text=\"left\" />}\n                placement=\"top-start\"\n                opened\n                text=\"top-start\"\n                view=\"default\"\n            />\n            <Tooltip target={<Button>Btn</Button>} placement=\"top\" opened text=\"top\" />\n            <Tooltip\n                target={<Tooltip target={<Button>Btn</Button>} placement=\"right\" opened text=\"right\" />}\n                placement=\"top-end\"\n                opened\n                text=\"top-end\"\n            />\n            <Tooltip target={<Button>Btn</Button>} placement=\"bottom-start\" opened text=\"bottom-start\" />\n            <Tooltip target={<Button>Btn</Button>} placement=\"bottom\" opened text=\"bottom\" />\n            <Tooltip target={<Button>Btn</Button>} placement=\"bottom-end\" opened text=\"bottom-end\" />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Отображение при взаимодействии с target",
+      "snippet": "import React from 'react';\nimport { Tooltip, Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <>\n            <Tooltip target={(<Button>trigger: hover</Button>)} text=\"По ховеру\" placement=\"right\" hasArrow trigger=\"hover\" hoverTimeout={500} />\n            <br />\n            <Tooltip target={(<Button>trigger: click</Button>)} text=\"По клику\" placement=\"right\" hasArrow trigger=\"click\" closeOnEsc closeOnOverlayClick />\n        </>\n    );\n}"
+    }
+  ]
+}

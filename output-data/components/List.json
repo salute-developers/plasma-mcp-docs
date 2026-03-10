@@ -1,0 +1,44 @@
+{
+  "name": "List",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "List Компонент списка",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "variant",
+        "type": "\"normal\" | \"tight\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое использование",
+      "snippet": "import React from 'react';\nimport { List, ListItem } from '@salutejs/plasma-web';\nimport { IconChevronRight } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <List view=\"default\" size=\"s\" variant=\"normal\">\n                <ListItem contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}>Test Item 1</ListItem>\n                <ListItem contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}>Test Item 2</ListItem>\n                <ListItem disabled contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}>\n                    Test Item 3\n                </ListItem>\n                <ListItem contentRight={<IconChevronRight color=\"inherit\" size=\"xs\" />}>Test Item 4</ListItem>\n            </List>\n        </div>\n    );\n}"
+    }
+  ]
+}

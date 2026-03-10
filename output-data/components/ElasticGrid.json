@@ -1,0 +1,37 @@
+{
+  "name": "ElasticGrid",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "ElasticGrid",
+  "api": {
+    "props": [
+      {
+        "name": "minColWidth",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "gapX",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "gapY",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React from 'react';\nimport { ElasticGrid } from '@salutejs/plasma-web';\nexport function App() {\n    const Item = {\n        width: '100%',\n        height: '100px',\n        backgroundColor: '#999',\n        borderRadius: '10px',\n    }\n    const props = {\n        itemsNumber: 5,\n        minColWidth: 125,\n        gapX: 8,\n        gapY: 8,\n    }\n    return (\n        <section>\n            <ElasticGrid {...props}>\n                {Array(12)\n                    .fill(0)\n                    .map((_, k) => (<div key={k} style={Item} />))}\n            </ElasticGrid>\n        </section>\n    )\n}"
+    }
+  ]
+}

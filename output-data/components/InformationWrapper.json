@@ -1,0 +1,207 @@
+{
+  "name": "InformationWrapper",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "InformationWrapper Компонент обертка для элементов формы.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"positive\" | \"warning\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredIndicatorPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optional",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "optionalText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPlacement",
+        "type": "\"top\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelHtmlFor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "rightHelper",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOpened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое использование",
+      "snippet": "import React from 'react';\nimport { InformationWrapper, TextField, TextArea } from '@salutejs/plasma-web';\nexport function App() {\n    const size = 'm';\n    const commonProps = {\n        label: 'Лейбл',\n        titleCaption: 'Подпись к полю',\n        leftHelper: 'Подсказка слева',\n        rightHelper: 'Подсказка справа',\n        hintText: 'Текст тултипа',\n    };\n    const SvgPlaceholder = () => {\n        return (\n            <div\n                style={{\n                    height: '3rem',\n                    background:\n                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',\n                    backgroundRepeat: 'no-repeat',\n                    backgroundSize: '3rem 1rem',\n                }}\n            />\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>\n            <InformationWrapper\n                {...commonProps}\n                size={size}\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                size={size}\n                hasRequiredIndicator\n                labelHtmlFor=\"example-id-textfield-for-wrapper\"\n            >\n                <TextField id=\"example-id-textfield-for-wrapper\" size={size} />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                size={size}\n                hasRequiredIndicator\n                labelHtmlFor=\"example-id-textarea-for-wrapper\"\n            >\n                <TextArea id=\"example-id-textarea-for-wrapper size={size} />\n            </InformationWrapper>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид компонента",
+      "snippet": "import React from 'react';\nimport { InformationWrapper } from '@salutejs/plasma-web';\nexport function App() {\n    const commonProps = {\n        label: 'Лейбл',\n        titleCaption: 'Подпись к полю',\n        leftHelper: 'Подсказка слева',\n        rightHelper: 'Подсказка справа',\n        hintText: 'Текст тултипа',\n    };\n    const SvgPlaceholder = () => {\n        return (\n            <div\n                style={{\n                    height: '3rem',\n                    background:\n                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',\n                    backgroundRepeat: 'no-repeat',\n                    backgroundSize: '3rem 1rem',\n                }}\n            />\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>\n            <InformationWrapper\n                {...commonProps}\n                view=\"default\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                view=\"positive\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                view=\"warning\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                view=\"negative\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер компонента",
+      "snippet": "import React from 'react';\nimport { InformationWrapper } from '@salutejs/plasma-web';\nexport function App() {\n    const commonProps = {\n        label: 'Лейбл',\n        titleCaption: 'Подпись к полю',\n        leftHelper: 'Подсказка слева',\n        rightHelper: 'Подсказка справа',\n        hintText: 'Текст тултипа',\n    };\n    const SvgPlaceholder = () => {\n        return (\n            <div\n                style={{\n                    height: '3rem',\n                    background:\n                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',\n                    backgroundRepeat: 'no-repeat',\n                    backgroundSize: '3rem 1rem',\n                }}\n            />\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>\n            <InformationWrapper\n                {...commonProps}\n                size=\"l\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                size=\"m\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                size=\"s\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                size=\"xs\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Положение label",
+      "snippet": "import React from 'react';\nimport { InformationWrapper } from '@salutejs/plasma-web';\nexport function App() {\n    const commonProps = {\n        label: 'Лейбл',\n        titleCaption: 'Подпись к полю',\n        leftHelper: 'Подсказка слева',\n        rightHelper: 'Подсказка справа',\n        hintText: 'Текст тултипа',\n    };\n    const SvgPlaceholder = () => {\n        return (\n            <div\n                style={{\n                    height: '3rem',\n                    background:\n                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',\n                    backgroundRepeat: 'no-repeat',\n                    backgroundSize: '3rem 1rem',\n                }}\n            />\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>\n            <InformationWrapper\n                {...commonProps}\n                labelPlacement=\"top\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                labelPlacement=\"left\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Индикатор обязательности",
+      "snippet": "import React from 'react';\nimport { InformationWrapper } from '@salutejs/plasma-web';\nexport function App() {\n    const commonProps = {\n        titleCaption: 'Подпись к полю',\n        leftHelper: 'Подсказка слева',\n        rightHelper: 'Подсказка справа',\n        hintText: 'Текст тултипа',\n    };\n    const SvgPlaceholder = () => {\n        return (\n            <div\n                style={{\n                    height: '3rem',\n                    background:\n                        'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',\n                    backgroundRepeat: 'no-repeat',\n                    backgroundSize: '3rem 1rem',\n                }}\n            />\n        );\n    };\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>\n            <InformationWrapper\n                {...commonProps}\n                label=\"Лейбл\"\n                requiredIndicatorPlacement=\"right\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                label=\"Лейбл\"\n                requiredIndicatorPlacement=\"left\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                requiredIndicatorPlacement=\"right\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n            <InformationWrapper\n                {...commonProps}\n                requiredIndicatorPlacement=\"left\"\n                hasRequiredIndicator\n            >\n                <SvgPlaceholder />\n            </InformationWrapper>\n        </div>\n    );\n}"
+    }
+  ]
+}

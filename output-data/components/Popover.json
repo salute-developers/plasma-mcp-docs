@@ -1,0 +1,168 @@
+{
+  "name": "Popover",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Popover",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "opened",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "trigger",
+        "type": "PopoverTrigger",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "frame",
+        "type": "string | RefObject<HTMLElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "type": "string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | RefObject<...> | ((instance: HTMLElement | null) => void) | null",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "preventOverflow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isFocusTrapped",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onToggle",
+        "type": "((isOpen: boolean, event: Event | SyntheticEvent<Element, Event>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnEsc",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "usePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "resizable",
+        "type": "boolean | { disabled?: boolean; directions?: ResizeDirections; defaultSize?: { width?: number | undefined; height?: number | undefined; } | undefined; ... 6 more ...; hiddenIcons?: PlacementMixed[] | undefined; } | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onResizeStart",
+        "type": "((resizableContainer?: RefObject<Resizable>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onResizeEnd",
+        "type": "((resizableContainer?: RefObject<Resizable>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Варианты использования target",
+      "snippet": "import React from 'react';\nimport styled from \"styled-components\";\nimport { surfaceSolid03 } from \"@salutejs/plasma-tokens-web\";\nimport { Popover, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [isOpen, setIsOpen] = React.useState(false);\n    const StyledContent = styled.div`\n        background: ${surfaceSolid03};\n        padding: 1rem;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n    `;\n    return (\n        <section style={{width: '20rem', height: '15rem'}}>\n            <Popover\n                opened={isOpen}\n                onToggle={(is) => setIsOpen(is)}\n                role=\"presentation\"\n                id=\"popover\"\n                target={<Button>Target</Button>}\n                offset={[0, 6]}\n                placement='bottom'\n                trigger='click'\n                hasArrow\n                closeOnOverlayClick\n                closeOnEsc\n                isFocusTrapped\n            >\n                <StyledContent>\n                    <>Content</>\n                    <Button onClick={() => setIsOpen(false)}>close</Button>\n                </StyledContent>\n            </Popover>\n        </section>\n    );\n}"
+    },
+    {
+      "title": "Варианты использования target",
+      "snippet": "import React, { useRef, useState } from 'react';\nimport styled from \"styled-components\";\nimport { surfaceSolid03 } from \"@salutejs/plasma-tokens-web\";\nimport { Popover, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [isOpen, setIsOpen] = useState(false);\n    const targetRef = useRef<HTMLButtonElement | null>(null);\n    const targetRef2 = useRef<HTMLButtonElement | null>(null);\n    const targetRef3 = useRef<HTMLButtonElement | null>(null);\n    const refs = [targetRef, targetRef2, targetRef3];\n    const [currRefIndex, setCurrentRefIndex] = useState(0);\n    const [currentRef, setCurrentRef] = useState(targetRef);\n    const changeRef = () => {\n        let ind = currRefIndex + 1;\n        if (ind > refs.length - 1) {\n            setCurrentRefIndex(0);\n            ind = 0;\n        }\n        setCurrentRefIndex(ind);\n        setCurrentRef(refs[ind]);\n    };\n    const StyledContent = styled.div`\n        background: ${surfaceSolid03};\n        padding: 1rem;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n    `;\n    return (\n        <>\n            <Button ref={targetRef}>Target 0</Button>\n            <Button style={{ margin: '0 5rem' }} onClick={changeRef}>\n                Change targetAsRef to Target {currRefIndex + 1 > refs.length - 1 ? 0 : currRefIndex + 1}\n            </Button>\n            <Button ref={targetRef2}>Target 1</Button>\n            <Popover\n                opened={isOpen}\n                onToggle={(is) => setIsOpen(is)}\n                role=\"presentation\"\n                id=\"popover\"\n                target={currentRef}\n                offset={[0, 6]}\n                placement='bottom'\n                trigger='click'\n                hasArrow\n                closeOnOverlayClick\n                closeOnEsc\n                isFocusTrapped\n            >\n                <StyledContent>\n                    <>Content</>\n                    <Button onClick={() => setIsOpen(false)}>Close</Button>\n                </StyledContent>\n            </Popover>\n            <div style={{ padding: '5rem' }}>Current Target: {currRefIndex}</div>\n            <Button ref={targetRef3}>Target 2</Button>\n        </>\n    );\n}"
+    },
+    {
+      "title": "Resizable Resizable Чтобы иметь возможность растягивать Popover нужно настроить свойство  resizable . Формат следующий",
+      "snippet": "/**\n * Настройка resizable-режима.\n */\nresizable?:\n    |  boolean\n    |  {\n            /**\n            * Включение/выключение ресайза.\n            * @default false\n            */\n            disabled?: boolean;\n            /**\n            * Направления для ресайза.\n            */\n            directions?: ResizeDirections;\n            /**\n            * Начальный размер окна ресайза.\n            */\n            defaultSize?: { width?: number; height?: number };\n            /**\n            * Минимальная ширина ресайза в px.\n            */\n            minWidth?: number;\n            /**\n            * Минимальная высота ресайза в px.\n            */\n            minHeight?: number;\n            /**\n            * Максимальная ширина ресайза в px.\n            */\n            maxWidth?: number;\n            /**\n            * Максимальная высота ресайза в px.\n            */\n            maxHeight?: number;\n            /**\n            * Кастомные иконки ресайза.\n            */\n            icons?: {\n                topRight?: ReactNode;\n                bottomRight?: ReactNode;\n                bottomLeft?: ReactNode;\n                topLeft?: ReactNode;\n            };\n            /**\n            * Размер иконки ресайза.\n            * @default s\n            */\n            iconSize?: 'xs' | 's' | 'm';\n            /**\n            * Скрывать ли иконку для ресайза.\n            * @default false\n            */\n            hiddenIcons?: PopupPlacementMixed[];\n        };"
+    },
+    {
+      "title": "Resizable Resizable Чтобы иметь возможность растягивать Popover нужно настроить свойство  resizable . Формат следующий",
+      "snippet": "import React from 'react';\nimport styled from \"styled-components\";\nimport { surfaceSolid03 } from \"@salutejs/plasma-tokens-web\";\nimport { Popover, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [isOpen, setIsOpen] = React.useState(false);\n    const StyledContent = styled.div`\n        background: ${surfaceSolid03};\n        padding: 1rem;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        height: 100%;\n        box-sizing: border-box;\n    `;\n    return (\n        <section style={{width: '20rem', height: '15rem'}}>\n            <Popover\n                opened={isOpen}\n                onToggle={(is) => setIsOpen(is)}\n                target={<Button>Target</Button>}\n                placement='bottom'\n                trigger='click'\n                resizable\n            >\n                <StyledContent>\n                    <>Content</>\n                    <Button onClick={() => setIsOpen(false)}>close</Button>\n                </StyledContent>\n            </Popover>\n        </section>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Portal",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Portal",
+  "api": {
+    "props": [
+      {
+        "name": "container",
+        "type": "HTMLElement | (() => HTMLElement)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState, useRef } from 'react';\nimport { Portal, Button, BodyM } from '@salutejs/plasma-web';\nexport function App() {\n    const [show, setShow] = useState(false);\n    const containerRef = useRef(null);\n    return (\n        <>\n            <Button onClick={() => setShow(!show)}>{show ? 'Скрыть' : 'Показать'}</Button>\n            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}}>\n                <BodyM style={{ marginBottom: '1.25rem' }}>Содержимое портала появится в нижнем блоке.</BodyM>\n                {show && containerRef.current && (\n                    <Portal container={containerRef.current}>\n                        <BodyM bold>Содержимое портала</BodyM>\n                    </Portal>\n                )}\n            </div>\n            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}} ref={containerRef} />\n        </>\n    );\n}"
+    },
+    {
+      "title": "Disabled Disabled Отключить портал можно с помощью свойства  disabled .",
+      "snippet": "import React, { useState, useRef } from 'react';\nimport { Portal, Button, BodyM } from '@salutejs/plasma-web';\nexport function App() {\n    const [show, setShow] = useState(false);\n    const containerRef = useRef(null);\n    return (\n        <>\n            <Button onClick={() => setShow(!show)}>{show ? 'Скрыть' : 'Показать'}</Button>\n            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}}>\n                <BodyM style={{ marginBottom: '1.25rem' }}>Содержимое портала появится в данном блоке.</BodyM>\n                {show && containerRef.current && (\n                    <Portal disabled container={containerRef.current}>\n                        <BodyM bold>Содержимое портала</BodyM>\n                    </Portal>\n                )}\n            </div>\n            <div style={{padding: '1.25rem', marginBottom: '0.625rem', marginTop: '0.625rem', border: '1px solid'}} ref={containerRef} />\n        </>\n    );\n}"
+    }
+  ]
+}

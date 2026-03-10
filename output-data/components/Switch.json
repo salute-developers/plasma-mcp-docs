@@ -1,0 +1,192 @@
+{
+  "name": "Switch",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Switch",
+  "api": {
+    "props": [
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "toggleSize",
+        "type": "\"s\" | \"l\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "focused",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "ChangeEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocus",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlur",
+        "type": "FocusEventHandler<HTMLInputElement>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "string | number | readonly string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "minLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "labelPosition",
+        "type": "\"before\" | \"after\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pressed",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "outlined",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "singleLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование Компонент  Switch  может содержать лейбл.",
+      "snippet": "import React from 'react';\nimport { Switch } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <Switch description=\"Описание переключателя\" label=\"Переключатель\" defaultChecked />\n    );\n}"
+    },
+    {
+      "title": "Размер Switch",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Switch size=\"s\" description=\"Описание переключателя\" label=\"Переключатель\" defaultChecked />\n            <Switch size=\"m\" description=\"Описание переключателя\" label=\"Переключатель\" defaultChecked />\n            <Switch size=\"l\" description=\"Описание переключателя\" label=\"Переключатель\" defaultChecked />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Размер Switch",
+      "snippet": "import React from 'react';\nimport { Button } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ alignItems: \"center\" }}>\n            <Switch toggleSize=\"s\" label=\"Переключатель\" defaultChecked />\n            <Switch toggleSize=\"l\" label=\"Переключатель\" defaultChecked />\n        </div>\n    );\n}"
+    }
+  ]
+}

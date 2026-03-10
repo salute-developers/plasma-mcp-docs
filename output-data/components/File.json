@@ -1,0 +1,175 @@
+{
+  "name": "File",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "File С помощью свойства thumbUrl можно указать URL изображения для предпросмотра.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"negative\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "filename",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "actionContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "actionPlacement",
+        "type": "ActionPlacement",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "thumbIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "thumbUrl",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "fileUrl",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loaderType",
+        "type": "LoaderType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loaderValue",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loaderMaxValue",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onCancel",
+        "type": "((event: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onActionClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <File\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma, IconRefresh } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <File\n                view=\"default\"\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                view=\"negative\"\n                filename=\"Document.pdf\"\n                description=\"Ошибка загрузки\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconRefresh size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <File\n                size=\"xs\"\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"xs\" color=\"inherit\" />}\n            />\n            <File\n                size=\"s\"\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                size=\"m\"\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                size=\"l\"\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Миниатюра файла",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <File\n                filename=\"Document.pdf\"\n                description=\"12.55MB\"\n                fileUrl=\"Document.pdf\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                filename=\"Image.jpg\"\n                description=\"5.2MB\"\n                fileUrl=\"Image.jpg\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                filename=\"Archive.zip\"\n                description=\"128MB\"\n                fileUrl=\"Archive.zip\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Миниатюра файла",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <File\n            filename=\"Photo.jpg\"\n            description=\"5.2MB\"\n            thumbUrl=\"/plasma-web/images/320_320_9.jpg\"\n            actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n        />\n    );\n}"
+    },
+    {
+      "title": "Миниатюра файла",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma, IconFolder } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <File\n            filename=\"Document.pdf\"\n            description=\"12.55MB\"\n            thumbIcon={<IconFolder size=\"s\" color=\"inherit\" />}\n            actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n        />\n    );\n}"
+    },
+    {
+      "title": "Расположение действия",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <File\n                filename=\"Document.pdf\"\n                description=\"Действие справа\"\n                fileUrl=\"Document.pdf\"\n                actionPlacement=\"right\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                filename=\"Document.pdf\"\n                description=\"Действие слева\"\n                actionPlacement=\"left\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Состояние загрузки",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <File\n            filename=\"Document.pdf\"\n            description=\"Загрузка...\"\n            fileUrl=\"Document.pdf\"\n            isLoading\n            loaderType=\"circular\"\n            loaderValue={45}\n            actionContent={<IconClose size=\"xs\" color=\"inherit\" />}\n            onCancel={() => console.log('Загрузка отменена')}\n        />\n    );\n}"
+    },
+    {
+      "title": "Состояние загрузки",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <File\n            filename=\"Document.pdf\"\n            description=\"Загрузка...\"\n            fileUrl=\"Document.pdf\"\n            isLoading\n            loaderType=\"linear\"\n            loaderValue={45}\n            actionContent={<IconClose size=\"xs\" color=\"inherit\" />}\n            onCancel={() => console.log('Загрузка отменена')}\n        />\n    );\n}"
+    },
+    {
+      "title": "Ширина компонента",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <File\n                filename=\"Document.pdf\"\n                description=\"Фиксированная ширина 15rem\"\n                fileUrl=\"Document.pdf\"\n                fileContainerWidth=\"15rem\"\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n            <File\n                filename=\"Document.pdf\"\n                description=\"Растянут на всю ширину\"\n                fileUrl=\"Document.pdf\"\n                stretched\n                actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Неактивное состояние",
+      "snippet": "import React from 'react';\nimport { File } from '@salutejs/plasma-web';\nimport { IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <File\n            filename=\"Document.pdf\"\n            description=\"12.55MB\"\n            fileUrl=\"Document.pdf\"\n            disabled\n            actionContent={<IconPlasma size=\"s\" color=\"inherit\" />}\n        />\n    );\n}"
+    }
+  ]
+}

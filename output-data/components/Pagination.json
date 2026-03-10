@@ -1,0 +1,252 @@
+{
+  "name": "Pagination",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Pagination Свойство count задаёт общее количество элементов (или страниц, если hasPerPage не указан): Размер задается с помощью свойства size .",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"primary\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "viewCurrentPage",
+        "type": "\"clear\" | \"default\" | \"secondary\" | \"primary\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"default\" | \"compact\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "rightContent",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasQuickJump",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasPerPage",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "perPage",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "defaultPerPage",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "perPageList",
+        "type": "number[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabledPages",
+        "type": "string[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "slots",
+        "type": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "pilled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "square",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "isCommonButtonStyles",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "placeholderQuickJump",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textQuickJump",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "textPerPage",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "listWidth",
+        "type": "Width<string | number>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "singleLine",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((page?: number, perPage?: number) => void) | undefined",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangePageValue",
+        "type": "((page?: number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangePerPageValue",
+        "type": "((perPage?: number) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Pagination slots={9} count={2000} hasPerPage perPage={20} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" view=\"default\" slots={9} count={200} />\n            <Pagination size=\"xs\" view=\"secondary\" slots={9} count={200} />\n            <Pagination size=\"xs\" view=\"clear\" slots={9} count={200} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"l\" slots={9} count={200} />\n            <Pagination size=\"m\" slots={9} count={200} />\n            <Pagination size=\"s\" slots={9} count={200} />\n            <Pagination size=\"xs\" slots={9} count={200} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вид активной страницы",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" viewCurrentPage=\"default\" slots={9} count={200} />\n            <Pagination size=\"xs\" viewCurrentPage=\"secondary\" slots={9} count={200} />\n            <Pagination size=\"xs\" viewCurrentPage=\"clear\" slots={9} count={200} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Тип Тип С помощью свойства  type  можно выбрать тип отображения компонента",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" type=\"default\" slots={9} count={200} hasPerPage />\n            <Pagination size=\"xs\" type=\"compact\" slots={9} count={200} hasPerPage />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Форма кнопок",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" pilled={false} slots={9} count={200} />\n            <Pagination size=\"xs\" pilled={true} slots={9} count={200} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Количество элементов на странице",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" slots={9} count={200} hasPerPage={false} />\n            <Pagination size=\"xs\" slots={9} count={200} hasPerPage perPage={20} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый переход на страницу",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" slots={9} count={200} hasQuickJump={false} />\n            <Pagination size=\"xs\" slots={9} count={200} hasQuickJump />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Вспомогательный текст",
+      "snippet": "import React from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination size=\"xs\" slots={9} count={200} helperText=\"Страница 1 из 10\" />\n            <Pagination\n                size=\"xs\"\n                slots={9}\n                count={200}\n                helperText=\"Очень длинный вспомогательный текст, который может не поместиться в одну строку\"\n                singleLine\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Навигационные кнопки",
+      "snippet": "import React, { useState } from 'react';\nimport { Pagination, IconButton } from '@salutejs/plasma-web';\nimport {\n    IconDoubleDisclosureLeft,\n    IconDisclosureLeftOutline,\n    IconDisclosureRightOutline,\n    IconDoubleDisclosureRight,\n} from '@salutejs/plasma-icons';\nexport function App() {\n    const count = 2000;\n    const perPage = 20;\n    const [page, setPage] = useState(1);\n    const lastPage = Math.ceil(count / perPage);\n    const leftContent = (\n        <>\n            <IconButton view=\"clear\" size=\"xs\" onClick={() => setPage(1)}>\n                <IconDoubleDisclosureLeft color=\"inherit\" size=\"xs\" />\n            </IconButton>\n            <IconButton view=\"clear\" size=\"xs\" onClick={() => setPage((p) => Math.max(1, p - 1))}>\n                <IconDisclosureLeftOutline color=\"inherit\" size=\"xs\" />\n            </IconButton>\n        </>\n    );\n    const rightContent = (\n        <>\n            <IconButton view=\"clear\" size=\"xs\" onClick={() => setPage((p) => Math.min(lastPage, p + 1))}>\n                <IconDisclosureRightOutline color=\"inherit\" size=\"xs\" />\n            </IconButton>\n            <IconButton view=\"clear\" size=\"xs\" onClick={() => setPage(lastPage)}>\n                <IconDoubleDisclosureRight color=\"inherit\" size=\"xs\" />\n            </IconButton>\n        </>\n    );\n    return (\n        <div>\n            <Pagination\n                size=\"xs\"\n                slots={9}\n                count={count}\n                perPage={perPage}\n                value={page}\n                leftContent={leftContent}\n                rightContent={rightContent}\n                onChange={(newPage) => newPage !== undefined && setPage(newPage)}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Контролируемый режим",
+      "snippet": "import React, { useState } from 'react';\nimport { Pagination } from '@salutejs/plasma-web';\nexport function App() {\n    const [page, setPage] = useState(1);\n    const [perPage, setPerPage] = useState(20);\n    return (\n        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>\n            <Pagination\n                size=\"xs\"\n                slots={9}\n                count={2000}\n                value={page}\n                perPage={perPage}\n                hasPerPage\n                hasQuickJump\n                onChange={(newPage, newPerPage) => {\n                    if (newPage !== undefined) setPage(newPage);\n                    if (newPerPage !== undefined) setPerPage(newPerPage);\n                }}\n            />\n            <div>Страница: {page}, элементов на странице: {perPage}</div>\n        </div>\n    );\n}"
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "name": "Range",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Range При таком варианте свойства firstTextfieldTextBefore и secondTextfieldTextBefore становятся обязательными для подсказки в виде Tooltip - hintText, для подсказки сверху справа - titleCaption: Также доступны слоты для дополнительного контента: Наличие индикатора регулируется свойством hasRequire",
+  "api": {
+    "props": [
+      {
+        "name": "contentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "contentRight",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "view",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "appearance",
+        "type": "\"clear\" | \"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "autoComplete",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintView",
+        "type": "\"default\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintSize",
+        "type": "\"m\" | \"s\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasRequiredIndicator",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintText",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTrigger",
+        "type": "\"hover\" | \"click\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintTargetPlacement",
+        "type": "\"outer\" | \"inner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintPlacement",
+        "type": "Placement | ComputedPlacement[]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintHasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintOffset",
+        "type": "[number, number]",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintWidth",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hintContentLeft",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "leftHelper",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "titleCaption",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstValue",
+        "type": "TextfieldPrimitiveValue",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondValue",
+        "type": "TextfieldPrimitiveValue",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstValueError",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondValueError",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstValueSuccess",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondValueSuccess",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstPlaceholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondPlaceholder",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstTextfieldContentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstTextfieldContentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondTextfieldContentLeft",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondTextfieldContentRight",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstTextfieldTextAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondTextfieldTextAfter",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "requiredIndicatorPlacement",
+        "type": "\"right\" | \"left\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeFirstValue",
+        "type": "BaseCallbackChangeInstance",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChangeSecondValue",
+        "type": "BaseCallbackChangeInstance",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSearchFirstValue",
+        "type": "BaseCallbackKeyboardInstance",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onSearchSecondValue",
+        "type": "BaseCallbackKeyboardInstance",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocusFirstTextfield",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onFocusSecondTextfield",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlurFirstTextfield",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onBlurSecondTextfield",
+        "type": "((event: FocusEvent<HTMLInputElement, Element>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "firstTextfieldTextBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "secondTextfieldTextBefore",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dividerVariant",
+        "type": "\"none\" | \"icon\" | \"dash\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "dividerIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasClearDivider",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Range\n                label=\"Диапазон значений\"\n                leftHelper=\"Введите два значения\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Быстрый старт",
+      "snippet": "import React, { useState } from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    const [firstValue, setFirstValue] = useState('');\n    const [secondValue, setSecondValue] = useState('');\n    return (\n        <div>\n            <Range\n                firstValue={firstValue}\n                secondValue={secondValue}\n                label=\"Диапазон значений\"\n                leftHelper=\"Введите два значения\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n                onChangeFirstValue={(e) => {\n                    setFirstValue(e.target.value);\n                }}\n                onChangeSecondValue={(e) => {\n                    setSecondValue(e.target.value);\n                }}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>\n            <Range\n                appearance=\"default\"\n                label=\"Appearance default\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n            <Range\n                appearance=\"clear\"\n                label=\"Appearance clear\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n            <Range\n                appearance=\"clear\"\n                hasClearDivider\n                label=\"Appearance clear с разделителем\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Управление внешним видом",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>\n            <Range\n                size=\"l\"\n                label=\"Size l\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n            <Range\n                size=\"m\"\n                label=\"Size m\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n            <Range\n                size=\"s\"\n                label=\"Size s\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n            <Range\n                size=\"xs\"\n                label=\"Size xs\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Варианты разделителя",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Range\n                label=\"Диапазон\"\n                leftHelper=\"Разделитель тире\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Варианты разделителя",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nimport { IconSber } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Range\n                label=\"Диапазон\"\n                leftHelper=\"Иконка в качестве разделителя\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                firstTextfieldTextBefore=\"С\"\n                secondTextfieldTextBefore=\"ДО\"\n                dividerVariant=\"icon\"\n                dividerIcon={<IconSber size=\"s\" />}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Варианты разделителя",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Range\n                label=\"Диапазон времени\"\n                leftHelper=\"Без видимого разделителя\"\n                firstValue=\"10:00\"\n                secondValue=\"15:45\"\n                firstTextfieldTextBefore=\"С\"\n                secondTextfieldTextBefore=\"ДО\"\n                dividerVariant=\"none\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Валидация и состояния полей",
+      "snippet": "import React, { useState } from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    const [firstValue, setFirstValue] = useState('');\n    const [secondValue, setSecondValue] = useState('');\n    const [firstValueError, setFirstValueError] = useState(false);\n    const [secondValueError, setSecondValueError] = useState(false);\n    const [firstValueSuccess, setFirstValueSuccess] = useState(false);\n    const [secondValueSuccess, setSecondValueSuccess] = useState(false);\n    const validateRange = (first: string, second: string) => {\n        const num1 = Number(first);\n        const num2 = Number(second);\n        setFirstValueError(false);\n        setSecondValueError(false);\n        setFirstValueSuccess(false);\n        setSecondValueSuccess(false);\n        if (first && second) {\n            if (num1 >= num2) {\n                setFirstValueError(true);\n                setSecondValueError(true);\n            } else {\n                setFirstValueSuccess(true);\n                setSecondValueSuccess(true);\n            }\n        }\n    };\n    const handleFirstChange = (e) => {\n        const value = e.target.value;\n        setFirstValue(value);\n        validateRange(value, secondValue);\n    };\n    const handleSecondChange = (e) => {\n        const value = e.target.value;\n        setSecondValue(value);\n        validateRange(firstValue, value);\n    };\n    return (\n        <div>\n            <Range\n                firstValue={firstValue}\n                secondValue={secondValue}\n                label=\"Введите диапазон чисел\"\n                leftHelper=\"Первое число должно быть меньше второго\"\n                firstPlaceholder=\"Меньшее число\"\n                secondPlaceholder=\"Большее число\"\n                dividerVariant=\"dash\"\n                firstValueError={firstValueError}\n                secondValueError={secondValueError}\n                firstValueSuccess={firstValueSuccess}\n                secondValueSuccess={secondValueSuccess}\n                onChangeFirstValue={handleFirstChange}\n                onChangeSecondValue={handleSecondChange}\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Подсказки и дополнительные элементы",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Range\n                label=\"Диапазон значений\"\n                leftHelper=\"Подсказка снизу слева\"\n                titleCaption=\"Дополнительная информация\"\n                hintText=\"Подсказка в виде тултипа\"\n                hintView=\"default\"\n                hintSize=\"m\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Подсказки и дополнительные элементы",
+      "snippet": "import React from 'react';\nimport { Range, IconButton } from '@salutejs/plasma-web';\nimport { IconSearch, IconPlasma } from '@salutejs/plasma-icons';\nexport function App() {\n    const ActionButton = () => (\n        <IconButton view=\"clear\" size=\"l\">\n            <IconSearch size=\"s\" />\n        </IconButton>\n    );\n    return (\n        <div>\n            <Range\n                label=\"Диапазон с дополнительными элементами\"\n                leftHelper=\"Используйте кнопку для поиска\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n                contentLeft={<IconPlasma size=\"s\" color=\"inherit\" />}\n                contentRight={<ActionButton />}\n                firstTextfieldContentLeft={<IconPlasma size=\"s\" color=\"inherit\" />}\n                secondTextfieldContentRight={<IconPlasma size=\"s\" color=\"inherit\" />}\n                firstTextfieldTextAfter=\"руб.\"\n                secondTextfieldTextAfter=\"руб.\"\n                stretch\n            />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Обязательность поля",
+      "snippet": "import React from 'react';\nimport { Range } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div>\n            <Range\n                hasRequiredIndicator\n                required\n                requiredIndicatorPlacement=\"right\"\n                label=\"Обязательный диапазон\"\n                leftHelper=\"Оба поля должны быть заполнены\"\n                firstPlaceholder=\"От\"\n                secondPlaceholder=\"До\"\n                dividerVariant=\"dash\"\n            />\n        </div>\n    );\n}"
+    }
+  ]
+}

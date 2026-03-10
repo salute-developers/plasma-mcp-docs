@@ -2,7 +2,7 @@
   "name": "Chip",
   "package": "plasma-web",
   "category": "components",
-  "summary": "Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
+  "summary": "Chip Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.",
   "api": {
     "props": [
       {
@@ -100,7 +100,7 @@
   },
   "examples": [
     {
-      "title": "Использование Компонент  Chip  может содержать текст, который указывается в",
+      "title": "Использование Использование Компонент  Chip  может содержать текст, который указывается в",
       "snippet": "import React from 'react';\nimport { Chip } from '@salutejs/plasma-web';\nimport { IconDownload } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div>\n            <Chip text=\"Текст\" />\n            <Chip text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip text=\"Текст\" />\n            <Chip text=\"Текст\" contentLeft={<IconDownload color=\"inherit\" />} />\n            <Chip>\n                Текст\n            </Chip>\n            <Chip text=\"Текст\" hasClear={false} />\n        </div>\n    );\n}"
     },
     {

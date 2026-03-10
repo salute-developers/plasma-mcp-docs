@@ -1,0 +1,86 @@
+{
+  "name": "Upload",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Upload",
+  "api": {
+    "props": [
+      {
+        "name": "content",
+        "type": "string | Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "progress",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onChange",
+        "type": "((file: File, event?: ChangeEvent<HTMLInputElement>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "StatusType",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "loader",
+        "type": "Element",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "accept",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "validate",
+        "type": "((files: FileList | null, accept?: string) => ValidationResult)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onValidation",
+        "type": "((result: ValidationResult) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Использование Использование",
+      "snippet": "import React, { useState, useCallback } from 'react';\nimport { Upload  } from '@salutejs/plasma-web';\nexport function App() {\n    const [state, setState] = useState({\n        status: undefined,\n        progress: undefined,\n        message: 'Подсказывающее сообщение',\n    });\n    const onChange = useCallback(() => {\n        const interval = setInterval(\n            () =>\n                setState(({ progress }) => {\n                    const value = progress === undefined ? 0 : progress;\n                    if (value + 25 > 100) {\n                        clearInterval(interval);\n                        return {\n                            status: 'error',\n                            progress: undefined,\n                            message: 'Файл не загрузился',\n                        };\n                    }\n                    return {\n                        status: undefined,\n                        progress: value + 25,\n                        message: undefined,\n                    };\n                }),\n            1000,\n        );\n    }, []);\n    const onValidation = useCallback((result) => {\n        const { message, status: rStatus } = result;\n        setState((prevState) => ({\n            ...prevState,\n            message,\n            status: rStatus,\n        }));\n    }, []);\n    const customValidate = useCallback((files) => {\n        return {\n            message: `Добавлен файл формата ${files[0].type}`,\n            status: 'success',\n            data: files[0],\n        };\n    }, []);\n    return (\n        <section>\n           <Upload\n                status={state.status}\n                progress={state.progress}\n                message={state.message}\n                loader={<div style={{ color: 'green' }}>Custom progressbar {state.progress}%</div>}\n                content=\"Загрузите файл формата любого\"\n                onValidation={onValidation}\n                validate={customValidate}\n                onChange={onChange}\n            />\n        </section>\n    );\n}"
+    }
+  ]
+}

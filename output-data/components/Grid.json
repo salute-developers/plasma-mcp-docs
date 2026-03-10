@@ -1,0 +1,251 @@
+{
+  "name": "Grid",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Grid Набор компонентов для создания сетки.",
+  "api": {
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallXXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallM",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "smallXXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumXXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumM",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "mediumXXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeXXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeXS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeS",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeM",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "largeXXL",
+        "type": "ScreenConfig",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offsetS",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offsetM",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offsetL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offsetXL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "offsetXXL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sizeS",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sizeM",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sizeL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sizeXL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "sizeXXL",
+        "type": "ColCount",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Базовое применение",
+      "snippet": "import React from 'react';\nimport { Container, Row, Col } from '@salutejs/plasma-web';\nexport function App() {\n    const Filler = ({children}) => {\n        return (\n            <div\n                style={{\n                    display: 'flex',\n                    alignItems: 'center',\n                    justifyContent: 'center',\n                    width: '100%',\n                    padding: '0.5rem 1rem',\n                    backgroundColor: '#f0f0f0',\n                }}\n            >\n                {children}\n            </div>\n        )\n    };\n    return (\n        <Container>\n            <Row>\n                <Col size={3}>\n                    <Filler>3</Filler>\n                </Col>\n                <Col size={2}>\n                    <Filler>2</Filler>\n                </Col>\n                <Col size={3}>\n                    <Filler>3</Filler>\n                </Col>\n                <Col size={4}>\n                    <Filler>4</Filler>\n                </Col>\n                <Col size={6}>\n                    <Filler>6</Filler>\n                </Col>\n            </Row>\n            <Row>\n                <Col size={4} offset={1}>\n                    <Filler>4 offset 1</Filler>\n                </Col>\n                <Col size={6} offset={2}>\n                    <Filler>6 offset 2</Filler>\n                </Col>\n            </Row>\n        </Container>\n    );\n}"
+    },
+    {
+      "title": "Адаптивные размеры и отступы колонок",
+      "snippet": "import React from 'react';\nimport { Container, Row, Col } from '@salutejs/plasma-web';\nexport function App() {\n    const Filler = ({children}) => {\n        return (\n            <div\n                style={{\n                    display: 'flex',\n                    alignItems: 'center',\n                    justifyContent: 'center',\n                    width: '100%',\n                    padding: '0.5rem 1rem',\n                    backgroundColor: '#f0f0f0',\n                }}\n            >\n                {children}\n            </div>\n        )\n    };\n    return (\n        <Container>\n            <Row>\n                <Col smallM={{ size: 1 }} mediumS={{ size: 2 }} mediumM={{ size: 3 }} largeM={{ size: 4 }}>\n                    <Filler>1</Filler>\n                </Col>\n                <Col size={2} largeM={{ size: 4 }}>\n                    <Filler>2</Filler>\n                </Col>\n            </Row>\n            <Row>\n                <Col size={4} smallM={{ offset: 1 }} mediumS={{ offset: 2 }} mediumM={{ offset: 3 }} largeM={{ offset: 4 }}>\n                    <Filler>4 offset 1</Filler>\n                </Col>\n                <Col size={6} offset={2} largeM={{ offset: 4 }}>\n                    <Filler>6 offset 2</Filler>\n                </Col>\n            </Row>\n        </Container>\n    );\n}"
+    }
+  ]
+}

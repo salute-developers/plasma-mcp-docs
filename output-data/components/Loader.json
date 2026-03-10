@@ -1,0 +1,132 @@
+{
+  "name": "Loader",
+  "package": "plasma-web",
+  "category": "components",
+  "summary": "Loader Loader - универсальный компонент для отображения индикаторов загрузки.",
+  "api": {
+    "props": [
+      {
+        "name": "view",
+        "type": "\"default\" | \"secondary\" | \"accent\" | \"positive\" | \"warning\" | \"negative\" | \"info\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"m\" | \"s\" | \"l\" | \"xs\" | \"xl\" | \"xxs\" | \"xxl\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "type",
+        "type": "\"progress\" | \"spinner\"",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasOverlay",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "withBlur",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "overlayColor",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "zIndex",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "onOverlayClick",
+        "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "maxValue",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "strokeSize",
+        "type": "number",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "hasTrack",
+        "type": "boolean",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ]
+  },
+  "examples": [
+    {
+      "title": "Спиннер Спиннер Используется для отображения процесса загрузки без указания прогресса",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return <Loader type=\"spinner\" />;\n}"
+    },
+    {
+      "title": "Прогресс-бар Прогресс-бар Отображает прогресс выполнения задачи в виде круговой диаграммы",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return <Loader type=\"progress\" value={45} />;\n}"
+    },
+    {
+      "title": "Размеры индикатора",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"spinner\" size=\"s\" />\n            <Loader type=\"spinner\" size=\"m\" />\n            <Loader type=\"spinner\" size=\"l\" />\n            <Loader type=\"progress\" size=\"s\" value={25} />\n            <Loader type=\"progress\" size=\"m\" value={50} />\n            <Loader type=\"progress\" size=\"l\" value={75} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Виды индикатора",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"spinner\" view=\"default\" />\n            <Loader type=\"spinner\" view=\"accent\" />\n            <Loader type=\"spinner\" view=\"positive\" />\n            <Loader type=\"progress\" view=\"default\" value={25} />\n            <Loader type=\"progress\" view=\"accent\" value={50} />\n            <Loader type=\"progress\" view=\"positive\" value={75} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Полупрозрачный оверлей с размытием",
+      "snippet": "import React, { useState, useEffect } from 'react';\nimport { Loader, Button } from '@salutejs/plasma-web';\nexport function App() {\n    const [loading, setLoading] = useState(false);\n    const handleShowLoader = () => {\n        setLoading(true);\n    };\n    useEffect(() => {\n        if (loading) {\n            const timer = setTimeout(() => {\n                setLoading(false);\n            }, 5000);\n            return () => clearTimeout(timer);\n        }\n    }, [loading]);\n    return (\n        <div style={{ position: 'relative', height: '200px' }}>\n            <Button onClick={handleShowLoader}>Показать загрузку</Button>\n            {loading && (\n                <Loader\n                    type=\"spinner\"\n                    hasOverlay\n                    withBlur\n                />\n            )}\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Контент внутри прогресс-бара",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nimport { IconClose } from '@salutejs/plasma-icons';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"progress\" value={25} size=\"xl\">25%</Loader>\n            <Loader type=\"progress\" value={75} size=\"l\">\n                <IconClose color=\"var(--text-primary)\" size=\"s\" />\n            </Loader>\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Настройка толщины линии прогресса",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"progress\" value={50} strokeSize={2} />\n            <Loader type=\"progress\" value={50} strokeSize={4} />\n            <Loader type=\"progress\" value={50} strokeSize={8} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Отключение фоновой дорожки",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"progress\" value={50} hasTrack />\n            <Loader type=\"progress\" value={50} hasTrack={false} />\n        </div>\n    );\n}"
+    },
+    {
+      "title": "Кастомный максимальный показатель",
+      "snippet": "import React from 'react';\nimport { Loader } from '@salutejs/plasma-web';\nexport function App() {\n    return (\n        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>\n            <Loader type=\"progress\" value={25} maxValue={50} size=\"xl\">25/50</Loader>\n            <Loader type=\"progress\" value={75} maxValue={150} size=\"xl\">75/150</Loader>\n        </div>\n    );\n}"
+    }
+  ]
+}
