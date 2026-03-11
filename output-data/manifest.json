@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-03-10T09:20:44.069Z",
+  "builtAt": "2026-03-11T09:20:33.870Z",
   "source": {
     "repo": "https://github.com/salute-developers/plasma"
   },
@@ -9,6 +9,7 @@
     "form": "form/index.json",
     "functions": "functions/index.json",
     "intro": "intro/index.json",
-    "next": "next/index.json"
+    "next": "next/index.json",
+    "tokens": "tokens/index.json"
   }
 }

@@ -68,6 +68,8 @@ interface InputItem {
     };
 }
 
+type IndexItem = z.infer<typeof IndexItemSchema>;
+
 function asString(value: unknown): string {
     return typeof value === 'string' ? value : '';
 }
@@ -360,6 +362,7 @@ function toOutputItem(item: InputItem): OutputFile {
 
 function main(): void {
     const inputPath = path.join(__dirname, '..', 'input-data', 'output.json');
+    const tokensInputPath = path.join(__dirname, '..', 'input-data', 'index.d.ts');
     const outputDir = path.join(__dirname, '..', 'output-data');
 
     const rawInput = fs.readFileSync(inputPath, 'utf8');
@@ -375,15 +378,7 @@ function main(): void {
     fs.mkdirSync(outputDir, { recursive: true });
 
     const usedNamesByCategory = new Map<string, Set<string>>();
-    const indexItemsByCategory = new Map<
-        string,
-        Array<{
-            name: string;
-            href: string;
-            summary: string;
-            category: string;
-        }>
-    >();
+    const indexItemsByCategory = new Map<string, IndexItem[]>();
     let created = 0;
 
     const getUsedNames = (category: string): Set<string> => {
@@ -397,27 +392,35 @@ function main(): void {
         return createdSet;
     };
 
-    const getCategoryIndexItems = (
-        category: string,
-    ): Array<{
-        name: string;
-        href: string;
-        summary: string;
-        category: string;
-    }> => {
+    const getCategoryIndexItems = (category: string): IndexItem[] => {
         const existing = indexItemsByCategory.get(category);
         if (existing) {
             return existing;
         }
 
-        const createdItems: Array<{
-            name: string;
-            href: string;
-            summary: string;
-            category: string;
-        }> = [];
+        const createdItems: IndexItem[] = [];
         indexItemsByCategory.set(category, createdItems);
         return createdItems;
+    };
+
+    const writeOutputFile = (output: OutputFile, baseName: string, indexSummary: string): void => {
+        const categoryDir = path.join(outputDir, output.category);
+        fs.mkdirSync(categoryDir, { recursive: true });
+
+        const filename = uniqueFileName(baseName, getUsedNames(output.category));
+        const filePath = path.join(categoryDir, `${filename}.json`);
+        fs.writeFileSync(filePath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
+
+        getCategoryIndexItems(output.category).push(
+            IndexItemSchema.parse({
+                name: output.name,
+                href: `${filename}.json`,
+                summary: indexSummary,
+                category: output.category,
+            }),
+        );
+
+        created += 1;
     };
 
     parsedInput.forEach((item, index) => {
@@ -425,26 +428,21 @@ function main(): void {
         const output = toOutputItem(inputItem);
         const pageContent = asString(inputItem.pageContent);
         const baseName = output.name || `item-${index + 1}`;
-        const categoryDir = path.join(outputDir, output.category);
-        fs.mkdirSync(categoryDir, { recursive: true });
-
-        const filename = uniqueFileName(baseName, getUsedNames(output.category));
-        const href = path.posix.join(output.category, `${filename}.json`);
-        const filePath = path.join(categoryDir, `${filename}.json`);
-        const indexItem = {
-            name: output.name,
-            href,
-            summary: output.category === 'components' ? output.summary : extractSummary(pageContent, output.name),
-            category: output.category,
-        };
-
-        fs.writeFileSync(filePath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
-        getCategoryIndexItems(output.category).push({
-            ...indexItem,
-            href: `${filename}.json`,
-        });
-        created += 1;
+        const indexSummary = output.category === 'components' ? output.summary : extractSummary(pageContent, output.name);
+        writeOutputFile(output, baseName, indexSummary);
     });
+
+    if (fs.existsSync(tokensInputPath)) {
+        const tokensSource = fs.readFileSync(tokensInputPath, 'utf8');
+        const tokensOutput = SimpleOutputFileSchema.parse({
+            name: 'index.d.ts',
+            package: 'plasma-tokens',
+            category: 'tokens',
+            summary: tokensSource,
+        });
+
+        writeOutputFile(tokensOutput, tokensOutput.name, cleanText(tokensSource).slice(0, 300) || tokensOutput.name);
+    }
 
     const manifestPaths: Record<string, string> = {};
 
