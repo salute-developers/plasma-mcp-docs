@@ -128,6 +128,48 @@ function normalizeFullContent(value: string): string {
     return value.replace(/\r\n/g, '\n').trim();
 }
 
+function stripCssVarFallbacks(value: string): string {
+    let result = '';
+
+    for (let i = 0; i < value.length; i += 1) {
+        if (value.startsWith('var(', i)) {
+            let depth = 0;
+            let commaIndex = -1;
+            let endIndex = -1;
+
+            for (let j = i; j < value.length; j += 1) {
+                const char = value[j];
+
+                if (char === '(') {
+                    depth += 1;
+                } else if (char === ')') {
+                    depth -= 1;
+                    if (depth === 0) {
+                        endIndex = j;
+                        break;
+                    }
+                } else if (char === ',' && depth === 1 && commaIndex === -1) {
+                    commaIndex = j;
+                }
+            }
+
+            if (endIndex !== -1) {
+                if (commaIndex !== -1) {
+                    result += `${value.slice(i, commaIndex)})`;
+                } else {
+                    result += value.slice(i, endIndex + 1);
+                }
+                i = endIndex;
+                continue;
+            }
+        }
+
+        result += value[i];
+    }
+
+    return result;
+}
+
 function escapeRegExp(value: string): string {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -434,14 +476,19 @@ function main(): void {
 
     if (fs.existsSync(tokensInputPath)) {
         const tokensSource = fs.readFileSync(tokensInputPath, 'utf8');
+        const transformedTokensSource = stripCssVarFallbacks(tokensSource);
         const tokensOutput = SimpleOutputFileSchema.parse({
             name: 'index.d.ts',
             package: 'plasma-tokens',
             category: 'tokens',
-            summary: tokensSource,
+            summary: transformedTokensSource,
         });
 
-        writeOutputFile(tokensOutput, tokensOutput.name, cleanText(tokensSource).slice(0, 300) || tokensOutput.name);
+        writeOutputFile(
+            tokensOutput,
+            tokensOutput.name,
+            cleanText(transformedTokensSource).slice(0, 300) || tokensOutput.name,
+        );
     }
 
     const manifestPaths: Record<string, string> = {};

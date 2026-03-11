@@ -2,7 +2,7 @@
   {
     "name": "index.d.ts",
     "href": "index.d.ts.json",
-    "summary": "/** Основной цвет текста */\nexport declare const textPrimaryHover = \"var(--text-primary-hover, #FFFFFF93)\";\n/** Основной цвет текста */\nexport declare const textPrimaryActive = \"var(--text-primary-active, #FFFFFFC4)\";\n/** Основной цвет текста */\nexport declare const textPrimary = \"var(--text-primary",
+    "summary": "/** Основной цвет текста */\nexport declare const textPrimaryHover = \"var(--text-primary-hover)\";\n/** Основной цвет текста */\nexport declare const textPrimaryActive = \"var(--text-primary-active)\";\n/** Основной цвет текста */\nexport declare const textPrimary = \"var(--text-primary)\";\n/** Основной цвет ",
     "category": "tokens"
   }
 ]
