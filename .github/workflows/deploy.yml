@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Generate JSON content
-        run: npm run split-json
+        run: npm run generate
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
